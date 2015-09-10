@@ -1,3 +1,4 @@
 *.swp
 *.pyc
+__pychache__
 asvs/conf/secrets.json
