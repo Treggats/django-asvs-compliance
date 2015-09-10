@@ -40,5 +40,5 @@ class Requirement(models.Model):
     def __str__(self):
         return self.description
 
-    def get_level(self):
+    def level_number(self):
         return ", ".join([str(n.number) for n in self.number.all()])
