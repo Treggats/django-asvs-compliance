@@ -53,6 +53,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'levels',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -116,3 +118,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Fixture files
+# https://docs.djangoproject.com/en/1.8/howto/initial-data/
+FIXTURE_DIRS = (
+        str(BASE_DIR) + '/fixtures/levels/',
+)
