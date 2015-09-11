@@ -41,7 +41,7 @@ SECRET_KEY = str(SECRETS['secret_key'])
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -118,6 +118,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [str(BASE_DIR.joinpath('static')), ]
 
 # Fixture files
 # https://docs.djangoproject.com/en/1.8/howto/initial-data/
