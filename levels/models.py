@@ -42,3 +42,6 @@ class Requirement(models.Model):
 
     def level_number(self):
         return ", ".join([str(n.number) for n in self.number.all()])
+
+    def level_verbose(self):
+        return [n for n in self.number.all()]
