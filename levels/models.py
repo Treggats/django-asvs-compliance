@@ -30,7 +30,7 @@ class Category(models.Model):
 
 @python_2_unicode_compatible
 class Requirement(models.Model):
-    number = models.ManyToManyField(LevelNumber)
+    number = models.ManyToManyField(LevelNumber, related_name='level_nr')
     category = models.ForeignKey(Category)
     description = models.TextField()
 
