@@ -9,7 +9,15 @@
 
 </head>
 <body>
-{{STATIC_URL}}
+{% block menu %}
+<ul>
+    <li><a href="/level/1">Level 1</a></li>
+    <li><a href="/level/2">Level 2</a></li>
+    <li><a href="/level/3">Level 3</a></li>
+    <li><a href="/category">Categories</a></li>
+</ul>
+
+{% endblock menu %}
 {% block content %}
 {% endblock %}
 
