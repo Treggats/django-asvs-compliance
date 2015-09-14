@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.core.urlresolvers import reverse
-from .models import Requirement
+from .models import Requirement, Category
 
 
 def index(request):
@@ -22,8 +22,21 @@ def get_requirement(request, id):
 
 
 def get_level(request, id):
-    items = Requirement.objects.all()
-    if id in items.level_number():
-        return render(request, 'level_detail.html', {
-            'items': items.level_verbose()
+    items = Requirement.objects.filter(number__number=id)
+    return render(request, 'level_detail.html', {
+        'level_nr': id,
+        'items': items
+    })
+
+
+def get_category(request, name=None):
+    if name is None:
+        items = Category.objects.all()
+        return render(request, 'category_list.html', {
+            'items': items,
+            })
+    items = Requirement.objects.filter(category__version=name)
+    return render(request, 'category_detail.html', {
+        'cat': name,
+        'items': items
         })
