@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>get</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block content %}
 <strong>{{category}}</strong>
 <p>{{item}}</p>
 <p>Level:<br />
 {% for lvl in level %}
 {{lvl}}<br />
 {% endfor %}</p>
-</body>
-</html>
+{% endblock content %}
