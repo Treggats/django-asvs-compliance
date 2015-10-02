@@ -1,0 +1,25 @@
+[
+    {
+        "fields": {
+            "number": 1,
+            "name": "Oppertunistic"
+        },
+        "model": "levels.levelnumber",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "number": 2,
+            "name": "Standard"
+        },
+        "model": "levels.levelnumber",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "number": 3,
+            "name": "Advanced"
+        },
+        "model": "levels.levelnumber",
+        "pk": 3
+    }

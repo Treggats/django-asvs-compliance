@@ -1,0 +1,106 @@
+[
+    {
+        "fields": {
+            "version": "V2",
+            "name": "Authentication"
+        },
+        "model": "levels.category",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "version": "V3",
+            "name": "Session Management"
+        },
+        "model": "levels.category",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "version": "V4",
+            "name": "Access Control"
+        },
+        "model": "levels.category",
+        "pk": 3
+    },
+    {
+        "fields": {
+            "version": "V5",
+            "name": "Malicious Input Handling"
+        },
+        "model": "levels.category",
+        "pk": 4
+    },
+    {
+        "fields": {
+            "version": "V7",
+            "name": "Cryptography at Rest"
+        },
+        "model": "levels.category",
+        "pk": 5
+    },
+    {
+        "fields": {
+            "version": "V8",
+            "name": "Error Handling and Logging"
+        },
+        "model": "levels.category",
+        "pk": 6
+    },
+    {
+        "fields": {
+            "version": "V9",
+            "name": "Data Protection"
+        },
+        "model": "levels.category",
+        "pk": 7
+    },
+    {
+        "fields": {
+            "version": "V10",
+            "name": "Communication Security"
+        },
+        "model": "levels.category",
+        "pk": 8
+    },
+    {
+        "fields": {
+            "version": "V11",
+            "name": "HTTP Security"
+        },
+        "model": "levels.category",
+        "pk": 9
+    },
+    {
+        "fields": {
+            "version": "V13",
+            "name": "Malicious Controls"
+        },
+        "model": "levels.category",
+        "pk": 10
+    },
+    {
+        "fields": {
+            "version": "V15",
+            "name": "Business Logic"
+        },
+        "model": "levels.category",
+        "pk": 11
+    },
+    {
+        "fields": {
+            "version": "V16",
+            "name": "File and Resource"
+        },
+        "model": "levels.category",
+        "pk": 12
+    },
+    {
+        "fields": {
+            "version": "V17",
+            "name": "Mobile"
+        },
+        "model": "levels.category",
+        "pk": 13
+    }
+]
