@@ -17,8 +17,12 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from asvs.settings import DEBUG
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('levels.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
+if DEBUG:
+    urlpatterns += static(settings.STATIC_URL,
+                          document_root=settings.STATIC_ROOT)
