@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import os
+from pathlib import Path
 import csv
 import json
 
@@ -152,15 +154,24 @@ class FixtureCreator(object):
                           indent=4,
                           separators=(',', ': '))
 
-asvs_file = "asvs_v3_xls.csv"
-fc = FixtureCreator(asvs_file)
-"""Use a write operation to create files"""
-with open("levels.json", "w") as outfile:
-    lvl_fixt = fc.generate_level_fixture()
-    outfile.write(lvl_fixt)
-with open("categories.json", "w") as outfile:
-    cat_fixt = fc.generate_category_fixture()
-    outfile.write(cat_fixt)
-with open("requirements.json", "w") as outfile:
-    req_fixt = fc.generate_requirement_fixture()
-    outfile.write(req_fixt)
+if __name__ == "__main__":
+    data_dir = 'django_asvs_compliance'
+    try:
+        project_path = Path(os.environ[data_dir])
+        asvs_file = "{}/bin/asvs_v3_xls.csv".format(project_path)
+        lvl_fixt_file = "{}/levels/fixtures/levels.json".format(project_path)
+        cat_fixt_file = "{}/levels/fixtures/categories.json".format(project_path)
+        req_fixt_file = "{}/levels/fixtures/requirements.json".format(project_path)
+        fc = FixtureCreator(asvs_file)
+        """Use a write operation to create files"""
+        with open(lvl_fixt_file, "w") as outfile:
+            lvl_fixt = fc.generate_level_fixture()
+            outfile.write(lvl_fixt)
+        with open(cat_fixt_file, "w") as outfile:
+            cat_fixt = fc.generate_category_fixture()
+            outfile.write(cat_fixt)
+        with open(req_fixt_file, "w") as outfile:
+            req_fixt = fc.generate_requirement_fixture()
+            outfile.write(req_fixt)
+    except KeyError:
+        print("Data dir '{}' has not been set.".format(data_dir))
