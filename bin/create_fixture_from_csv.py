@@ -92,22 +92,22 @@ class FixtureCreator(object):
         levels.append(
                       dict(
                            fields=dict(
-                                       id=1,
-                                       description="Oppertunistic"),
+                                       number=1,
+                                       name="Oppertunistic"),
                            model="levels.levelnumber",
                            pk=1))
         levels.append(
                       dict(
                            fields=dict(
-                                       id=1,
-                                       description="Standard"),
+                                       number=1,
+                                       name="Standard"),
                            model="levels.levelnumber",
                            pk=2))
         levels.append(
                       dict(
                            fields=dict(
-                                       id=1,
-                                       description="Advanced"),
+                                       number=1,
+                                       name="Advanced"),
                            model="levels.levelnumber",
                            pk=3))
         return json.dumps(levels,
