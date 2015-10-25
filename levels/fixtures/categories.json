@@ -1,106 +1,130 @@
 [
     {
         "fields": {
-            "version": "V2",
-            "name": "Authentication"
+            "name": "Architecture, design and threat modelling",
+            "version": "V1"
         },
         "model": "levels.category",
         "pk": 1
     },
     {
         "fields": {
-            "version": "V3",
-            "name": "Session Management"
+            "name": "Authentication verification requirements",
+            "version": "V2"
         },
         "model": "levels.category",
         "pk": 2
     },
     {
         "fields": {
-            "version": "V4",
-            "name": "Access Control"
+            "name": "Session management verification requirements",
+            "version": "V3"
         },
         "model": "levels.category",
         "pk": 3
     },
     {
         "fields": {
-            "version": "V5",
-            "name": "Malicious Input Handling"
+            "name": "Access control verification requirements",
+            "version": "V4"
         },
         "model": "levels.category",
         "pk": 4
     },
     {
         "fields": {
-            "version": "V7",
-            "name": "Cryptography at Rest"
+            "name": "Malicious input handling verification requirements",
+            "version": "V5"
         },
         "model": "levels.category",
         "pk": 5
     },
     {
         "fields": {
-            "version": "V8",
-            "name": "Error Handling and Logging"
+            "name": "Cryptography at rest verification requirements",
+            "version": "V7"
         },
         "model": "levels.category",
         "pk": 6
     },
     {
         "fields": {
-            "version": "V9",
-            "name": "Data Protection"
+            "name": "Error handling and logging verification requirements",
+            "version": "V8"
         },
         "model": "levels.category",
         "pk": 7
     },
     {
         "fields": {
-            "version": "V10",
-            "name": "Communication Security"
+            "name": "Data protection verification requirements",
+            "version": "V9"
         },
         "model": "levels.category",
         "pk": 8
     },
     {
         "fields": {
-            "version": "V11",
-            "name": "HTTP Security"
+            "name": "Communications security verification requirements",
+            "version": "V10"
         },
         "model": "levels.category",
         "pk": 9
     },
     {
         "fields": {
-            "version": "V13",
-            "name": "Malicious Controls"
+            "name": "HTTP security configuration verification requirements",
+            "version": "V11"
         },
         "model": "levels.category",
         "pk": 10
     },
     {
         "fields": {
-            "version": "V15",
-            "name": "Business Logic"
+            "name": "Malicious controls verification requirements",
+            "version": "V13"
         },
         "model": "levels.category",
         "pk": 11
     },
     {
         "fields": {
-            "version": "V16",
-            "name": "File and Resource"
+            "name": "Business logic verification requirements",
+            "version": "V15"
         },
         "model": "levels.category",
         "pk": 12
     },
     {
         "fields": {
-            "version": "V17",
-            "name": "Mobile"
+            "name": "Files and resources verification requirements",
+            "version": "V16"
         },
         "model": "levels.category",
         "pk": 13
+    },
+    {
+        "fields": {
+            "name": "Mobile verification requirements",
+            "version": "V17"
+        },
+        "model": "levels.category",
+        "pk": 14
+    },
+    {
+        "fields": {
+            "name": "Web services verification requirements",
+            "version": "V18"
+        },
+        "model": "levels.category",
+        "pk": 15
+    },
+    {
+        "fields": {
+            "name": "Configuration",
+            "version": "V19"
+        },
+        "model": "levels.category",
+        "pk": 16
     }
 ]

@@ -2,7 +2,7 @@
     {
         "fields": {
             "category": 1,
-            "description": "Verify all pages and resources require authentication except those specifically intended to be public (Principle of complete mediation).",
+            "description": "Verify that all application components are identified and are known to be needed.",
             "number": [
                 1,
                 2,
@@ -15,9 +15,8 @@
     {
         "fields": {
             "category": 1,
-            "description": "Verify all password fields do not echo the user's password when it is entered.",
+            "description": "Verify that all components, such as libraries, modules, and external systems, that are not part of the application but that the application relies on to operate are identified.",
             "number": [
-                1,
                 2,
                 3
             ]
@@ -28,9 +27,8 @@
     {
         "fields": {
             "category": 1,
-            "description": "Verify all authentication controls are enforced on the server side.",
+            "description": "Verify that a high-level architecture for the application has been defined.",
             "number": [
-                1,
                 2,
                 3
             ]
@@ -41,7 +39,7 @@
     {
         "fields": {
             "category": 1,
-            "description": "Verify all authentication controls (including libraries that call external authentication services) have a centralized implementation.",
+            "description": "Verify that all application components are defined in terms of the business functions and/or security functions they provide.",
             "number": [
                 3
             ]
@@ -52,10 +50,8 @@
     {
         "fields": {
             "category": 1,
-            "description": "Verify all authentication controls fail securely to ensure attackers cannot log in.",
+            "description": "Verify that all components that are not part of the application but that the application relies on to operate are defined in terms of the functions, and/or security functions, they provide.",
             "number": [
-                1,
-                2,
                 3
             ]
         },
@@ -65,9 +61,8 @@
     {
         "fields": {
             "category": 1,
-            "description": "Verify password entry fields allow or encourage the use of passphrases, and do not prevent long passphrases or highly complex passwords being entered, and provide a sufficient minimum strength to protect against the use of commonly chosen passwords.",
+            "description": "Verify that a threat model for the target application has been produced and covers off risks associated with Spoofing, Tampering, Repudiation, Information Disclosure, and Elevation of privilege (STRIDE).",
             "number": [
-                2,
                 3
             ]
         },
@@ -77,9 +72,8 @@
     {
         "fields": {
             "category": 1,
-            "description": "Verify all account identity authentication functions (such as registration, update profile, forgot username, forgot password, disabled / lost token, help desk or IVR) that might regain access to the account are at least as resistant to attack as the primary authentication mechanism.",
+            "description": "Verify all security controls (including libraries that call external security services) have a centralized implementation.",
             "number": [
-                2,
                 3
             ]
         },
@@ -89,7 +83,7 @@
     {
         "fields": {
             "category": 1,
-            "description": "Verify users can safely change their credentials using a mechanism that is at least as resistant to attack as the primary authentication mechanism.",
+            "description": "Verify that components are segregated from each other via a defined security control, such as network segmentation, firewall rules, or cloud based security groups.",
             "number": [
                 2,
                 3
@@ -101,7 +95,7 @@
     {
         "fields": {
             "category": 1,
-            "description": "Verify that all authentication decisions are logged. This should include requests with missing required information, needed for security investigations.",
+            "description": "Verify the application has a clear separation between the data layer, controller layer and the display layer, such that security decisions can be enforced on trusted systems.",
             "number": [
                 2,
                 3
@@ -113,7 +107,7 @@
     {
         "fields": {
             "category": 1,
-            "description": "Verify that account passwords are salted using a salt that is unique to that account (e.g., internal user ID, account creation) and use bcrypt, scrypt or PBKDF2 before storing the password.",
+            "description": "Verify that there is no sensitive business logic, secret keys or other proprietary information in client side code.",
             "number": [
                 2,
                 3
@@ -125,7 +119,7 @@
     {
         "fields": {
             "category": 1,
-            "description": "Verify that credentials, and all other identity information handled by the application(s), do not traverse unencrypted or weakly encrypted links.",
+            "description": "Verify all pages and resources by default require authentication except those specifically intended to be public (Principle of complete mediation).",
             "number": [
                 1,
                 2,
@@ -138,7 +132,7 @@
     {
         "fields": {
             "category": 1,
-            "description": "Verify that the forgotten password function and other recovery paths do not reveal the current password and that the new password is not sent in clear text to the user.",
+            "description": "Verify that all password fields do not echo the user\u2019s password when it is entered.",
             "number": [
                 1,
                 2,
@@ -151,7 +145,7 @@
     {
         "fields": {
             "category": 1,
-            "description": "Verify that username enumeration is not possible via login, password reset, or forgot account functionality.",
+            "description": "Verify all authentication controls are enforced on the server side.",
             "number": [
                 1,
                 2,
@@ -164,7 +158,7 @@
     {
         "fields": {
             "category": 1,
-            "description": "Verify there are no default passwords in use for the application framework or any components used by the application (such as 'admin/password').",
+            "description": "Verify all authentication controls fail securely to ensure attackers cannot log in.",
             "number": [
                 1,
                 2,
@@ -177,8 +171,9 @@
     {
         "fields": {
             "category": 1,
-            "description": "Verify that a resource governor is in place to protect against vertical (a single account tested against all possible passwords) and horizontal brute forcing (all accounts tested with the same password e.g. 'Password1'). A correct credential entry should incur no delay. Both these governor mechanisms should be active simultaneously to protect against diagonal and distributed attacks.",
+            "description": "Verify password entry fields allow, or encourage, the use of passphrases, and do not prevent long passphrases/highly complex passwords being entered.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -189,8 +184,9 @@
     {
         "fields": {
             "category": 1,
-            "description": "Verify that all authentication credentials for accessing services external to the application are encrypted and stored in a protected location (not in source code).",
+            "description": "Verify all account identity authentication functions (such as update profile, forgot password, disabled / lost token, help desk or IVR) that might regain access to the account are at least as resistant to attack as the primary authentication mechanism.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -201,8 +197,9 @@
     {
         "fields": {
             "category": 1,
-            "description": "Verify that forgot password and other recovery paths send a link including a time-limited activation token rather than the password itself. Additional authentication based on soft-tokens (e.g. SMS token, native mobile applications, etc.) can be required as well before the link is sent over.",
+            "description": "Verify that the changing password functionality includes the old password, the new password, and a password confirmation.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -213,7 +210,7 @@
     {
         "fields": {
             "category": 1,
-            "description": "Verify that forgot password functionality does not lock or otherwise disable the account until after the user has successfully changed their password. This is to prevent valid users from being locked out. ",
+            "description": "Verify that all suspicious authentication decisions are logged. This should include requests with relevant metadata needed for security investigations.",
             "number": [
                 2,
                 3
@@ -225,7 +222,7 @@
     {
         "fields": {
             "category": 1,
-            "description": "Verify that there are no shared knowledge questions/answers (so called \"secret\" questions and answers).",
+            "description": "Verify that account passwords make use of a sufficient strength encryption routine and that it withstands brute force attack against the encryption routine.",
             "number": [
                 2,
                 3
@@ -237,8 +234,9 @@
     {
         "fields": {
             "category": 1,
-            "description": "Verify that the system can be configured to disallow the use of a configurable number of previous passwords.",
+            "description": "Verify that credentials are transported using a suitable encrypted link and that all pages/functions that require a user to enter credentials are done so using an encrypted link.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -249,8 +247,10 @@
     {
         "fields": {
             "category": 1,
-            "description": "Verify re-authentication, step up or adaptive authentication, SMS or other two factor authentication, or transaction signing is required before any application-specific sensitive operations are permitted as per the risk profile of the application.",
+            "description": "Verify that the forgotten password function and other recovery paths do not reveal the current password and that the new password is not sent in clear text to the user.",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -259,8 +259,8 @@
     },
     {
         "fields": {
-            "category": 2,
-            "description": "Verify that the framework's default session management control implementation is used by the application.",
+            "category": 1,
+            "description": "Verify that information enumeration is not possible via login, password reset, or forgot account functionality.",
             "number": [
                 1,
                 2,
@@ -272,8 +272,8 @@
     },
     {
         "fields": {
-            "category": 2,
-            "description": "Verify that sessions are invalidated when the user logs out.",
+            "category": 1,
+            "description": "Verify there are no default passwords in use for the application framework or any components used by the application (such as \u201cadmin/password\u201d).",
             "number": [
                 1,
                 2,
@@ -285,8 +285,8 @@
     },
     {
         "fields": {
-            "category": 2,
-            "description": "Verify that sessions timeout after a specified period of inactivity.",
+            "category": 1,
+            "description": "Verify that request throttling is in place to prevent automated attacks against common authentication attacks such as brute force attacks or denial of service attacks.",
             "number": [
                 1,
                 2,
@@ -298,8 +298,8 @@
     },
     {
         "fields": {
-            "category": 2,
-            "description": "Verify that sessions timeout after an administratively-configurable maximum time period regardless of activity (an absolute timeout).",
+            "category": 1,
+            "description": "Verify that all authentication credentials for accessing services external to the application are encrypted and stored in a protected location.",
             "number": [
                 2,
                 3
@@ -310,8 +310,8 @@
     },
     {
         "fields": {
-            "category": 2,
-            "description": "Verify that all pages that require authentication to access them have logout links.",
+            "category": 1,
+            "description": "Verify that forgotten password and other recovery paths use a soft token, mobile push, or an offline recovery mechanism.",
             "number": [
                 1,
                 2,
@@ -323,10 +323,9 @@
     },
     {
         "fields": {
-            "category": 2,
-            "description": "Verify that the session id is never disclosed other than in cookie headers; particularly in URLs, error messages, or logs. This includes verifying that the application does not support URL rewriting of session cookies.",
+            "category": 1,
+            "description": "Verify that account lockout is divided into soft and hard lock status, and these are not mutually exclusive. If an account is temporarily soft locked out due to a brute force attack, this should not reset the hard lock status.",
             "number": [
-                1,
                 2,
                 3
             ]
@@ -336,9 +335,10 @@
     },
     {
         "fields": {
-            "category": 2,
-            "description": "Verify that the session id is changed on login to prevent session fixation.",
+            "category": 1,
+            "description": "Verify that if knowledge based questions (also known as \"secret questions\") are required, the questions should be strong enough to protect the application.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -348,8 +348,8 @@
     },
     {
         "fields": {
-            "category": 2,
-            "description": "Verify that the session id is changed upon re-authentication.",
+            "category": 1,
+            "description": "Verify that the system can be configured to disallow the use of a configurable number of previous passwords.",
             "number": [
                 2,
                 3
@@ -360,8 +360,8 @@
     },
     {
         "fields": {
-            "category": 2,
-            "description": "Verify that only session ids generated by the application framework are recognized as valid by the application.",
+            "category": 1,
+            "description": "Verify re-authentication, step up or adaptive authentication, two factor authentication, or transaction signing is required before any application-specific sensitive operations are permitted as per the risk profile of the application.",
             "number": [
                 2,
                 3
@@ -372,9 +372,10 @@
     },
     {
         "fields": {
-            "category": 2,
-            "description": "Verify that authenticated session tokens are sufficiently long and random to withstand session guessing attacks.",
+            "category": 1,
+            "description": "Verify that measures are in place to block the use of commonly chosen passwords and weak passphrases.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -384,10 +385,9 @@
     },
     {
         "fields": {
-            "category": 2,
-            "description": "Verify that authenticated session tokens using cookies have their path set to an appropriately restrictive value for that site. The domain cookie attribute restriction should not be set unless for a business requirement, such as single sign on.",
+            "category": 1,
+            "description": "Verify that all authentication challenges, whether successful or failed, should respond in the same average response time.",
             "number": [
-                2,
                 3
             ]
         },
@@ -396,11 +396,9 @@
     },
     {
         "fields": {
-            "category": 2,
-            "description": "Verify that authenticated session tokens using cookies sent via HTTP, are protected by the use of \"HttpOnly\".",
+            "category": 1,
+            "description": "Verify that secrets, API keys, and passwords are not included in the source code, or online source code repositories.",
             "number": [
-                1,
-                2,
                 3
             ]
         },
@@ -409,8 +407,8 @@
     },
     {
         "fields": {
-            "category": 2,
-            "description": "Verify that authenticated session tokens using cookies are protected with the \"secure\" attribute and a strict transport security header (such as Strict-Transport-Security: max-age=60000; includeSubDomains) are present.",
+            "category": 1,
+            "description": "Verify that if an application allows users to authenticate, they use a proven secure authentication mechanism.",
             "number": [
                 1,
                 2,
@@ -422,8 +420,8 @@
     },
     {
         "fields": {
-            "category": 2,
-            "description": "Verify that the application does not permit duplicate concurrent user sessions, originating from different machines. ",
+            "category": 1,
+            "description": "Verify that if an application allows users to authenticate, they can authenticate using two-factor authentication or other strong authentication, or any similar scheme that provides protection against username + password disclosure.",
             "number": [
                 2,
                 3
@@ -434,8 +432,8 @@
     },
     {
         "fields": {
-            "category": 3,
-            "description": "Verify that users can only access secured functions or services for which they possess specific authorization.",
+            "category": 1,
+            "description": "Verify that administrative interfaces are not accessible to untrusted parties",
             "number": [
                 1,
                 2,
@@ -447,8 +445,8 @@
     },
     {
         "fields": {
-            "category": 3,
-            "description": "Verify that users can only access secured URLs for which they possess specific authorization.",
+            "category": 1,
+            "description": "Verify that there is no custom session manager, or that the custom session manager is resistant against all common session management attacks.",
             "number": [
                 1,
                 2,
@@ -460,8 +458,8 @@
     },
     {
         "fields": {
-            "category": 3,
-            "description": "Verify that users can only access secured data files for which they possess specific authorization.",
+            "category": 1,
+            "description": "Verify that sessions are invalidated when the user logs out.",
             "number": [
                 1,
                 2,
@@ -473,8 +471,8 @@
     },
     {
         "fields": {
-            "category": 3,
-            "description": "Verify that direct object references are protected, such that only authorized objects or data are accessible to each user (for example, protect against direct object reference tampering).",
+            "category": 1,
+            "description": "Verify that sessions timeout after a specified period of inactivity.",
             "number": [
                 1,
                 2,
@@ -486,11 +484,9 @@
     },
     {
         "fields": {
-            "category": 3,
-            "description": "Verify that directory browsing is disabled unless deliberately desired.",
+            "category": 1,
+            "description": "Verify that sessions timeout after an administratively-configurable maximum time period regardless of activity (an absolute timeout).",
             "number": [
-                1,
-                2,
                 3
             ]
         },
@@ -499,8 +495,8 @@
     },
     {
         "fields": {
-            "category": 3,
-            "description": "Verify that access controls fail securely.",
+            "category": 1,
+            "description": "Verify that all pages that require authentication have easy and visible access to logout functionality.",
             "number": [
                 1,
                 2,
@@ -512,9 +508,10 @@
     },
     {
         "fields": {
-            "category": 3,
-            "description": "Verify that the same access control rules implied by the presentation layer are enforced on the server side for that user role, such that controls and parameters cannot be re-enabled or re-added from higher privilege users.",
+            "category": 1,
+            "description": "Verify that the session id is never disclosed in URLs, error messages, or logs. This includes verifying that the application does not support URL rewriting of session cookies.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -524,9 +521,10 @@
     },
     {
         "fields": {
-            "category": 3,
-            "description": "Verify that all user and data attributes and policy information used by access controls cannot be manipulated by end users unless specifically authorized.",
+            "category": 1,
+            "description": "Verify that all successful authentication and re-authentication generates a new session and session id.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -536,10 +534,9 @@
     },
     {
         "fields": {
-            "category": 3,
-            "description": "Verify that all access controls are enforced on the server side.",
+            "category": 1,
+            "description": "Verify that only session ids generated by the application framework are recognized as active by the application.",
             "number": [
-                1,
                 2,
                 3
             ]
@@ -549,9 +546,11 @@
     },
     {
         "fields": {
-            "category": 3,
-            "description": "Verify that there is a centralized mechanism (including libraries that call external authorization services) for protecting access to each type of protected resource.",
+            "category": 1,
+            "description": "Verify that session ids are sufficiently long, random and unique across the correct active session base.",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -560,9 +559,10 @@
     },
     {
         "fields": {
-            "category": 3,
-            "description": "Verify that all access control decisions are be logged and all failed decisions are logged.",
+            "category": 1,
+            "description": "Verify that session ids stored in cookies have their path set to an appropriately restrictive value for the application, and authentication session tokens additionally set the \u201cHttpOnly\u201d and \u201csecure\u201d attributes",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -572,8 +572,8 @@
     },
     {
         "fields": {
-            "category": 3,
-            "description": "Verify that the application or framework generates strong random anti-CSRF tokens unique to the user as part of all high value transactions or accessing sensitive data, and that the application verifies the presence of this token with the proper value for the current user when processing these requests.",
+            "category": 1,
+            "description": "Verify that the application limits the number of active concurrent sessions.",
             "number": [
                 1,
                 2,
@@ -585,9 +585,10 @@
     },
     {
         "fields": {
-            "category": 3,
-            "description": "Aggregate access control protection \u2013 verify the system can protect against aggregate or continuous access of secured functions, resources, or data. For example, possibly by the use of a resource governor to limit the number of edits per hour or to prevent the entire database from being scraped by an individual user.",
+            "category": 1,
+            "description": "Verify that an active session list is displayed in the account profile or similar of each user. The user should be able to terminate any active session.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -597,8 +598,8 @@
     },
     {
         "fields": {
-            "category": 4,
-            "description": "Verify that the runtime environment is not susceptible to buffer overflows, or that security controls prevent buffer overflows.",
+            "category": 1,
+            "description": "Verify the user is prompted with the option to terminate all other active sessions after a successful change password process.",
             "number": [
                 1,
                 2,
@@ -610,8 +611,8 @@
     },
     {
         "fields": {
-            "category": 4,
-            "description": "Verify that all input validation failures result in input rejection.",
+            "category": 1,
+            "description": "Verify that the principle of least privilege exists - users should only be able to access functions, data files, URLs, controllers, services, and other resources, for which they possess specific authorization. This implies protection against spoofing and elevation of privilege.",
             "number": [
                 1,
                 2,
@@ -623,9 +624,10 @@
     },
     {
         "fields": {
-            "category": 4,
-            "description": "Verify that a character set, such as UTF-8, is specified for all sources of input.",
+            "category": 1,
+            "description": "Verify that access to sensitive records is protected, such that only authorized objects or data is accessible to each user (for example, protect against users tampering with a parameter to see or alter another user's account).",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -635,8 +637,8 @@
     },
     {
         "fields": {
-            "category": 4,
-            "description": "Verify that all input validation or encoding routines are performed and enforced on the server side.",
+            "category": 1,
+            "description": "Verify that directory browsing is disabled unless deliberately desired. Additionally, applications should not allow discovery or disclosure of file or directory metadata, such as Thumbs.db, .DS_Store, .git or .svn folders.",
             "number": [
                 1,
                 2,
@@ -648,9 +650,11 @@
     },
     {
         "fields": {
-            "category": 4,
-            "description": "Verify that a single input validation control is used by the application for each type of data that is accepted.",
+            "category": 1,
+            "description": "Verify that access controls fail securely.",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -659,9 +663,11 @@
     },
     {
         "fields": {
-            "category": 4,
-            "description": "Verify that all input validation failures are logged.",
+            "category": 1,
+            "description": "Verify that the same access control rules implied by the presentation layer are enforced on the server side.",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -670,8 +676,8 @@
     },
     {
         "fields": {
-            "category": 4,
-            "description": "Verify that all input data is canonicalized for all downstream decoders or interpreters prior to validation.",
+            "category": 1,
+            "description": "Verify that all user and data attributes and policy information used by access controls cannot be manipulated by end users unless specifically authorized.",
             "number": [
                 2,
                 3
@@ -682,11 +688,9 @@
     },
     {
         "fields": {
-            "category": 4,
-            "description": "Verify that the runtime environment is not susceptible to SQL Injection, or that security controls prevent SQL Injection.",
+            "category": 1,
+            "description": "Verify that there is a centralized mechanism (including libraries that call external authorization services) for protecting access to each type of protected resource.",
             "number": [
-                1,
-                2,
                 3
             ]
         },
@@ -695,10 +699,9 @@
     },
     {
         "fields": {
-            "category": 4,
-            "description": "Verify that the runtime environment is not susceptible to LDAP Injection, or that security controls prevent LDAP Injection.",
+            "category": 1,
+            "description": "Verify that all access control decisions can be logged and all failed decisions are logged.",
             "number": [
-                1,
                 2,
                 3
             ]
@@ -708,8 +711,8 @@
     },
     {
         "fields": {
-            "category": 4,
-            "description": "Verify that the runtime environment is not susceptible to OS Command Injection, or that security controls prevent OS Command Injection.",
+            "category": 1,
+            "description": "Verify that the application or framework uses strong random anti-CSRF tokens or has another transaction protection mechanism.",
             "number": [
                 1,
                 2,
@@ -721,10 +724,9 @@
     },
     {
         "fields": {
-            "category": 4,
-            "description": "Verify that the runtime environment is not susceptible to XML External Entity attacks or that security controls prevents XML External Entity attacks.",
+            "category": 1,
+            "description": "Verify the system can protect against aggregate or continuous access of secured functions, resources, or data. For example, consider the use of a resource governor to limit the number of edits per hour or to prevent the entire database from being scraped by an individual user.",
             "number": [
-                1,
                 2,
                 3
             ]
@@ -734,10 +736,9 @@
     },
     {
         "fields": {
-            "category": 4,
-            "description": "Verify that the runtime environment is not susceptible to XML Injections or that security controls prevents XML Injections.",
+            "category": 1,
+            "description": "Verify the application has additional authorization (such as step up or adaptive authentication) for lower value systems, and / or segregation of duties for high value applications to enforce anti-fraud controls as per the risk of application and past fraud.",
             "number": [
-                1,
                 2,
                 3
             ]
@@ -747,8 +748,8 @@
     },
     {
         "fields": {
-            "category": 4,
-            "description": "Verify that all untrusted data that are output to HTML (including HTML elements, HTML attributes, JavaScript data values, CSS blocks, and URI attributes) are properly escaped for the applicable context.",
+            "category": 1,
+            "description": "Verify that the application correctly enforces context-sensitive authorisation so as to not allow unauthorised manipulation by means of parameter tampering.",
             "number": [
                 1,
                 2,
@@ -760,9 +761,10 @@
     },
     {
         "fields": {
-            "category": 4,
-            "description": "If the application framework allows automatic mass parameter assignment (also called automatic variable binding) from the inbound request to a model, verify that security sensitive fields such as \u201caccountBalance\u201d, \u201crole\u201d or \u201cpassword\u201d are protected from malicious automatic binding.",
+            "category": 1,
+            "description": "Verify that the runtime environment is not susceptible to buffer overflows, or that security controls prevent buffer overflows.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -772,9 +774,10 @@
     },
     {
         "fields": {
-            "category": 4,
-            "description": "Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters (GET, POST, cookies, headers, environment, etc.)",
+            "category": 1,
+            "description": "Verify that server side input validation failures result in request rejection and are logged.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -784,9 +787,11 @@
     },
     {
         "fields": {
-            "category": 4,
-            "description": "Verify that for each type of output encoding/escaping performed by the application, there is a single security control for that type of output for the intended destination.",
+            "category": 1,
+            "description": "Verify that input validation routines are enforced on the server side.",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -795,10 +800,9 @@
     },
     {
         "fields": {
-            "category": 5,
-            "description": "Verify that all cryptographic functions used to protect secrets from the application user are implemented server side.",
+            "category": 1,
+            "description": "Verify that a single input validation control is used by the application for each type of data that is accepted.",
             "number": [
-                2,
                 3
             ]
         },
@@ -807,9 +811,10 @@
     },
     {
         "fields": {
-            "category": 5,
-            "description": "Verify that all cryptographic modules fail securely.",
+            "category": 1,
+            "description": "Verify that all SQL queries, HQL, OSQL, NOSQL and stored procedures, calling of stored procedures are protected by the use of prepared statements or query parameterization, and thus not susceptible to SQL injection",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -819,9 +824,10 @@
     },
     {
         "fields": {
-            "category": 5,
-            "description": "Verify that access to any master secret(s) is protected from unauthorized access (A master secret is an application credential stored as plaintext on disk that is used to protect access to security configuration information).",
+            "category": 1,
+            "description": "Verify that the application is not susceptible to LDAP Injection, or that security controls prevent LDAP Injection.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -831,9 +837,10 @@
     },
     {
         "fields": {
-            "category": 5,
-            "description": "Verify that all random numbers, random file names, random GUIDs, and random strings are generated using the cryptographic module\u2019s approved random number generator when these random values are intended to be unguessable by an attacker.",
+            "category": 1,
+            "description": "Verify that the application is not susceptible to OS Command Injection, or that security controls prevent OS Command Injection.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -843,9 +850,11 @@
     },
     {
         "fields": {
-            "category": 5,
-            "description": "Verify that cryptographic modules used by the application have been validated against FIPS 140-2 or an equivalent standard.",
+            "category": 1,
+            "description": "Verify that the application is not susceptible to Remote File Inclusion (RFI) or Local File Inclusion (LFI) when content is used that is a path to a file.",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -854,9 +863,11 @@
     },
     {
         "fields": {
-            "category": 5,
-            "description": "Verify that cryptographic modules operate in their approved mode according to their published security policies.",
+            "category": 1,
+            "description": "Verify that the application is not susceptible to common XML attacks, such as XPath query tampering, XML External Entity attacks, and XML injection attacks.",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -865,9 +876,10 @@
     },
     {
         "fields": {
-            "category": 5,
-            "description": "Verify that there is an explicit policy for how cryptographic keys are managed (e.g., generated, distributed, revoked, expired). Verify that this policy is properly enforced.",
+            "category": 1,
+            "description": "Ensure that all string variables placed into HTML or other web client code is either properly contextually encoded manually, or utilize templates that automatically encode contextually to ensure the application is not susceptible to reflected, stored and DOM Cross-Site Scripting (XSS) attacks.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -877,10 +889,9 @@
     },
     {
         "fields": {
-            "category": 6,
-            "description": "Verify that the application does not output error messages or stack traces containing sensitive data that could assist an attacker, including session id and personal information.",
+            "category": 1,
+            "description": "If the application framework allows automatic mass parameter assignment (also called automatic variable binding) from the inbound request to a model, verify that security sensitive fields such as \u201caccountBalance\u201d, \u201crole\u201d or \u201cpassword\u201d are protected from malicious automatic binding.",
             "number": [
-                1,
                 2,
                 3
             ]
@@ -890,8 +901,8 @@
     },
     {
         "fields": {
-            "category": 6,
-            "description": "Verify that all error handling is performed on trusted devices",
+            "category": 1,
+            "description": "Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters (GET, POST, cookies, headers, environment, etc.)",
             "number": [
                 2,
                 3
@@ -902,8 +913,8 @@
     },
     {
         "fields": {
-            "category": 6,
-            "description": "Verify that all logging controls are implemented on the server.",
+            "category": 1,
+            "description": "Verify that client side validation is used as a second line of defense, in addition to server side validation.",
             "number": [
                 2,
                 3
@@ -914,8 +925,8 @@
     },
     {
         "fields": {
-            "category": 6,
-            "description": "Verify that error handling logic in security controls denies access by default.",
+            "category": 1,
+            "description": "Verify that all input data is validated, not only HTML form fields but all sources of input such as REST calls, query parameters, HTTP headers, cookies, batch files, RSS feeds, etc; using positive validation (whitelisting), then lesser forms of validation such as greylisting (eliminating known bad strings), or rejecting bad inputs (blacklisting).",
             "number": [
                 2,
                 3
@@ -926,8 +937,8 @@
     },
     {
         "fields": {
-            "category": 6,
-            "description": "Verify security logging controls provide the ability to log both success and failure events that are identified as security-relevant.",
+            "category": 1,
+            "description": "Verify that structured data is strongly typed and validated against a defined schema including allowed characters, length and pattern (e.g. credit card numbers or telephone, or validating that two related fields are reasonable, such as validating suburbs and zip or post codes match).",
             "number": [
                 2,
                 3
@@ -938,8 +949,8 @@
     },
     {
         "fields": {
-            "category": 6,
-            "description": "Verify that each log event includes: a timestamp from a reliable source,\nseverity level of the event, an indication that this is a security relevant event (if mixed with other logs), the identity of the user that caused the event (if there is a user associated with the event), the source IP address of the request associated with the event, whether the event succeeded or failed, and a description of the event.\n",
+            "category": 1,
+            "description": "Verify that unstructured data is sanitized to enforce generic safety measures such as allowed characters and length, and characters potentially harmful in given context should be escaped (e.g. natural names with Unicode or apostrophes, such as \u306d\u3053 or O'Hara)",
             "number": [
                 2,
                 3
@@ -950,9 +961,11 @@
     },
     {
         "fields": {
-            "category": 6,
-            "description": "Verify that all events that include untrusted data will not execute as code in the intended log viewing software.",
+            "category": 1,
+            "description": "Make sure untrusted HTML from WYSIWYG editors or similar are properly sanitized with an HTML sanitizer and handle it appropriately according to the input validation task and encoding task.",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -961,8 +974,8 @@
     },
     {
         "fields": {
-            "category": 6,
-            "description": "Verify that security logs are protected from unauthorized access and modification.",
+            "category": 1,
+            "description": "For auto-escaping template technology, if UI escaping is disabled, ensure that HTML sanitization is enabled instead.",
             "number": [
                 2,
                 3
@@ -973,9 +986,10 @@
     },
     {
         "fields": {
-            "category": 6,
-            "description": "Verify that there is a single application-level logging implementation that is\nused by the software.\n",
+            "category": 1,
+            "description": "Verify that data transferred from one DOM context to another, uses safe JavaScript methods, such as using .innerText and .val.",
             "number": [
+                2,
                 3
             ]
         },
@@ -984,8 +998,8 @@
     },
     {
         "fields": {
-            "category": 6,
-            "description": "Verify that the application does not log application-specific sensitive data that could assist an attacker, including user\u2019s session identifiers and personal or sensitive information. The length and existence of sensitive data can be logged.",
+            "category": 1,
+            "description": "Verify when parsing JSON in browsers, that JSON.parse is used to parse JSON on the client. Do not use eval() to parse JSON on the client.",
             "number": [
                 2,
                 3
@@ -996,8 +1010,8 @@
     },
     {
         "fields": {
-            "category": 6,
-            "description": "Verify that a log analysis tool is available which allows the analyst to search for log events based on combinations of search criteria across all fields in the log record format supported by this system.",
+            "category": 1,
+            "description": "Verify that authenticated data is cleared from client storage, such as the browser DOM, after the session is terminated.",
             "number": [
                 2,
                 3
@@ -1008,9 +1022,11 @@
     },
     {
         "fields": {
-            "category": 6,
-            "description": "Verify that all non-printable symbols and field separators are properly encoded in log entries, to prevent log injection.",
+            "category": 1,
+            "description": "Verify that all cryptographic modules fail securely, and errors are handled in a way that does not enable oracle padding.",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -1019,9 +1035,10 @@
     },
     {
         "fields": {
-            "category": 6,
-            "description": "Verify that log fields from trusted and untrusted sources are distinguishable in log entries. ",
+            "category": 1,
+            "description": "Verify that all random numbers, random file names, random GUIDs, and random strings are generated using the cryptographic module\u2019s approved random number generator when these random values are intended to be not guessable by an attacker.",
             "number": [
+                2,
                 3
             ]
         },
@@ -1030,9 +1047,11 @@
     },
     {
         "fields": {
-            "category": 6,
-            "description": "Verify that logging is performed before executing the transaction. If logging was unsuccessful (e.g. disk full, insufficient permissions) the application fails safe. This is for when integrity and non-repudiation are a must.",
+            "category": 1,
+            "description": "Verify that cryptographic algorithms used by the application have been validated against FIPS 140-2 or an equivalent standard.",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -1041,11 +1060,9 @@
     },
     {
         "fields": {
-            "category": 7,
-            "description": "Verify that all forms containing sensitive information have disabled client side caching, including autocomplete features.",
+            "category": 1,
+            "description": "Verify that cryptographic modules operate in their approved mode according to their published security policies.",
             "number": [
-                1,
-                2,
                 3
             ]
         },
@@ -1054,9 +1071,10 @@
     },
     {
         "fields": {
-            "category": 7,
-            "description": "Verify that the list of sensitive data processed by this application is identified, and that there is an explicit policy for how access to this data must be controlled, and when this data must be encrypted (both at rest and in transit). Verify that this policy is properly enforced.",
+            "category": 1,
+            "description": "Verify that there is an explicit policy for how cryptographic keys are managed (e.g., generated, distributed, revoked, and expired). Verify that this key lifecycle is properly enforced.",
             "number": [
+                2,
                 3
             ]
         },
@@ -1065,11 +1083,9 @@
     },
     {
         "fields": {
-            "category": 7,
-            "description": "Verify that all sensitive data is sent to the server in the HTTP message body (i.e., URL parameters are never used to send sensitive data).",
+            "category": 1,
+            "description": "Verify that all consumers of cryptographic services do not have direct access to key material. Isolate cryptographic processes, including master secrets and consider the use of a hardware key vault (HSM).",
             "number": [
-                1,
-                2,
                 3
             ]
         },
@@ -1078,8 +1094,8 @@
     },
     {
         "fields": {
-            "category": 7,
-            "description": "Verify that all cached or temporary copies of sensitive data sent to the client are protected from unauthorized access or purged/invalidated after the authorized user accesses the sensitive data (e.g., the proper no-cache and no-store Cache-Control headers are set).",
+            "category": 1,
+            "description": "Personally Identifiable Information should be stored encrypted at rest and ensure that communication goes via protected channels.",
             "number": [
                 2,
                 3
@@ -1090,8 +1106,8 @@
     },
     {
         "fields": {
-            "category": 7,
-            "description": "Verify that all cached or temporary copies of sensitive data stored on the server are protected from unauthorized access or purged/invalidated after the authorized user accesses the sensitive data.",
+            "category": 1,
+            "description": "Verify that where possible, keys and secrets are zeroed when destroyed.",
             "number": [
                 2,
                 3
@@ -1102,9 +1118,10 @@
     },
     {
         "fields": {
-            "category": 7,
-            "description": "Verify that there is a method to remove each type of sensitive data from the application at the end of its required retention period.",
+            "category": 1,
+            "description": "Verify that all keys and passwords are replaceable, and are generated or replaced at installation time.",
             "number": [
+                2,
                 3
             ]
         },
@@ -1113,8 +1130,8 @@
     },
     {
         "fields": {
-            "category": 7,
-            "description": "Verify the application minimizes the number of parameters sent to untrusted systems, such as hidden fields, Ajax variables, cookies and header values.",
+            "category": 1,
+            "description": "Verify that random numbers are created with proper entropy even when the application is under heavy load, or that the application degrades gracefully in such circumstances.",
             "number": [
                 3
             ]
@@ -1124,9 +1141,11 @@
     },
     {
         "fields": {
-            "category": 7,
-            "description": "Verify the application has the ability to detect and alert on abnormal numbers of requests for information or processing high value transactions for that user role, such as screen scraping, automated use of web service extraction, or data loss prevention. For example, the average user should not be able to access more than 5 records per hour or 30 records per day, or add 10 friends to a social network per minute.",
+            "category": 1,
+            "description": "Verify that the application does not output error messages or stack traces containing sensitive data that could assist an attacker, including session id, software/framework versions and personal information",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -1135,10 +1154,9 @@
     },
     {
         "fields": {
-            "category": 8,
-            "description": "Verify that a path can be built from a trusted CA to each Transport Layer Security (TLS) server certificate, and that each server certificate is valid.",
+            "category": 1,
+            "description": "Verify that error handling logic in security controls denies access by default.",
             "number": [
-                1,
                 2,
                 3
             ]
@@ -1148,9 +1166,10 @@
     },
     {
         "fields": {
-            "category": 8,
-            "description": "Verify that failed TLS connections do not fall back to an insecure HTTP connection.",
+            "category": 1,
+            "description": "Verify security logging controls provide the ability to log success and particularly failure events that are identified as security-relevant.",
             "number": [
+                2,
                 3
             ]
         },
@@ -1159,8 +1178,8 @@
     },
     {
         "fields": {
-            "category": 8,
-            "description": "Verify that TLS is used for all connections (including both external and backend connections) that are authenticated or that involve sensitive data or functions.",
+            "category": 1,
+            "description": "Verify that each log event includes necessary information that would allow for a detailed investigation of the timeline when an event happens.",
             "number": [
                 2,
                 3
@@ -1171,10 +1190,9 @@
     },
     {
         "fields": {
-            "category": 8,
-            "description": "Verify that backend TLS connection failures are logged.",
+            "category": 1,
+            "description": "Verify that all events that include untrusted data will not execute as code in the intended log viewing software.",
             "number": [
-                2,
                 3
             ]
         },
@@ -1183,9 +1201,10 @@
     },
     {
         "fields": {
-            "category": 8,
-            "description": "Verify that certificate paths are built and verified for all client certificates using configured trust anchors and revocation information.",
+            "category": 1,
+            "description": "Verify that security logs are protected from unauthorized access and modification.",
             "number": [
+                2,
                 3
             ]
         },
@@ -1194,8 +1213,8 @@
     },
     {
         "fields": {
-            "category": 8,
-            "description": "Verify that all connections to external systems that involve sensitive information or functions are authenticated.",
+            "category": 1,
+            "description": "Verify that the application does not log sensitive data as defined under local privacy laws or regulations, organizational sensitive data as defined by a risk assessment, or sensitive authentication data that could assist an attacker, including user\u2019s session identifiers, passwords, hashes, or API tokens.",
             "number": [
                 2,
                 3
@@ -1206,10 +1225,9 @@
     },
     {
         "fields": {
-            "category": 8,
-            "description": "Verify that all connections to external systems that involve sensitive information or functions use an account that has been set up to have the minimum privileges necessary for the application to function properly.",
+            "category": 1,
+            "description": "Verify that all non-printable symbols and field separators are properly encoded in log entries, to prevent log injection.",
             "number": [
-                2,
                 3
             ]
         },
@@ -1218,8 +1236,8 @@
     },
     {
         "fields": {
-            "category": 8,
-            "description": "Verify that there is a single standard TLS implementation that is used by the application that is configured to operate in an approved mode of operation (See http://csrc.nist.gov/groups/STM/cmvp/documents/fips140-2/FIPS1402IG.pdf ).",
+            "category": 1,
+            "description": "Verify that log fields from trusted and untrusted sources are distinguishable in log entries.",
             "number": [
                 3
             ]
@@ -1229,9 +1247,10 @@
     },
     {
         "fields": {
-            "category": 8,
-            "description": "Verify that specific character encodings are defined for all connections (e.g., UTF-8).",
+            "category": 1,
+            "description": "Verify that an audit log or similar allows for non-repudiation of key transactions.",
             "number": [
+                2,
                 3
             ]
         },
@@ -1240,11 +1259,9 @@
     },
     {
         "fields": {
-            "category": 9,
-            "description": "Verify that the application accepts only a defined set of HTTP request methods, such as GET and POST and unused methods are explicitly blocked.",
+            "category": 1,
+            "description": "Verify that security logs have some form of integrity checking or controls to prevent unauthorized modification.",
             "number": [
-                1,
-                2,
                 3
             ]
         },
@@ -1253,11 +1270,9 @@
     },
     {
         "fields": {
-            "category": 9,
-            "description": "Verify that every HTTP response contains a content type header specifying a safe character set (e.g., UTF-8).",
+            "category": 1,
+            "description": "Verify that the logs are stored on a different partition than the application is running with proper log rotation.",
             "number": [
-                1,
-                2,
                 3
             ]
         },
@@ -1266,9 +1281,10 @@
     },
     {
         "fields": {
-            "category": 9,
-            "description": "Verify that HTTP headers in both requests and responses contain only printable ASCII characters.",
+            "category": 1,
+            "description": "Verify that all forms containing sensitive information have disabled client side caching, including autocomplete features.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -1278,11 +1294,9 @@
     },
     {
         "fields": {
-            "category": 9,
-            "description": "Verify that HTTP headers and / or other mechanisms for older browsers have been included to protect against clickjacking attacks.",
+            "category": 1,
+            "description": "Verify that the list of sensitive data processed by the application is identified, and that there is an explicit policy for how access to this data must be controlled, encrypted and enforced under relevant data protection directives.",
             "number": [
-                1,
-                2,
                 3
             ]
         },
@@ -1291,9 +1305,10 @@
     },
     {
         "fields": {
-            "category": 9,
-            "description": "Verify that HTTP headers added by a frontend (such as X-Real-IP), and used by the application, cannot be spoofed by the end user. ",
+            "category": 1,
+            "description": "Verify that all sensitive data is sent to the server in the HTTP message body or headers (i.e., URL parameters are never used to send sensitive data).",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -1303,9 +1318,10 @@
     },
     {
         "fields": {
-            "category": 9,
-            "description": "Verify that the HTTP header, X-Frame-Options is in use for sites where content should not be viewed in a 3rd-party X-Frame. A common middle ground is to send SAMEORIGIN, meaning only websites of the same origin may frame it. ",
+            "category": 1,
+            "description": "Verify that the application sets appropriate anti-caching headers as per the risk of the application, such as the following:\nExpires: Tue, 03 Jul 2001 06:00:00 GMT\nLast-Modified: {now} GMT\nCache-Control: no-store, no-cache, must-revalidate, max-age=0\nCache-Control: post-check=0, pre-check=0\nPragma: no-cache",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -1315,8 +1331,8 @@
     },
     {
         "fields": {
-            "category": 9,
-            "description": "Verify that the HTTP headers do not expose detailed version information of system components.",
+            "category": 1,
+            "description": "Verify that on the server, all cached or temporary copies of sensitive data stored are protected from unauthorized access or purged/invalidated after the authorized user accesses the sensitive data.",
             "number": [
                 2,
                 3
@@ -1327,8 +1343,8 @@
     },
     {
         "fields": {
-            "category": 10,
-            "description": "Verify that no malicious code is in any code that was either developed or modified in order to create the application.",
+            "category": 1,
+            "description": "Verify that there is a method to remove each type of sensitive data from the application at the end of the required retention policy.",
             "number": [
                 3
             ]
@@ -1338,9 +1354,10 @@
     },
     {
         "fields": {
-            "category": 10,
-            "description": "Verify that the integrity of interpreted code, libraries, executables, and configuration files is verified using checksums or hashes.",
+            "category": 1,
+            "description": "Verify the application minimizes the number of parameters in a request, such as hidden fields, Ajax variables, cookies and header values.",
             "number": [
+                2,
                 3
             ]
         },
@@ -1349,8 +1366,8 @@
     },
     {
         "fields": {
-            "category": 10,
-            "description": "Verify that all code implementing or using authentication controls is not affected by any malicious code.",
+            "category": 1,
+            "description": "Verify the application has the ability to detect and alert on abnormal numbers of requests for data harvesting for an example screen scraping.",
             "number": [
                 3
             ]
@@ -1360,9 +1377,11 @@
     },
     {
         "fields": {
-            "category": 10,
-            "description": "Verify that all code implementing or using session management controls is not affected by any malicious code.",
+            "category": 1,
+            "description": "Verify that data stored in client side storage - such as HTML5 local storage, session storage, IndexedDB, regular cookies or Flash cookies - does not contain sensitive or PII).",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -1371,9 +1390,10 @@
     },
     {
         "fields": {
-            "category": 10,
-            "description": "Verify that all code implementing or using access controls is not affected by any malicious code.",
+            "category": 1,
+            "description": "Verify accessing sensitive data is logged, if the data is collected under relevant data protection directives or where logging of accesses is required.",
             "number": [
+                2,
                 3
             ]
         },
@@ -1382,9 +1402,10 @@
     },
     {
         "fields": {
-            "category": 10,
-            "description": "Verify that all input validation controls are not affected by any malicious code.",
+            "category": 1,
+            "description": "Verify that sensitive data is rapidly sanitized from memory as soon as it is no longer needed and handled in accordance to functions and techniques supported by the framework/library/operating system.",
             "number": [
+                2,
                 3
             ]
         },
@@ -1393,9 +1414,11 @@
     },
     {
         "fields": {
-            "category": 10,
-            "description": "Verify that all code implementing or using output validation controls is not affected by any malicious code.",
+            "category": 1,
+            "description": "Verify that a path can be built from a trusted CA to each Transport Layer Security (TLS) server certificate, and that each server certificate is valid.",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -1404,9 +1427,11 @@
     },
     {
         "fields": {
-            "category": 10,
-            "description": "Verify that all code supporting or using a cryptographic module is not affected by any malicious code.",
+            "category": 1,
+            "description": "Verify that TLS is used for all connections (including both external and backend connections) that are authenticated or that involve sensitive data or functions, and does not fall back to insecure or unencrypted protocols. Ensure the strongest alternative is the preferred algorithm.",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -1415,8 +1440,8 @@
     },
     {
         "fields": {
-            "category": 10,
-            "description": "Verify that all code implementing or using error handling and logging controls is not affected by any malicious code.",
+            "category": 1,
+            "description": "Verify that backend TLS connection failures are logged.",
             "number": [
                 3
             ]
@@ -1426,8 +1451,8 @@
     },
     {
         "fields": {
-            "category": 10,
-            "description": "Verify all malicious activity is adequately sandboxed.",
+            "category": 1,
+            "description": "Verify that certificate paths are built and verified for all client certificates using configured trust anchors and revocation information.",
             "number": [
                 3
             ]
@@ -1437,9 +1462,10 @@
     },
     {
         "fields": {
-            "category": 10,
-            "description": "Verify that sensitive data is rapidly sanitized from memory as soon as it is no longer needed and handled in accordance to functions and techniques supported by the framework/library/operating system. ",
+            "category": 1,
+            "description": "Verify that all connections to external systems that involve sensitive information or functions are authenticated.",
             "number": [
+                2,
                 3
             ]
         },
@@ -1448,10 +1474,9 @@
     },
     {
         "fields": {
-            "category": 11,
-            "description": "Verify the application processes or verifies all high value business logic flows in a trusted environment, such as on a protected and monitored server.",
+            "category": 1,
+            "description": "Verify that there is a single standard TLS implementation that is used by the application that is configured to operate in an approved mode of operation.",
             "number": [
-                2,
                 3
             ]
         },
@@ -1460,10 +1485,9 @@
     },
     {
         "fields": {
-            "category": 11,
-            "description": "Verify the application does not allow spoofed high value transactions, such as allowing Attacker User A to process a transaction as Victim User B by tampering with or replaying session, transaction state, transaction or user IDs.",
+            "category": 1,
+            "description": "Verify that TLS certificate public key pinning is implemented with production and backup public keys. For more information, please see the references below.",
             "number": [
-                2,
                 3
             ]
         },
@@ -1472,9 +1496,10 @@
     },
     {
         "fields": {
-            "category": 11,
-            "description": "Verify the application does not allow high value business logic parameters to be tampered with, such as (but not limited to): price, interest, discounts, PII, balances, stock IDs, etc.",
+            "category": 1,
+            "description": "Verify that HTTP Strict Transport Security headers are included on all requests and for all subdomains, such as Strict-Transport-Security: max-age=15724800; includeSubdomains",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -1484,10 +1509,9 @@
     },
     {
         "fields": {
-            "category": 11,
-            "description": "Verify the application has defensive measures to protect against repudiation attacks, such as verifiable and protected transaction logs, audit trails or system logs, and in highest value systems real time monitoring of user activities and transactions for anomalies.",
+            "category": 1,
+            "description": "Verify that production website URL has been submitted to preloaded list of Strict Transport Security domains maintained by web browser vendors. Please see the references below.",
             "number": [
-                2,
                 3
             ]
         },
@@ -1496,9 +1520,10 @@
     },
     {
         "fields": {
-            "category": 11,
-            "description": "Verify the application protects against information disclosure attacks, such as direct object reference, tampering, session brute force or other attacks.",
+            "category": 1,
+            "description": "Ensure forward secrecy ciphers are in use to mitigate passive attackers recording traffic.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -1508,9 +1533,10 @@
     },
     {
         "fields": {
-            "category": 11,
-            "description": "Verify the application has sufficient detection and governor controls to protect against brute force (such as continuously using a particular function) or denial of service attacks.",
+            "category": 1,
+            "description": "Verify that proper certification revocation, such as Online Certificate Status Protocol (OSCP) Stapling, is enabled and configured.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -1520,9 +1546,10 @@
     },
     {
         "fields": {
-            "category": 11,
-            "description": "Verify the application has sufficient access controls to prevent elevation of privilege attacks, such as allowing anonymous users from accessing secured data or secured functions, or allowing users to access each other\u2019s details or using privileged functions.",
+            "category": 1,
+            "description": "Verify that only strong algorithms, ciphers, and protocols are used, through all the certificate hierarchy, including root and intermediary certificates of your selected certifying authority.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -1532,9 +1559,10 @@
     },
     {
         "fields": {
-            "category": 11,
-            "description": "Verify the application will only process business logic flows in sequential step order, with all steps being processed in realistic human time, and not process out of order, skipped steps, process steps from another user, or too quickly submitted transactions.",
+            "category": 1,
+            "description": "Verify that the TLS settings are in line with current leading practice, particularly as common configurations, ciphers, and algorithms become insecure.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -1544,9 +1572,10 @@
     },
     {
         "fields": {
-            "category": 11,
-            "description": "Verify the application has additional authorization (such as step up or adaptive authentication) for lower value systems, and / or segregation of duties for high value applications to enforce anti-fraud controls as per the risk of application and past fraud.",
+            "category": 1,
+            "description": "Verify that the application accepts only a defined set of required HTTP request methods, such as GET and POST are accepted, and unused methods (e.g. TRACE, PUT, and DELETE) are explicitly blocked.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -1556,9 +1585,10 @@
     },
     {
         "fields": {
-            "category": 11,
-            "description": "Verify the application has business limits and enforces them in a trusted location (as on a protected server) on a per user, per day or daily basis, with configurable alerting and automated reactions to automated or unusual attack. Examples include (but not limited to): ensuring new SIM users don\u2019t exceed $10 per day for a new phone account, a forum allowing more than 100 new users per day or preventing posts or private messages until the account has been verified, a health system should not allow a single doctor to access more patient records than they can reasonably treat in a day, or a small business finance system allowing more than 20 invoice payments or $1000 per day across all users. In all cases, the business limits and totals should be reasonable for the business concerned. The only unreasonable outcome is if there are no business limits, alerting or enforcement.",
+            "category": 1,
+            "description": "Verify that every HTTP response contains a content type header specifying a safe character set (e.g., UTF-8, ISO 8859-1).",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -1568,10 +1598,9 @@
     },
     {
         "fields": {
-            "category": 12,
-            "description": "Verify that URL redirects and forwards do not include unvalidated data.",
+            "category": 1,
+            "description": "Verify that HTTP headers added by a trusted proxy or SSO devices, such as a bearer token, are authenticated by the application.",
             "number": [
-                1,
                 2,
                 3
             ]
@@ -1581,10 +1610,9 @@
     },
     {
         "fields": {
-            "category": 12,
-            "description": "Verify that file names and path data obtained from untrusted sources is canonicalized to eliminate path traversal attacks.",
+            "category": 1,
+            "description": "Verify that the Content Security Policy V2 (CSP) is in use for sites where content should not be viewed in a 3rd-party X-Frame.",
             "number": [
-                1,
                 2,
                 3
             ]
@@ -1594,8 +1622,8 @@
     },
     {
         "fields": {
-            "category": 12,
-            "description": "Verify that files obtained from untrusted sources are scanned by antivirus scanners to prevent upload of known malicious content.",
+            "category": 1,
+            "description": "Verify that the HTTP headers or any part of the HTTP response do not expose detailed version information of system components.",
             "number": [
                 1,
                 2,
@@ -1607,8 +1635,8 @@
     },
     {
         "fields": {
-            "category": 12,
-            "description": "Verify that parameters obtained from untrusted sources are not used in manipulating filenames, pathnames or any file system object without first being canonicalized and input validated to prevent local file inclusion attacks.",
+            "category": 1,
+            "description": "Verify that all API responses contain X-Content-Type-Options: nosniff and Content-Disposition: attachment; filename=\"api.json\" (or other appropriate filename for the content type).",
             "number": [
                 1,
                 2,
@@ -1620,8 +1648,8 @@
     },
     {
         "fields": {
-            "category": 12,
-            "description": "Verify that parameters obtained from untrusted sources are canonicalized, input validated, and output encoded to prevent remote file inclusion attacks, particularly where input could be executed, such as header, source, or template inclusion",
+            "category": 1,
+            "description": "Verify that the Content Security Policy V2 (CSP) is in use in a way that either disables inline JavaScript or provides an integrity check on inline JavaScript with CSP noncing or hashing.",
             "number": [
                 1,
                 2,
@@ -1633,8 +1661,8 @@
     },
     {
         "fields": {
-            "category": 12,
-            "description": "Verify remote IFRAMEs and HTML5 cross-domain resource sharing does not allow inclusion of arbitrary remote content.",
+            "category": 1,
+            "description": "Verify that the X-XSS-Protection: 1; mode=block header is in place.",
             "number": [
                 1,
                 2,
@@ -1646,10 +1674,9 @@
     },
     {
         "fields": {
-            "category": 12,
-            "description": "Verify that files obtained from untrusted sources are stored outside the webroot.",
+            "category": 1,
+            "description": "Verify all malicious activity is adequately sandboxed, containerized or isolated to delay and deter attackers from attacking other applications.",
             "number": [
-                2,
                 3
             ]
         },
@@ -1658,10 +1685,9 @@
     },
     {
         "fields": {
-            "category": 12,
-            "description": "Verify that web or application server is configured by default to deny access to remote resources or systems outside the web or application server.",
+            "category": 1,
+            "description": "Verify that a code review looks for malicious code, back doors, Easter eggs, and logic flaws.",
             "number": [
-                2,
                 3
             ]
         },
@@ -1670,8 +1696,8 @@
     },
     {
         "fields": {
-            "category": 12,
-            "description": "Verify the application code does not execute uploaded data obtained from untrusted sources.",
+            "category": 1,
+            "description": "Verify the application will only process business logic flows in sequential step order, with all steps being processed in realistic human time, and not process out of order, skipped steps, process steps from another user, or too quickly submitted transactions.",
             "number": [
                 2,
                 3
@@ -1682,8 +1708,8 @@
     },
     {
         "fields": {
-            "category": 12,
-            "description": "Verify if Flash, Silverlight or other rich internet application (RIA) cross domain resource sharing configuration is configured to prevent unauthenticated or unauthorized remote access.",
+            "category": 1,
+            "description": "Verify the application has business limits and correctly enforces on a per user basis, with configurable alerting and automated reactions to automated or unusual attack.",
             "number": [
                 2,
                 3
@@ -1694,8 +1720,8 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify that the client validates SSL certificates",
+            "category": 1,
+            "description": "Verify that URL redirects and forwards only allow whitelisted destinations, or show a warning when redirecting to potentially untrusted content.",
             "number": [
                 1,
                 2,
@@ -1707,8 +1733,8 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify that unique device ID (UDID) values are not used as security controls.",
+            "category": 1,
+            "description": "Verify that untrusted file data submitted to the application is not used directly with file I/O commands, particularly to protect against path traversal, local file include, file mime type, and OS command injection vulnerabilities.",
             "number": [
                 1,
                 2,
@@ -1720,8 +1746,8 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify that the mobile app does not store sensitive data onto shared resources on the device (e.g. SD card or shared folders)",
+            "category": 1,
+            "description": "Verify that files obtained from untrusted sources are validated to be of expected type and scanned by antivirus scanners to prevent upload of known malicious content.",
             "number": [
                 1,
                 2,
@@ -1733,8 +1759,8 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify that sensitive data is not stored in SQLite database on the device.",
+            "category": 1,
+            "description": "Verify that untrusted data is not used within inclusion, class loader, or reflection capabilities to prevent remote/local file inclusion vulnerabilities.",
             "number": [
                 1,
                 2,
@@ -1746,9 +1772,10 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify that secret keys or passwords are not hard-coded in the executable.",
+            "category": 1,
+            "description": "Verify that untrusted data is not used within cross-domain resource sharing (CORS) to protect against arbitrary remote content.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -1758,8 +1785,8 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify that the mobile app prevents leaking of sensitive data via auto-snapshot feature of iOS.",
+            "category": 1,
+            "description": "Verify that files obtained from untrusted sources are stored outside the webroot, with limited permissions, preferably with strong validation.",
             "number": [
                 2,
                 3
@@ -1770,8 +1797,8 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify that the app cannot be run on a jailbroken or rooted device.",
+            "category": 1,
+            "description": "Verify that the web or application server is configured by default to deny access to remote resources or systems outside the web or application server.",
             "number": [
                 2,
                 3
@@ -1782,9 +1809,10 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify that the session timeout is of a reasonable value.",
+            "category": 1,
+            "description": "Verify the application code does not execute uploaded data obtained from untrusted sources.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -1794,9 +1822,10 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify the permissions being requested as well as the resources that it is authorized to access (i.e. AndroidManifest.xml, iOS Entitlements) .",
+            "category": 1,
+            "description": "Do not use Flash, Active-X, Silverlight, NACL, client-side Java or other client side technologies not supported natively via W3C browser standards.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -1806,9 +1835,10 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify that crash logs do not contain sensitive data.",
+            "category": 1,
+            "description": "Verify that ID values stored on the device and retrievable by other applications, such as the UDID or IMEI number are not used as authentication tokens.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -1818,9 +1848,11 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify that the application binary has been obfuscated.",
+            "category": 1,
+            "description": "Verify that the mobile app does not store sensitive data onto potentially unencrypted shared resources on the device (e.g. SD card or shared folders).",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -1829,9 +1861,10 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify that all test data has been removed from the app container (.ipa, .apk, .bar).",
+            "category": 1,
+            "description": "Verify that sensitive data is not stored unprotected on the device, even in system protected areas such as key chains.",
             "number": [
+                1,
                 2,
                 3
             ]
@@ -1841,8 +1874,8 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify that the application does not log sensitive data to the system log or filesystem.",
+            "category": 1,
+            "description": "Verify that secret keys, API tokens, or passwords are dynamically generated in mobile applications.",
             "number": [
                 2,
                 3
@@ -1853,8 +1886,8 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify that the application does not enable autocomplete for sensitive text input fields, such as passwords, personal information or credit cards.",
+            "category": 1,
+            "description": "Verify that the mobile app prevents leaking of sensitive information (for example, screenshots are saved of the current application as the application is backgrounded or writing sensitive information in console) .",
             "number": [
                 2,
                 3
@@ -1865,9 +1898,10 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify that the mobile app implements certificate pinning to prevent the proxying of app traffic.",
+            "category": 1,
+            "description": "Verify that the application is requesting minimal permissions for required functionality and resources.",
             "number": [
+                2,
                 3
             ]
         },
@@ -1876,9 +1910,11 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify no misconfigurations are present in the configuration files (Debugging flags set, world readable/writable permissions) and that, by default, configuration settings are set to their safest/most secure\nVerify no misconfigurations are present in the configuration files (Debugging flags set, world readable/writable permissions) and that, by default, configuration settings are set to their safest/most secure\nvalue.\n\n",
+            "category": 1,
+            "description": "Verify that the application sensitive code is laid out unpredictably in memory (For example ASLR).",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -1887,8 +1923,8 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify any 3rd-party libraries in use are up to date, contain no known vulnerabilities.",
+            "category": 1,
+            "description": "Verify that there are anti-debugging techniques present that are sufficient enough to deter or delay likely attackers from injecting debuggers into the mobile app (For example GDB).",
             "number": [
                 3
             ]
@@ -1898,9 +1934,11 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify that web data, such as HTTPS traffic, is not cached.",
+            "category": 1,
+            "description": "Verify that the app does not export sensitive activities, intents, content providers etc., for other mobile apps on the same device to exploit.",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -1909,8 +1947,8 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify that the query string is not used for sensitive data. Instead, a POST request via SSL should be used with a CSRF token.",
+            "category": 1,
+            "description": "Verify that mutable structures have been used for sensitive strings such as account numbers and are overwritten when not used. (Mitigate damage from memory analysis attacks).",
             "number": [
                 3
             ]
@@ -1920,9 +1958,11 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify that, if applicable, any personal account numbers are truncated prior to storing on the device.",
+            "category": 1,
+            "description": "Verify that the app\u2019s exposed activities, intents, content providers etc. validate all inputs.",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -1931,9 +1971,11 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify that the application makes use of Address Space Layout Randomization (ASLR).",
+            "category": 1,
+            "description": "Verify that the same encoding style is used between the client and the server.",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -1942,9 +1984,11 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify that data logged via the keyboard (iOS) does not contain credentials, financial information or other sensitive data.",
+            "category": 1,
+            "description": "Verify that access to administration and management functions within the Web Service Application is limited to web service administrators.",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -1953,9 +1997,11 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "If an Android app, verify that the app does not create files with permissions of MODE_WORLD_READABLE or MODE_WORLD_WRITABLE",
+            "category": 1,
+            "description": "Verify that XML or JSON schema is in place and verified before accepting input.",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -1964,9 +2010,11 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify that sensitive data is stored in a cryptographically secure manner (even when stored in the iOS keychain).",
+            "category": 1,
+            "description": "Verify that all input is limited to an appropriate size limit.",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -1975,9 +2023,11 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify that anti-debugging and reverse engineering mechanisms are implemented in the app.",
+            "category": 1,
+            "description": "Verify that SOAP based web services are compliant with Web Services-Interoperability (WS-I) Basic Profile at minimum.",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -1986,9 +2036,11 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify that the app does not export sensitive activities, intents, content providers etc. on Android.",
+            "category": 1,
+            "description": "Verify the use of session-based authentication and authorization. Please refer to sections 2, 3 and 4 for further guidance. Avoid the use of static \"API keys\" and similar.",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -1997,9 +2049,11 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify that mutable structures have been used for sensitive strings such as account numbers and are overwritten when not used. (Mitigate damage from memory analysis attacks).",
+            "category": 1,
+            "description": "Verify that the REST service is protected from Cross-Site Request Forgery.",
             "number": [
+                1,
+                2,
                 3
             ]
         },
@@ -2008,13 +2062,143 @@
     },
     {
         "fields": {
-            "category": 13,
-            "description": "Verify that any exposed intents, content providers and broadcast receivers perform full data validation on input (Android).",
+            "category": 1,
+            "description": "Verify the REST service explicitly check the incoming Content-Type to be the expected one, such as application/xml or application/json.",
             "number": [
+                2,
                 3
             ]
         },
         "model": "levels.requirement",
         "pk": 168
+    },
+    {
+        "fields": {
+            "category": 1,
+            "description": "Verify that the message payload is signed to ensure reliable transport between client and service.",
+            "number": [
+                2,
+                3
+            ]
+        },
+        "model": "levels.requirement",
+        "pk": 169
+    },
+    {
+        "fields": {
+            "category": 1,
+            "description": "Verify that alternative and less secure access paths do not exist.",
+            "number": [
+                2,
+                3
+            ]
+        },
+        "model": "levels.requirement",
+        "pk": 170
+    },
+    {
+        "fields": {
+            "category": 1,
+            "description": "All components should be up to date with proper security configuration(s) and version(s). This should include removal of unneeded configurations and folders such as sample applications, platform documentation, and default or example users.",
+            "number": [
+                1,
+                2,
+                3
+            ]
+        },
+        "model": "levels.requirement",
+        "pk": 171
+    },
+    {
+        "fields": {
+            "category": 1,
+            "description": "Communications between components, such as between the application server and the database server, should be encrypted, particularly when the components are in different containers or on different systems.",
+            "number": [
+                2,
+                3
+            ]
+        },
+        "model": "levels.requirement",
+        "pk": 172
+    },
+    {
+        "fields": {
+            "category": 1,
+            "description": "Communications between components, such as between the application server and the database server should be authenticated using an account with the least necessary privileges.",
+            "number": [
+                2,
+                3
+            ]
+        },
+        "model": "levels.requirement",
+        "pk": 173
+    },
+    {
+        "fields": {
+            "category": 1,
+            "description": "Verify application deployments are adequately sandboxed, containerized or isolated to delay and deter attackers from attacking other applications.",
+            "number": [
+                2,
+                3
+            ]
+        },
+        "model": "levels.requirement",
+        "pk": 174
+    },
+    {
+        "fields": {
+            "category": 1,
+            "description": "Verify that the application build and deployment processes are performed in a secure fashion.",
+            "number": [
+                2,
+                3
+            ]
+        },
+        "model": "levels.requirement",
+        "pk": 175
+    },
+    {
+        "fields": {
+            "category": 1,
+            "description": "Verify that authorised administrators have the capability to verify the integrity of all security-relevant configurations to ensure that they have not been tampered with.",
+            "number": [
+                3
+            ]
+        },
+        "model": "levels.requirement",
+        "pk": 176
+    },
+    {
+        "fields": {
+            "category": 1,
+            "description": "Verify that all application components are signed.",
+            "number": [
+                3
+            ]
+        },
+        "model": "levels.requirement",
+        "pk": 177
+    },
+    {
+        "fields": {
+            "category": 1,
+            "description": "Verify that third party components come from trusted repositories.",
+            "number": [
+                3
+            ]
+        },
+        "model": "levels.requirement",
+        "pk": 178
+    },
+    {
+        "fields": {
+            "category": 1,
+            "description": "Ensure that build processes for system level languages have all security flags enabled, such as ASLR, DEP, and security checks.",
+            "number": [
+                3
+            ]
+        },
+        "model": "levels.requirement",
+        "pk": 179
     }
 ]
