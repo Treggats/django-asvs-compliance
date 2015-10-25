@@ -3,6 +3,7 @@
 
 import os
 from pathlib import Path
+from codecs import open
 import csv
 import json
 
