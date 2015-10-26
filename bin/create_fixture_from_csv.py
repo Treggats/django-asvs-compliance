@@ -4,6 +4,7 @@
 import os
 from pathlib import Path
 from codecs import open
+from unicodedata import name as uni_name
 import csv
 import json
 
@@ -43,10 +44,10 @@ class FixtureCreator(object):
     def _replace_char(self, variable, char=None, new_char=None):
         """Replace unicode character with something else"""
         if char is None:
-            char = 10003
+            char = u'\u2713'
         if new_char is None:
             new_char = "Y"
-        if ord(variable) == char:
+        if uni_name(variable) == uni_name(char):
             return new_char
         return variable
 
