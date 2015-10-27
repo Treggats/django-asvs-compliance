@@ -101,14 +101,14 @@ class FixtureCreator(object):
         levels.append(
                       dict(
                            fields=dict(
-                                       number=1,
+                                       number=2,
                                        name="Standard"),
                            model="levels.levelnumber",
                            pk=2))
         levels.append(
                       dict(
                            fields=dict(
-                                       number=1,
+                                       number=3,
                                        name="Advanced"),
                            model="levels.levelnumber",
                            pk=3))
