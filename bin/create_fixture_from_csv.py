@@ -122,8 +122,8 @@ class FixtureCreator(object):
                            category=int(req["chapterNr"]),
                            description=req["title"]["en"],
                            number=req["levels"]),
-            model="levels.requirement",
-            pk=pk + 1))
+                model="levels.requirement",
+                pk=pk + 1))
 
         return json.dumps(fixture,
                           sort_keys=True,
