@@ -41,11 +41,19 @@
     },
     {
         "fields": {
+            "name": "Output encoding / escaping - This section was incorporated into V5 in Application Security Verification Standard 2.0. ASVS requirement 5.16 addresses contextual output encoding to help prevent Cross Site Scripting.",
+            "version": "V6"
+        },
+        "model": "levels.category",
+        "pk": 6
+    },
+    {
+        "fields": {
             "name": "Cryptography at rest verification requirements",
             "version": "V7"
         },
         "model": "levels.category",
-        "pk": 6
+        "pk": 7
     },
     {
         "fields": {
@@ -53,7 +61,7 @@
             "version": "V8"
         },
         "model": "levels.category",
-        "pk": 7
+        "pk": 8
     },
     {
         "fields": {
@@ -61,7 +69,7 @@
             "version": "V9"
         },
         "model": "levels.category",
-        "pk": 8
+        "pk": 9
     },
     {
         "fields": {
@@ -69,7 +77,7 @@
             "version": "V10"
         },
         "model": "levels.category",
-        "pk": 9
+        "pk": 10
     },
     {
         "fields": {
@@ -77,7 +85,15 @@
             "version": "V11"
         },
         "model": "levels.category",
-        "pk": 10
+        "pk": 11
+    },
+    {
+        "fields": {
+            "name": "Security configuration verification requirements - This section was incorporated into V11 in Application Security Verification Standard 2.0. ",
+            "version": "V12"
+        },
+        "model": "levels.category",
+        "pk": 12
     },
     {
         "fields": {
@@ -85,7 +101,15 @@
             "version": "V13"
         },
         "model": "levels.category",
-        "pk": 11
+        "pk": 13
+    },
+    {
+        "fields": {
+            "name": "Internal security verification requirements - This section was incorporated into V13 in Application Security Verification Standard 2.0. ",
+            "version": "V14"
+        },
+        "model": "levels.category",
+        "pk": 14
     },
     {
         "fields": {
@@ -93,7 +117,7 @@
             "version": "V15"
         },
         "model": "levels.category",
-        "pk": 12
+        "pk": 15
     },
     {
         "fields": {
@@ -101,7 +125,7 @@
             "version": "V16"
         },
         "model": "levels.category",
-        "pk": 13
+        "pk": 16
     },
     {
         "fields": {
@@ -109,7 +133,7 @@
             "version": "V17"
         },
         "model": "levels.category",
-        "pk": 14
+        "pk": 17
     },
     {
         "fields": {
@@ -117,7 +141,7 @@
             "version": "V18"
         },
         "model": "levels.category",
-        "pk": 15
+        "pk": 18
     },
     {
         "fields": {
@@ -125,6 +149,6 @@
             "version": "V19"
         },
         "model": "levels.category",
-        "pk": 16
+        "pk": 19
     }
 ]
