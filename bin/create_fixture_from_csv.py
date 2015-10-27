@@ -19,23 +19,17 @@ class FixtureCreator(object):
 
     def __init__(self, csv_file):
         self.DEBUG = False
-        self.csv_file = open(csv_file, encoding='utf-8')
-        self.csv = csv.reader(self.csv_file,
-                              delimiter=',',
-                              quotechar='"')
-        self.categories = []
+        self.categories = {}
         self.requirements = []
         self.rows = []
-        """Skip the first line of the csv
-        those are field markers.
-        TODO: there must be a better way to do this.
-        """
-        self.reader = iter(self.csv)
-        next(self.reader)
+        self.levels = []
+        self.csv_file = open(csv_file, encoding='utf-8')
 
+        self.reader = csv.DictReader(self.csv_file, skipinitialspace=True)
         self.csv_to_rows()
         self.create_categories()
         self.create_requirements()
+        self.create_levels()
 
     def __del__(self):
         """Close the csv file"""
@@ -55,103 +49,83 @@ class FixtureCreator(object):
         """Put the contents of the csv in rows"""
         for row in self.reader:
             """Replace unicode character"""
-            if row[2]:
-                row[2] = self._replace_char(row[2])
-            if row[3]:
-                row[3] = self._replace_char(row[3])
-            if row[4]:
-                row[4] = self._replace_char(row[4])
+            if row.get("Level 1"):
+                row["Level 1"] = self._replace_char(row.get("Level 1"))
+            if row.get("Level 2"):
+                row["Level 2"] = self._replace_char(row.get("Level 2"))
+            if row.get("Level 3"):
+                row["Level 3"] = self._replace_char(row.get("Level 3"))
             self.rows.append(row)
+
+    def create_levels(self):
+        self.levels.append(dict(en="Oppertunistic"))
+        self.levels.append(dict(en="Standard"))
+        self.levels.append(dict(en="Advanced"))
 
     def create_categories(self):
         for row in self.rows:
-            if row[0].startswith("V") and "section" not in row[1]:
-                self.categories.append(dict(
-                                       version=row[0],
-                                       description=row[1]))
-        if self.DEBUG:
-            return json.dumps(self.categories, sort_keys=True, indent=4)
-
-    def _get_category_pk(self, version):
-        for k, x in enumerate(self.categories):
-            if x.get("version") == "V1":
-                return k+1
+            item = dict(en=row["Detailed Verification Requirement"])
+            if row["ID"].startswith("V") and "section" not in item:
+                index = int(row["ID"][1:])
+                self.categories[index] = item
 
     def create_requirements(self):
         for row in self.rows:
-            if not row[0].startswith("V"):
+            if not row["ID"].startswith("V"):
+                chapterNr = row["ID"].split(".")[0]
+                nr = row["ID"].split(".")[1]
+                levels = []
+                if row.get("Level 1") == "Y":
+                    levels.append(1)
+                if row.get("Level 2") == "Y":
+                    levels.append(2)
+                if row.get("Level 3") == "Y":
+                    levels.append(3)
+                title_dict = dict(en=row["Detailed Verification Requirement"])
                 self.requirements.append(dict(
-                                         id=row[0],
-                                         description=row[1],
-                                         level_1=row[2],
-                                         level_2=row[3],
-                                         level_3=row[4]))
-        if self.DEBUG:
-            return json.dumps(self.requirements, sort_keys=True, indent=4)
+                                         chapterNr=chapterNr,
+                                         nr=nr,
+                                         levels=levels,
+                                         title=title_dict))
 
     def generate_level_fixture(self):
-        levels = []
-        levels.append(
-                      dict(
-                           fields=dict(
-                                       number=1,
-                                       name="Oppertunistic"),
+        fixture = []
+        for key, lvl in enumerate(self.levels):
+            fixture.append(dict(
+                           fields=dict(number=key + 1,
+                                       name=lvl["en"]),
                            model="levels.levelnumber",
-                           pk=1))
-        levels.append(
-                      dict(
-                           fields=dict(
-                                       number=2,
-                                       name="Standard"),
-                           model="levels.levelnumber",
-                           pk=2))
-        levels.append(
-                      dict(
-                           fields=dict(
-                                       number=3,
-                                       name="Advanced"),
-                           model="levels.levelnumber",
-                           pk=3))
-        return json.dumps(levels,
+                           pk=key + 1))
+        return json.dumps(fixture,
                           sort_keys=True,
                           indent=4,
                           separators=(',', ': '))
 
     def generate_category_fixture(self):
-        output = []
-        for pk, item in enumerate(self.categories):
-            output.append(
-                          dict(
-                               fields=dict(
-                                           version=item.get("version"),
-                                           name=item.get("description")),
-                               model="levels.category",
-                               pk=pk+1))
-        return json.dumps(output,
+        fixture = []
+        for key in self.categories:
+            item = self.categories[key]
+            fixture.append(dict(fields=dict(version="V{}".format(key),
+                           name=item["en"]),
+                model="levels.category",
+                pk=key))
+
+        return json.dumps(fixture,
                           sort_keys=True,
                           indent=4,
                           separators=(',', ': '))
 
     def generate_requirement_fixture(self):
-        output = []
-        for pk, item in enumerate(self.requirements):
-            levels = []
-            id = "V{}".format(item["id"].split('.')[0])
-            if item["level_1"] == "Y":
-                levels.append(1)
-            if item["level_2"] == "Y":
-                levels.append(2)
-            if item["level_3"] == "Y":
-                levels.append(3)
-            output.append(
-                          dict(
-                               fields=dict(
-                                           category=self._get_category_pk(id),
-                                           description=item["description"],
-                                           number=levels),
-                               model="levels.requirement",
-                               pk=pk + 1))
-        return json.dumps(output,
+        fixture = []
+        for pk, req in enumerate(self.requirements):
+            fixture.append(dict(fields=dict(
+                           category=int(req["chapterNr"]),
+                           description=req["title"]["en"],
+                           number=req["levels"]),
+            model="levels.requirement",
+            pk=pk + 1))
+
+        return json.dumps(fixture,
                           sort_keys=True,
                           indent=4,
                           separators=(',', ': '))
