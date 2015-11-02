@@ -38,8 +38,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('description', models.TextField()),
-                ('category', models.ForeignKey(to='levels.Category')),
-                ('number', models.ManyToManyField(to='levels.LevelNumber')),
+                ('category', models.ForeignKey(to='level.Category')),
+                ('number', models.ManyToManyField(to='level.LevelNumber')),
             ],
             options={
                 'verbose_name': 'requirement',

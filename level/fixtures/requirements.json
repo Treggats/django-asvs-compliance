@@ -9,7 +9,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 1
     },
     {
@@ -21,7 +21,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 2
     },
     {
@@ -33,7 +33,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 3
     },
     {
@@ -44,7 +44,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 4
     },
     {
@@ -55,7 +55,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 5
     },
     {
@@ -66,7 +66,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 6
     },
     {
@@ -77,7 +77,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 7
     },
     {
@@ -89,7 +89,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 8
     },
     {
@@ -101,7 +101,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 9
     },
     {
@@ -113,7 +113,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 10
     },
     {
@@ -126,7 +126,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 11
     },
     {
@@ -139,7 +139,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 12
     },
     {
@@ -152,7 +152,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 13
     },
     {
@@ -165,7 +165,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 14
     },
     {
@@ -178,7 +178,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 15
     },
     {
@@ -191,7 +191,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 16
     },
     {
@@ -204,7 +204,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 17
     },
     {
@@ -216,7 +216,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 18
     },
     {
@@ -228,7 +228,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 19
     },
     {
@@ -241,7 +241,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 20
     },
     {
@@ -254,7 +254,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 21
     },
     {
@@ -267,7 +267,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 22
     },
     {
@@ -280,7 +280,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 23
     },
     {
@@ -293,7 +293,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 24
     },
     {
@@ -305,7 +305,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 25
     },
     {
@@ -318,7 +318,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 26
     },
     {
@@ -330,7 +330,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 27
     },
     {
@@ -343,7 +343,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 28
     },
     {
@@ -355,7 +355,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 29
     },
     {
@@ -367,7 +367,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 30
     },
     {
@@ -380,7 +380,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 31
     },
     {
@@ -391,7 +391,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 32
     },
     {
@@ -402,7 +402,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 33
     },
     {
@@ -415,7 +415,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 34
     },
     {
@@ -427,7 +427,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 35
     },
     {
@@ -440,7 +440,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 36
     },
     {
@@ -453,7 +453,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 37
     },
     {
@@ -466,7 +466,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 38
     },
     {
@@ -479,7 +479,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 39
     },
     {
@@ -490,7 +490,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 40
     },
     {
@@ -503,7 +503,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 41
     },
     {
@@ -516,7 +516,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 42
     },
     {
@@ -529,7 +529,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 43
     },
     {
@@ -541,7 +541,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 44
     },
     {
@@ -554,7 +554,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 45
     },
     {
@@ -567,7 +567,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 46
     },
     {
@@ -580,7 +580,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 47
     },
     {
@@ -593,7 +593,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 48
     },
     {
@@ -606,7 +606,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 49
     },
     {
@@ -619,7 +619,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 50
     },
     {
@@ -632,7 +632,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 51
     },
     {
@@ -645,7 +645,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 52
     },
     {
@@ -658,7 +658,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 53
     },
     {
@@ -671,7 +671,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 54
     },
     {
@@ -683,7 +683,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 55
     },
     {
@@ -694,7 +694,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 56
     },
     {
@@ -706,7 +706,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 57
     },
     {
@@ -719,7 +719,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 58
     },
     {
@@ -731,7 +731,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 59
     },
     {
@@ -743,7 +743,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 60
     },
     {
@@ -756,7 +756,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 61
     },
     {
@@ -769,7 +769,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 62
     },
     {
@@ -782,7 +782,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 63
     },
     {
@@ -795,7 +795,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 64
     },
     {
@@ -806,7 +806,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 65
     },
     {
@@ -819,7 +819,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 66
     },
     {
@@ -832,7 +832,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 67
     },
     {
@@ -845,7 +845,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 68
     },
     {
@@ -858,7 +858,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 69
     },
     {
@@ -871,7 +871,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 70
     },
     {
@@ -884,7 +884,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 71
     },
     {
@@ -896,7 +896,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 72
     },
     {
@@ -908,7 +908,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 73
     },
     {
@@ -920,7 +920,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 74
     },
     {
@@ -932,7 +932,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 75
     },
     {
@@ -944,7 +944,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 76
     },
     {
@@ -956,7 +956,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 77
     },
     {
@@ -969,7 +969,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 78
     },
     {
@@ -981,7 +981,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 79
     },
     {
@@ -993,7 +993,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 80
     },
     {
@@ -1005,7 +1005,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 81
     },
     {
@@ -1017,7 +1017,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 82
     },
     {
@@ -1030,7 +1030,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 83
     },
     {
@@ -1042,7 +1042,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 84
     },
     {
@@ -1055,7 +1055,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 85
     },
     {
@@ -1066,7 +1066,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 86
     },
     {
@@ -1078,7 +1078,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 87
     },
     {
@@ -1089,7 +1089,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 88
     },
     {
@@ -1101,7 +1101,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 89
     },
     {
@@ -1113,7 +1113,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 90
     },
     {
@@ -1125,7 +1125,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 91
     },
     {
@@ -1136,7 +1136,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 92
     },
     {
@@ -1149,7 +1149,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 93
     },
     {
@@ -1161,7 +1161,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 94
     },
     {
@@ -1173,7 +1173,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 95
     },
     {
@@ -1185,7 +1185,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 96
     },
     {
@@ -1196,7 +1196,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 97
     },
     {
@@ -1208,7 +1208,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 98
     },
     {
@@ -1220,7 +1220,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 99
     },
     {
@@ -1231,7 +1231,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 100
     },
     {
@@ -1242,7 +1242,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 101
     },
     {
@@ -1254,7 +1254,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 102
     },
     {
@@ -1265,7 +1265,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 103
     },
     {
@@ -1276,7 +1276,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 104
     },
     {
@@ -1289,7 +1289,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 105
     },
     {
@@ -1300,7 +1300,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 106
     },
     {
@@ -1313,7 +1313,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 107
     },
     {
@@ -1326,7 +1326,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 108
     },
     {
@@ -1338,7 +1338,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 109
     },
     {
@@ -1349,7 +1349,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 110
     },
     {
@@ -1361,7 +1361,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 111
     },
     {
@@ -1372,7 +1372,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 112
     },
     {
@@ -1385,7 +1385,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 113
     },
     {
@@ -1397,7 +1397,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 114
     },
     {
@@ -1409,7 +1409,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 115
     },
     {
@@ -1422,7 +1422,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 116
     },
     {
@@ -1435,7 +1435,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 117
     },
     {
@@ -1446,7 +1446,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 118
     },
     {
@@ -1457,7 +1457,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 119
     },
     {
@@ -1469,7 +1469,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 120
     },
     {
@@ -1480,7 +1480,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 121
     },
     {
@@ -1491,7 +1491,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 122
     },
     {
@@ -1504,7 +1504,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 123
     },
     {
@@ -1515,7 +1515,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 124
     },
     {
@@ -1528,7 +1528,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 125
     },
     {
@@ -1541,7 +1541,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 126
     },
     {
@@ -1554,7 +1554,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 127
     },
     {
@@ -1567,7 +1567,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 128
     },
     {
@@ -1580,7 +1580,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 129
     },
     {
@@ -1593,7 +1593,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 130
     },
     {
@@ -1605,7 +1605,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 131
     },
     {
@@ -1617,7 +1617,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 132
     },
     {
@@ -1630,7 +1630,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 133
     },
     {
@@ -1643,7 +1643,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 134
     },
     {
@@ -1656,7 +1656,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 135
     },
     {
@@ -1669,7 +1669,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 136
     },
     {
@@ -1680,7 +1680,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 137
     },
     {
@@ -1691,7 +1691,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 138
     },
     {
@@ -1703,7 +1703,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 139
     },
     {
@@ -1715,7 +1715,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 140
     },
     {
@@ -1728,7 +1728,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 141
     },
     {
@@ -1741,7 +1741,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 142
     },
     {
@@ -1754,7 +1754,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 143
     },
     {
@@ -1767,7 +1767,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 144
     },
     {
@@ -1780,7 +1780,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 145
     },
     {
@@ -1792,7 +1792,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 146
     },
     {
@@ -1804,7 +1804,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 147
     },
     {
@@ -1817,7 +1817,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 148
     },
     {
@@ -1830,7 +1830,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 149
     },
     {
@@ -1843,7 +1843,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 150
     },
     {
@@ -1856,7 +1856,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 151
     },
     {
@@ -1869,7 +1869,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 152
     },
     {
@@ -1881,7 +1881,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 153
     },
     {
@@ -1893,7 +1893,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 154
     },
     {
@@ -1905,7 +1905,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 155
     },
     {
@@ -1918,7 +1918,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 156
     },
     {
@@ -1929,7 +1929,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 157
     },
     {
@@ -1942,7 +1942,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 158
     },
     {
@@ -1953,7 +1953,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 159
     },
     {
@@ -1966,7 +1966,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 160
     },
     {
@@ -1979,7 +1979,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 161
     },
     {
@@ -1992,7 +1992,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 162
     },
     {
@@ -2005,7 +2005,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 163
     },
     {
@@ -2018,7 +2018,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 164
     },
     {
@@ -2031,7 +2031,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 165
     },
     {
@@ -2044,7 +2044,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 166
     },
     {
@@ -2057,7 +2057,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 167
     },
     {
@@ -2069,7 +2069,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 168
     },
     {
@@ -2081,7 +2081,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 169
     },
     {
@@ -2093,7 +2093,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 170
     },
     {
@@ -2106,7 +2106,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 171
     },
     {
@@ -2118,7 +2118,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 172
     },
     {
@@ -2130,7 +2130,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 173
     },
     {
@@ -2142,7 +2142,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 174
     },
     {
@@ -2154,7 +2154,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 175
     },
     {
@@ -2165,7 +2165,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 176
     },
     {
@@ -2176,7 +2176,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 177
     },
     {
@@ -2187,7 +2187,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 178
     },
     {
@@ -2198,7 +2198,7 @@
                 3
             ]
         },
-        "model": "levels.requirement",
+        "model": "level.requirement",
         "pk": 179
     }
 ]

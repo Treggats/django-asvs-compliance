@@ -4,7 +4,7 @@
             "name": "Architecture, design and threat modelling",
             "version": "V1"
         },
-        "model": "levels.category",
+        "model": "level.category",
         "pk": 1
     },
     {
@@ -12,7 +12,7 @@
             "name": "Authentication verification requirements",
             "version": "V2"
         },
-        "model": "levels.category",
+        "model": "level.category",
         "pk": 2
     },
     {
@@ -20,7 +20,7 @@
             "name": "Session management verification requirements",
             "version": "V3"
         },
-        "model": "levels.category",
+        "model": "level.category",
         "pk": 3
     },
     {
@@ -28,7 +28,7 @@
             "name": "Access control verification requirements",
             "version": "V4"
         },
-        "model": "levels.category",
+        "model": "level.category",
         "pk": 4
     },
     {
@@ -36,7 +36,7 @@
             "name": "Malicious input handling verification requirements",
             "version": "V5"
         },
-        "model": "levels.category",
+        "model": "level.category",
         "pk": 5
     },
     {
@@ -44,7 +44,7 @@
             "name": "Output encoding / escaping - This section was incorporated into V5 in Application Security Verification Standard 2.0. ASVS requirement 5.16 addresses contextual output encoding to help prevent Cross Site Scripting.",
             "version": "V6"
         },
-        "model": "levels.category",
+        "model": "level.category",
         "pk": 6
     },
     {
@@ -52,7 +52,7 @@
             "name": "Cryptography at rest verification requirements",
             "version": "V7"
         },
-        "model": "levels.category",
+        "model": "level.category",
         "pk": 7
     },
     {
@@ -60,7 +60,7 @@
             "name": "Error handling and logging verification requirements",
             "version": "V8"
         },
-        "model": "levels.category",
+        "model": "level.category",
         "pk": 8
     },
     {
@@ -68,7 +68,7 @@
             "name": "Data protection verification requirements",
             "version": "V9"
         },
-        "model": "levels.category",
+        "model": "level.category",
         "pk": 9
     },
     {
@@ -76,7 +76,7 @@
             "name": "Communications security verification requirements",
             "version": "V10"
         },
-        "model": "levels.category",
+        "model": "level.category",
         "pk": 10
     },
     {
@@ -84,7 +84,7 @@
             "name": "HTTP security configuration verification requirements",
             "version": "V11"
         },
-        "model": "levels.category",
+        "model": "level.category",
         "pk": 11
     },
     {
@@ -92,7 +92,7 @@
             "name": "Security configuration verification requirements - This section was incorporated into V11 in Application Security Verification Standard 2.0. ",
             "version": "V12"
         },
-        "model": "levels.category",
+        "model": "level.category",
         "pk": 12
     },
     {
@@ -100,7 +100,7 @@
             "name": "Malicious controls verification requirements",
             "version": "V13"
         },
-        "model": "levels.category",
+        "model": "level.category",
         "pk": 13
     },
     {
@@ -108,7 +108,7 @@
             "name": "Internal security verification requirements - This section was incorporated into V13 in Application Security Verification Standard 2.0. ",
             "version": "V14"
         },
-        "model": "levels.category",
+        "model": "level.category",
         "pk": 14
     },
     {
@@ -116,7 +116,7 @@
             "name": "Business logic verification requirements",
             "version": "V15"
         },
-        "model": "levels.category",
+        "model": "level.category",
         "pk": 15
     },
     {
@@ -124,7 +124,7 @@
             "name": "Files and resources verification requirements",
             "version": "V16"
         },
-        "model": "levels.category",
+        "model": "level.category",
         "pk": 16
     },
     {
@@ -132,7 +132,7 @@
             "name": "Mobile verification requirements",
             "version": "V17"
         },
-        "model": "levels.category",
+        "model": "level.category",
         "pk": 17
     },
     {
@@ -140,7 +140,7 @@
             "name": "Web services verification requirements",
             "version": "V18"
         },
-        "model": "levels.category",
+        "model": "level.category",
         "pk": 18
     },
     {
@@ -148,7 +148,7 @@
             "name": "Configuration",
             "version": "V19"
         },
-        "model": "levels.category",
+        "model": "level.category",
         "pk": 19
     }
 ]

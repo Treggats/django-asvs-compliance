@@ -21,7 +21,7 @@ from asvs.settings import DEBUG
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'', include('levels.urls')),
+    url(r'', include('level.urls')),
 ]
 if DEBUG:
     urlpatterns += static(settings.STATIC_URL,

@@ -134,7 +134,7 @@ if __name__ == "__main__":
     data_dir = 'django_asvs_compliance'
     try:
         project_path = Path(os.environ[data_dir])
-        lvl_fixt_path = "{}/levels/fixtures".format(project_path)
+        lvl_fixt_path = "{}/level/fixtures".format(project_path)
         asvs_file = "{}/bin/asvs_v3_xls.csv".format(project_path)
         lvl_fixt_file = "{}/levels.json".format(lvl_fixt_path)
         cat_fixt_file = "{}/categories.json".format(lvl_fixt_path)
