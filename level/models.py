@@ -37,6 +37,7 @@ class Requirement(models.Model):
     level_nr = models.ManyToManyField(LevelNumber, related_name='level_nr')
     category = models.ForeignKey(Category)
     description = models.TextField()
+    report = models.ForeignKey('project.Report', related_name='requirement_report', blank=True, null=True)
 
     class Meta:
         verbose_name = 'requirement'
