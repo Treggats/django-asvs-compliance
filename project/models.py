@@ -20,7 +20,7 @@ class Report(models.Model):
     name = models.CharField(max_length=40, default="")
     project = models.ForeignKey(Project)
     requirements = models.ForeignKey(Requirement)
-    signed = models.TextField()
+    signed = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.name
