@@ -31,8 +31,14 @@ class Category(models.Model):
         return (self.version,)
 
 
+class RequirementManager(models.Manager):
+    def get_by_natural_key(self, category, req_nr):
+        return self.get(category=category, req_nr=req_nr)
+
+
 @python_2_unicode_compatible
 class Requirement(models.Model):
+    objects = RequirementManager()
     req_nr = models.PositiveSmallIntegerField()
     level_nr = models.ManyToManyField(LevelNumber, related_name='level_nr')
     category = models.ForeignKey(Category)
@@ -41,6 +47,7 @@ class Requirement(models.Model):
 
     class Meta:
         verbose_name = 'requirement'
+        unique_together = (('category', 'req_nr'))
 
     def __str__(self):
         return ": ".join(map(str, self.natural_key()))
