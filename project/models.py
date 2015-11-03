@@ -17,6 +17,7 @@ class Project(models.Model):
 
 @python_2_unicode_compatible
 class Report(models.Model):
+    name = models.CharField(max_length=40, default="")
     project = models.ForeignKey(Project)
     requirements = models.ForeignKey(Requirement)
     signed = models.TextField()
