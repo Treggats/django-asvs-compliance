@@ -30,7 +30,8 @@ class Category(models.Model):
 
 @python_2_unicode_compatible
 class Requirement(models.Model):
-    number = models.ManyToManyField(LevelNumber, related_name='level_nr')
+    req_nr = models.PositiveSmallIntegerField()
+    level_nr = models.ManyToManyField(LevelNumber, related_name='level_nr')
     category = models.ForeignKey(Category)
     description = models.TextField()
 
@@ -38,10 +39,10 @@ class Requirement(models.Model):
         verbose_name = 'requirement'
 
     def __str__(self):
-        return self.description
+        return str(self.req_nr)
 
     def level_number(self):
-        return ", ".join([str(n.number) for n in self.number.all()])
+        return ", ".join([str(n.number) for n in self.level_nr.all()])
 
     def level_verbose(self):
-        return [n for n in self.number.all()]
+        return [n for n in self.level_nr.all()]

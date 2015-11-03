@@ -3,8 +3,8 @@ from .models import LevelNumber, Category, Requirement
 
 
 class RequirementAdmin(admin.ModelAdmin):
-    list_display = ('level_number', 'category', 'description')
-    list_filter = ['number', 'category']
+    list_display = ('req_nr', 'level_number', 'category', 'description')
+    list_filter = ['level_nr', 'category']
 
 
 class CategoryAdmin(admin.ModelAdmin):
