@@ -47,10 +47,5 @@ class Requirement(models.Model):
     def level_number(self):
         return ", ".join([str(n.number) for n in self.level_nr.all()])
 
-    """
-    def level_verbose(self):
-        return [n for n in self.level_nr.all()]
-    """
-
     def natural_key(self):
         return self.category.natural_key() + (self.req_nr,)
