@@ -4,6 +4,14 @@ from django.db import models
 
 
 @python_2_unicode_compatible
+class Version(models.Model):
+    version = models.CharField(max_length=5)
+
+    def __str__(self):
+        return self.version
+
+
+@python_2_unicode_compatible
 class LevelNumber(models.Model):
     number = models.PositiveSmallIntegerField()
     name = models.CharField(max_length=255)
@@ -53,6 +61,7 @@ class Requirement(models.Model):
     report = models.ForeignKey('project.Report',
                                related_name='requirement_report',
                                blank=True, null=True)
+    version = models.ForeignKey(Version)
 
     def level_number(self):
         return ", ".join([str(n.number) for n in self.level_nr.all()])
