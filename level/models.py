@@ -90,4 +90,4 @@ class Annotation(models.Model):
     category = models.ForeignKey(Category)
     requirement = models.ManyToManyField(Requirement)
     title = models.CharField(max_length=100)
-    related = models.ForeignKey(AnnotationRelated)
+    related = models.ForeignKey(AnnotationRelated, blank=True, null=True)
