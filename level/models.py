@@ -16,19 +16,26 @@ class LevelNumber(models.Model):
         return str(self.number) + ": " + self.name
 
 
+class CategoryManager(models.Manager):
+    def get_by_natural_key(self, version, name):
+        return self.get(version, name)
+
+
 @python_2_unicode_compatible
 class Category(models.Model):
+    objects = CategoryManager()
     version = models.CharField(max_length=10)
     name = models.CharField(max_length=255)
 
+    def natural_key(self):
+        return (self.version, self.name)
+
     class Meta:
         verbose_name_plural = 'categories'
+        unique_together = (('version', 'name'))
 
     def __str__(self):
         return self.version + ": " + self.name
-
-    def natural_key(self):
-        return (self.version,)
 
 
 class RequirementManager(models.Manager):
@@ -41,19 +48,18 @@ class Requirement(models.Model):
     objects = RequirementManager()
     req_nr = models.PositiveSmallIntegerField()
     level_nr = models.ManyToManyField(LevelNumber, related_name='level_nr')
-    category = models.ForeignKey(Category)
+    category = models.ForeignKey(Category, related_name='requirement_category')
     description = models.TextField()
-    report = models.ForeignKey('project.Report', related_name='requirement_report', blank=True, null=True)
+    report = models.ForeignKey('project.Report',
+                               related_name='requirement_report',
+                               blank=True, null=True)
+
+    def level_number(self):
+        return ", ".join([str(n.number) for n in self.level_nr.all()])
 
     class Meta:
         verbose_name = 'requirement'
         unique_together = (('category', 'req_nr'))
 
     def __str__(self):
-        return ": ".join(map(str, self.natural_key()))
-
-    def level_number(self):
-        return ", ".join([str(n.number) for n in self.level_nr.all()])
-
-    def natural_key(self):
-        return self.category.natural_key() + (self.req_nr,)
+        return str(self.category.version) + '.' + str(self.req_nr)
