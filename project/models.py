@@ -18,8 +18,9 @@ class Project(models.Model):
 class Report(models.Model):
     name = models.CharField(max_length=40, default="")
     project = models.ForeignKey(Project)
-    requirement = models.ForeignKey('level.Requirement', related_name='report_requirement', blank=True, null=True)
-    requirements = models.TextField(blank=True, null=True)
+    requirements = models.ManyToManyField('level.Requirement',
+                                          related_name='report_requirements',
+                                          blank=True)
     signed = models.TextField(blank=True, null=True)
 
     def __str__(self):
