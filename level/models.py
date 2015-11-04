@@ -5,7 +5,10 @@ from django.db import models
 
 @python_2_unicode_compatible
 class Version(models.Model):
-    version = models.CharField(max_length=5)
+    version = models.CharField(max_length=5, verbose_name='ASVS version')
+
+    class Meta:
+        verbose_name = 'ASVS version'
 
     def __str__(self):
         return self.version
@@ -54,14 +57,16 @@ class RequirementManager(models.Manager):
 @python_2_unicode_compatible
 class Requirement(models.Model):
     objects = RequirementManager()
-    req_nr = models.PositiveSmallIntegerField()
-    level_nr = models.ManyToManyField(LevelNumber, related_name='level_nr')
+    req_nr = models.PositiveSmallIntegerField(verbose_name='Requirement number')
+    level_nr = models.ManyToManyField(LevelNumber,
+                                      related_name='level_nr',
+                                      verbose_name='Level number')
     category = models.ForeignKey(Category, related_name='requirement_category')
     description = models.TextField()
     report = models.ForeignKey('project.Report',
                                related_name='requirement_report',
                                blank=True, null=True)
-    version = models.ForeignKey(Version)
+    version = models.ForeignKey(Version, verbose_name='ASVS version')
 
     def level_number(self):
         return ", ".join([str(n.number) for n in self.level_nr.all()])
