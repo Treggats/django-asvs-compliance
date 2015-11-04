@@ -1,0 +1,9 @@
+[
+    {
+        "fields": {
+            "version": "3"
+        },
+        "model": "level.version",
+        "pk": 1
+    }
+]

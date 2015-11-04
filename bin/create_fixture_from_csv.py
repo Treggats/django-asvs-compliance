@@ -17,13 +17,14 @@ class FixtureCreator(object):
     Open a csv file
     """
 
-    def __init__(self, csv_file):
+    def __init__(self, csv_file, version=1):
         self.DEBUG = False
         self.categories = {}
         self.requirements = []
         self.rows = []
         self.levels = []
         self.csv_file = open(csv_file, encoding='utf-8')
+        self.version = version
 
         self.reader = csv.DictReader(self.csv_file, skipinitialspace=True)
         self.csv_to_rows()
@@ -122,7 +123,8 @@ class FixtureCreator(object):
                            category=int(req["chapterNr"]),
                            description=req["title"]["en"],
                            req_nr=req["req_nr"],
-                           level_nr=req["levels"]),
+                           level_nr=req["levels"],
+                           version=self.version),
                 model="level.requirement",
                 pk=pk + 1))
 
