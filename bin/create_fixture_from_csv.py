@@ -73,7 +73,7 @@ class FixtureCreator(object):
         for row in self.rows:
             if not row["ID"].startswith("V"):
                 chapterNr = row["ID"].split(".")[0]
-                nr = row["ID"].split(".")[1]
+                req_nr = row["ID"].split(".")[1]
                 levels = []
                 if row.get("Level 1") == "Y":
                     levels.append(1)
@@ -84,7 +84,7 @@ class FixtureCreator(object):
                 title_dict = dict(en=row["Detailed Verification Requirement"])
                 self.requirements.append(dict(
                                          chapterNr=chapterNr,
-                                         nr=nr,
+                                         req_nr=int(req_nr),
                                          levels=levels,
                                          title=title_dict))
 
@@ -94,7 +94,7 @@ class FixtureCreator(object):
             fixture.append(dict(
                            fields=dict(number=key + 1,
                                        name=lvl["en"]),
-                           model="levels.levelnumber",
+                           model="level.levelnumber",
                            pk=key + 1))
         return json.dumps(fixture,
                           sort_keys=True,
@@ -107,7 +107,7 @@ class FixtureCreator(object):
             item = self.categories[key]
             fixture.append(dict(fields=dict(version="V{}".format(key),
                            name=item["en"]),
-                model="levels.category",
+                model="level.category",
                 pk=key))
 
         return json.dumps(fixture,
@@ -121,8 +121,9 @@ class FixtureCreator(object):
             fixture.append(dict(fields=dict(
                            category=int(req["chapterNr"]),
                            description=req["title"]["en"],
-                           number=req["levels"]),
-                model="levels.requirement",
+                           req_nr=req["req_nr"],
+                           level_nr=req["levels"]),
+                model="level.requirement",
                 pk=pk + 1))
 
         return json.dumps(fixture,
