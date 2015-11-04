@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import LevelNumber, Category, Requirement, Version
+from .models import Annotation, AnnotationRelated
 
 
 class RequirementAdmin(admin.ModelAdmin):
@@ -29,6 +30,14 @@ class RequirementAdmin(admin.ModelAdmin):
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('version', 'name')
+
+@admin.register(Annotation)
+class AnnotationAdmin(admin.ModelAdmin):
+    filter_horizontal = ['requirement']
+
+@admin.register(AnnotationRelated)
+class AnnotationRelatedAdmin(admin.ModelAdmin):
+    pass
 
 admin.site.register(Version)
 admin.site.register(LevelNumber)

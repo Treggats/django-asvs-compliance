@@ -77,3 +77,17 @@ class Requirement(models.Model):
 
     def __str__(self):
         return str(self.category.version) + '.' + str(self.req_nr)
+
+
+@python_2_unicode_compatible
+class AnnotationRelated(models.Model):
+    name = models.CharField(max_length=100)
+    url = models.CharField(max_length=100)
+
+
+@python_2_unicode_compatible
+class Annotation(models.Model):
+    category = models.ForeignKey(Category)
+    requirement = models.ManyToManyField(Requirement)
+    title = models.CharField(max_length=100)
+    related = models.ForeignKey(AnnotationRelated)
