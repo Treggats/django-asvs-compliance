@@ -31,4 +31,3 @@ class RequirementAdmin(admin.ModelAdmin):
 @admin.register(RequirementName)
 class RequirementNameAdmin(admin.ModelAdmin):
           pass
-
