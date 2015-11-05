@@ -1,4 +1,5 @@
 {
+    "__source": "https://github.com/ibuildingsnl/owasp-asvs/blob/master/src/asvs.json",
     "helpTypes": {
         "apache2.md": {
             "en": "Apache 2"
