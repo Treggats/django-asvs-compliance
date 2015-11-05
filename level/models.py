@@ -80,14 +80,36 @@ class Requirement(models.Model):
 
 
 @python_2_unicode_compatible
+class AnnotationTitle(models.Model):
+    lang_code = models.CharField(max_length=10, verbose_name='Language code')
+    title = models.CharField(max_length=250)
+
+    class Meta:
+        verbose_name = 'Annotation title'
+
+    def __str__(self):
+        return self.title
+
+
+@python_2_unicode_compatible
 class AnnotationRelated(models.Model):
     name = models.CharField(max_length=100)
     url = models.CharField(max_length=100)
 
+    class Meta:
+        verbose_name = 'Annotation related'
+        verbose_name_plural = 'Annotation related'
+
+    def __str__(self):
+        return self.name
+
 
 @python_2_unicode_compatible
 class Annotation(models.Model):
+    title = models.ForeignKey(AnnotationTitle)
     category = models.ForeignKey(Category)
     requirement = models.ManyToManyField(Requirement)
-    title = models.CharField(max_length=100)
     related = models.ForeignKey(AnnotationRelated, blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'Annotation'
