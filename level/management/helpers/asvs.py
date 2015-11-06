@@ -15,8 +15,7 @@ class ASVS(object):
 
     def __str__(self):
         str = ""
-        for pk, value in enumerate(self.reader):
-            str += json.dumps(value, indent=4) + "\n"
+        str = self.create_version_fixture()
         return str
 
     def create_version_fixture(self, versions=(3,)):
