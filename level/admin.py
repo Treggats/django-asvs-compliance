@@ -7,27 +7,34 @@ from .models import Requirement, RequirementName
 
 @admin.register(AsvsVersion)
 class AsvsVersionAdmin(admin.ModelAdmin):
-          pass
+    pass
+
+
 @admin.register(Level)
 class LevelAdmin(admin.ModelAdmin):
-          pass
+    pass
+
 
 @admin.register(LevelName)
 class LevelNameAdmin(admin.ModelAdmin):
-          pass
+    pass
+
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-          pass
+    pass
+
 
 @admin.register(CategoryName)
 class CategoryNameAdmin(admin.ModelAdmin):
-          pass
+    list_display = ('category_number', 'lang_code', 'name')
+
 
 @admin.register(Requirement)
 class RequirementAdmin(admin.ModelAdmin):
-          pass
+    pass
+
 
 @admin.register(RequirementName)
 class RequirementNameAdmin(admin.ModelAdmin):
-          pass
+    pass
