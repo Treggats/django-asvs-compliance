@@ -38,12 +38,13 @@ class CategoryNameAdmin(admin.ModelAdmin):
 
 @admin.register(Requirement)
 class RequirementAdmin(admin.ModelAdmin):
-    list_display = ('number', 'category', 'name', 'version')
-    list_filter = ('category',)
-    ordering = ('number',)
+    list_display = ('number', 'category_number', 'category', 'title')
+    # list_filter = ('requirement_name__category',)
+    # ordering = ('requirement_name__requirement_number',)
 
 
 @admin.register(RequirementName)
 class RequirementNameAdmin(admin.ModelAdmin):
-    list_display = ('requirement_number', 'title', 'lang_code')
-    ordering = ('requirement_number',)
+    list_display = ('requirement_number', 'category', 'lang_code', 'title')
+    list_filter = ('category',)
+    ordering = ('requirement_number', 'category')
