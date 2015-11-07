@@ -18,6 +18,7 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument('--type', nargs='+', type=str)
+        parser.add_argument('--model', type=str)
 
     def handle(self, **options):
         json_path = os.path.realpath(__file__)
@@ -27,6 +28,7 @@ class Command(BaseCommand):
         if not options['type']:
             self.stdout.write("Argument --type [" + ', '.join(
                 self.type_values) + "] is not provided.")
+
         else:
             for type in options['type']:
                 try:
@@ -41,6 +43,12 @@ class Command(BaseCommand):
                     else:
                         self.cls = "The type values are: " + ", ".join(
                             self.type_values)
-                    print(self.cls)
                 except:
                     raise CommandError("Type: {} is not valid".format(type))
+            if not options['model']:
+                self.stderr.write('Argument --model is missing')
+            elif self.cls.get(options['model']) == None:
+                self.stderr.write('Model {} does not exist'.format(options[
+                                                                       'model']))
+            else:
+                self.stdout.write(self.cls.get(options['model']))
