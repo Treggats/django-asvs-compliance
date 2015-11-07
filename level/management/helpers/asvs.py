@@ -7,34 +7,67 @@ class ASVS(object):
     def __init__(self, file):
         self.json_file = open(file, encoding='utf-8')
         self.reader = json.load(self.json_file)
-        self.levelnames = list()
-        self.categorynames = list()
-        self.requirementnames = list()
-        self.versions = list()
+        self.global_fixture = dict()
+
+        """Process all the models"""
+        self.create_version_fixture()
+        self.create_level_name_fixture()
+        self.create_level_fixture()
+        self.create_category_name_fixture()
+        self.create_category_fixture()
+        self.create_requirement_name_fixture()
+        self.create_requirement_fixture()
 
     def __del__(self):
         """Close the csv file"""
         self.json_file.close()
 
-    def __str__(self):
-        str = None
-        str = self.create_version_fixture()
-        str = self.create_category_name_fixture()
-        str = self.create_category_fixture()
-        str = self.create_level_name_fixture()
-        str = self.create_level_fixture()
-        str = self.create_requirement_name_fixture()
-        str = self.create_requirement_fixture()
-        return str
+    def get(self, model):
+        if model == 'version':
+            return self.global_fixture.get('version')
+        elif model == 'levelname':
+            return self.global_fixture.get('levelname')
+        elif model == 'level':
+            return self.global_fixture.get('level')
+        elif model == 'categoryname':
+            return self.global_fixture.get('categoryname')
+        elif model == 'category':
+            return self.global_fixture.get('category')
+        elif model == 'requirementname':
+            return self.global_fixture.get('requirementname')
+        elif model == 'requirement':
+            return self.global_fixture.get('requirement')
+        elif model == 'all':
+            output = list()
+            for item in self.global_fixture.get('version'):
+                output.append(item)
+            for item in self.global_fixture.get('levelname'):
+                output.append(item)
+            for item in self.global_fixture.get('level'):
+                output.append(item)
+            for item in self.global_fixture.get('categoryname'):
+                output.append(item)
+            for item in self.global_fixture.get('category'):
+                output.append(item)
+            for item in self.global_fixture.get('requirementname'):
+                output.append(item)
+            for item in self.global_fixture.get('requirement'):
+                output.append(item)
+            return json.dumps(output,
+                              sort_keys=True,
+                              indent=4,
+                              separators=(',', ':'))
+        else:
+            return None
 
-    def _get_category_name_pk(self, name):
+    def _get_category_name_pk(self, nr):
         """
         Get the primary key for category names
-        :param name: search for this string
+        :param nr: numeric number
         :return: the primary key
         """
-        for item in self.categorynames:
-            if item.get('name') == name:
+        for item in self.global_fixture.get('categoryname'):
+            if item.get('fields').get('category_number') == int(nr):
                 return item.get('pk')
         return None
 
@@ -44,8 +77,8 @@ class ASVS(object):
         :param version: the ASVS version, defaults to 3
         :return: the primary key
         """
-        for item in self.versions:
-            if item.get('version') == int(version):
+        for item in self.global_fixture.get('version'):
+            if item.get('fields').get('version_number') == int(version):
                 return item.get('pk')
         return None
 
@@ -55,19 +88,19 @@ class ASVS(object):
         :param level: a numeric level
         :return: the primary key
         """
-        for item in self.levelnames:
-            if item.get('number') == level:
+        for item in self.global_fixture.get('levelname'):
+            if item.get('fields').get('level_number') == level:
                 return item.get('pk')
         return None
 
-    def _get_requirement_name_pk(self, req_nr):
+    def _get_requirement_name_pk(self, nr):
         """
         Get the primary key for a certain requirement name
-        :param req_nr: a numeric requirement number
+        :param nr: the requirement name
         :return: the primary key
         """
-        for item in self.requirementnames:
-            if item.get('number') == req_nr:
+        for item in self.global_fixture.get('requirementname'):
+            if item.get('fields').get('requirement_number') == nr:
                 return item.get('pk')
         return None
 
@@ -87,12 +120,11 @@ class ASVS(object):
         """
         fixture = list()
         for pk, version in enumerate(versions):
-            part = dict(fields=dict(version=version),
-                        model='level.version',
+            part = dict(fields=dict(version_number=version),
+                        model='level.asvsversion',
                         pk=pk + 1)
             fixture.append(part)
-            self.versions.append(dict(pk=part.get('pk'), version=part.get(
-                'fields').get('version')))
+        self.global_fixture.update({'version': fixture})
         return json.dumps(fixture,
                           sort_keys=True,
                           indent=4,
@@ -118,14 +150,14 @@ class ASVS(object):
             category = self.reader.get('chapters').get(nr)
             lang_code = list(category.get('name').keys())
             cat_name = category.get('name').get(lang_code[0])
-            part = dict(fields=dict(category_number=int(nr),
-                                    lang_code=lang_code[0],
-                                    name=cat_name, ),
-                        model='level.categoryname',
-                        pk=pk + 1)
-            fixture.append(part)
-            self.categorynames.append(dict(pk=part.get('pk'),
-                                           name=part.get('fields').get('name')))
+            if not category.get('deprecationNotice'):
+                part = dict(fields=dict(category_number=int(nr),
+                                        lang_code=lang_code[0],
+                                        name=cat_name, ),
+                            model='level.categoryname',
+                            pk=pk + 1)
+                fixture.append(part)
+        self.global_fixture.update({'categoryname': fixture})
         return json.dumps(fixture,
                           sort_keys=True,
                           indent=4,
@@ -148,13 +180,15 @@ class ASVS(object):
         """
         fixture = list()
         for pk, nr in enumerate(self.reader.get('chapters')):
-            category = list(self.reader.get('chapters').get(nr).get(
-                'name').values())
-            part = dict(fields=dict(name=self._get_category_name_pk(category[0]),
-                                    number=nr,
-                                    version=self._get_version_pk()),
-                        model='level.category', pk=pk + 1)
-            fixture.append(part)
+            category = self.reader.get('chapters').get(nr)
+            if not category.get('deprecationNotice'):
+                part = dict(
+                    fields=dict(name=self._get_category_name_pk(nr),
+                                number=nr,
+                                version=self._get_version_pk()),
+                    model='level.category', pk=pk + 1)
+                fixture.append(part)
+        self.global_fixture.update({'category': fixture})
         return json.dumps(fixture,
                           sort_keys=True,
                           indent=4,
@@ -185,9 +219,7 @@ class ASVS(object):
                         model='level.levelname',
                         pk=pk + 1)
             fixture.append(part)
-            self.levelnames.append(dict(pk=part.get('pk'),
-                                        number=part.get('fields').get(
-                                            'level_number')))
+        self.global_fixture.update({'levelname': fixture})
         return json.dumps(fixture,
                           sort_keys=True,
                           indent=4,
@@ -216,6 +248,7 @@ class ASVS(object):
                         model='level.level',
                         pk=pk + 1)
             fixture.append(part)
+        self.global_fixture.update({'level': fixture})
         return json.dumps(fixture,
                           sort_keys=True,
                           indent=4,
@@ -241,13 +274,13 @@ class ASVS(object):
             lang_code = list(item.get('title').keys())
             part = dict(fields=dict(lang_code=lang_code[0],
                                     requirement_number=item.get('nr'),
+                                    category=self._get_category_name_pk(
+                                        item.get('chapterNr')),
                                     title=item.get('title').get(lang_code[0])),
                         model='level.requirementname',
                         pk=pk + 1)
             fixture.append(part)
-            self.requirementnames.append(dict(pk=part.get('pk'),
-                                              number=part.get('fields').get(
-                                                  'requirement_number')))
+        self.global_fixture.update({'requirementname': fixture})
         return json.dumps(fixture,
                           sort_keys=True,
                           indent=4,
@@ -271,14 +304,13 @@ class ASVS(object):
         """
         fixture = list()
         for pk, item in enumerate(self.reader.get('requirements')):
-            part = dict(fields=dict(category=19,
-                                    name=self._get_requirement_name_pk(
+            part = dict(fields=dict(requirement_name=self._get_requirement_name_pk(
                                         item.get('nr')),
-                                    number=item.get('nr'),
                                     version=self._get_version_pk()),
                         model='level.requirement',
                         pk=pk + 1)
             fixture.append(part)
+        self.global_fixture.update({'requirement': fixture})
         return json.dumps(fixture,
                           sort_keys=True,
                           indent=4,
