@@ -47,8 +47,8 @@ class Command(BaseCommand):
                     raise CommandError("Type: {} is not valid".format(type))
             if not options['model']:
                 self.stderr.write('Argument --model is missing')
-            elif self.cls.get(options['model']) == None:
+            elif self.cls.get(options['model']) is None:
                 self.stderr.write('Model {} does not exist'.format(options[
                                                                        'model']))
             else:
-                self.stdout.write(self.cls.get(options['model']))
+                self.stdout.write(self.cls.get(options['model']), ending='\n')
