@@ -307,11 +307,12 @@ class ASVS(object):
         """
         fixture = list()
         for pk, item in enumerate(self.reader.get('requirements')):
-            part = dict(fields=dict(requirement_name=self._get_requirement_name_pk(
-                                        item.get('nr')),
-                                    version=self._get_version_pk()),
-                        model='level.requirement',
-                        pk=pk + 1)
+            part = dict(
+                fields=dict(requirement_name=self._get_requirement_name_pk(
+                    item.get('nr')),
+                    version=self._get_version_pk()),
+                model='level.requirement',
+                pk=pk + 1)
             fixture.append(part)
         self.global_fixture.update({'requirement': fixture})
         return json.dumps(fixture,
