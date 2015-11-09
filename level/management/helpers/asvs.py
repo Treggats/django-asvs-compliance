@@ -22,21 +22,27 @@ class ASVS(object):
         """Close the csv file"""
         self.json_file.close()
 
+    def get_json(self, fixture):
+        return json.dumps(fixture,
+                          sort_keys=True,
+                          indent=4,
+                          separators=(',', ':'))
+
     def get(self, model):
         if model == 'version':
-            return self.global_fixture.get('version')
+            return self.get_json(self.global_fixture.get('version'))
         elif model == 'levelname':
-            return self.global_fixture.get('levelname')
+            return self.get_json(self.global_fixture.get('levelname'))
         elif model == 'level':
-            return self.global_fixture.get('level')
+            return self.get_json(self.global_fixture.get('level'))
         elif model == 'categoryname':
-            return self.global_fixture.get('categoryname')
+            return self.get_json(self.global_fixture.get('categoryname'))
         elif model == 'category':
-            return self.global_fixture.get('category')
+            return self.get_json(self.global_fixture.get('category'))
         elif model == 'requirementname':
-            return self.global_fixture.get('requirementname')
+            return self.get_json(self.global_fixture.get('requirementname'))
         elif model == 'requirement':
-            return self.global_fixture.get('requirement')
+            return self.get_json(self.global_fixture.get('requirement'))
         elif model == 'all':
             output = list()
             for item in self.global_fixture.get('version'):
@@ -53,10 +59,7 @@ class ASVS(object):
                 output.append(item)
             for item in self.global_fixture.get('requirement'):
                 output.append(item)
-            return json.dumps(output,
-                              sort_keys=True,
-                              indent=4,
-                              separators=(',', ':'))
+            return self.get_json(output)
         else:
             return None
 
