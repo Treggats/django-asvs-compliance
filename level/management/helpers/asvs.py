@@ -213,15 +213,17 @@ class ASVS(object):
         :return: a Django fixture representation of LevelName
         """
         fixture = list()
-        for pk, nr in enumerate(self.reader.get('levelNames')):
-            lang_code = list(self.reader.get('levelNames').get(nr))
-            name = self.reader.get('levelNames').get(nr).get(lang_code[0])
-            part = dict(fields=dict(lang_code=lang_code[0],
-                                    level_number=nr,
+        pk = 1
+        for key, value in sorted(self.reader.get('levelNames').items()):
+            lang_code = list(value)[0][0:]
+            name = value.get(lang_code)
+            part = dict(fields=dict(lang_code=lang_code,
+                                    level_number=key,
                                     name=name),
                         model='level.levelname',
-                        pk=pk + 1)
+                        pk=pk)
             fixture.append(part)
+            pk += 1
         self.global_fixture.update({'levelname': fixture})
         return json.dumps(fixture,
                           sort_keys=True,

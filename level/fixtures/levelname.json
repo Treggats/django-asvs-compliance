@@ -11,8 +11,8 @@
     {
         "fields":{
             "lang_code":"en",
-            "level_number":"3",
-            "name":"Advanced"
+            "level_number":"2",
+            "name":"Standard"
         },
         "model":"level.levelname",
         "pk":2
@@ -20,8 +20,8 @@
     {
         "fields":{
             "lang_code":"en",
-            "level_number":"2",
-            "name":"Standard"
+            "level_number":"3",
+            "name":"Advanced"
         },
         "model":"level.levelname",
         "pk":3
