@@ -281,7 +281,7 @@ class ASVS(object):
         :return: a Django fixture representation for RequirementName
         """
         fixture = list()
-        for pk, item in enumerate(self.reader.get('requirements')):
+        for pk, item in enumerate(self.reader.get('requirements'), start=1):
             lang_code = list(item.get('title').keys())
             part = dict(fields=dict(lang_code=lang_code[0],
                                     requirement_number=item.get('nr'),
@@ -289,7 +289,7 @@ class ASVS(object):
                                         item.get('chapterNr')),
                                     title=item.get('title').get(lang_code[0])),
                         model='level.requirementname',
-                        pk=pk + 1)
+                        pk=pk)
             fixture.append(part)
         self.global_fixture.update({'requirementname': fixture})
         return json.dumps(fixture,
@@ -314,13 +314,14 @@ class ASVS(object):
         :return: a Django fixture representation for Requirement
         """
         fixture = list()
-        for pk, item in enumerate(self.reader.get('requirements')):
+        for pk, item in enumerate(self.reader.get('requirements'), start=1):
             part = dict(
-                fields=dict(requirement_name=self._get_requirement_name_pk(
+                fields=dict(
+                    requirement_name=self._get_requirement_name_pk(
                     item.get('nr')),
                     version=self._get_version_pk()),
                 model='level.requirement',
-                pk=pk + 1)
+                pk=pk)
             fixture.append(part)
         self.global_fixture.update({'requirement': fixture})
         return json.dumps(fixture,
