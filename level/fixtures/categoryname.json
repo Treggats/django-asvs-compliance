@@ -1,18 +1,27 @@
 [
     {
         "fields":{
-            "category_number":11,
+            "category_number":1,
             "lang_code":"en",
-            "name":"HTTP security configuration verification requirements"
+            "name":"Architecture, design and threat modelling"
+        },
+        "model":"level.categoryname",
+        "pk":1
+    },
+    {
+        "fields":{
+            "category_number":10,
+            "lang_code":"en",
+            "name":"Communications security verification requirements"
         },
         "model":"level.categoryname",
         "pk":2
     },
     {
         "fields":{
-            "category_number":4,
+            "category_number":11,
             "lang_code":"en",
-            "name":"Access control verification requirements"
+            "name":"HTTP security configuration verification requirements"
         },
         "model":"level.categoryname",
         "pk":3
@@ -28,9 +37,9 @@
     },
     {
         "fields":{
-            "category_number":2,
+            "category_number":15,
             "lang_code":"en",
-            "name":"Authentication verification requirements"
+            "name":"Business logic verification requirements"
         },
         "model":"level.categoryname",
         "pk":5
@@ -42,13 +51,22 @@
             "name":"Files and resources verification requirements"
         },
         "model":"level.categoryname",
-        "pk":7
+        "pk":6
     },
     {
         "fields":{
             "category_number":17,
             "lang_code":"en",
             "name":"Mobile verification requirements"
+        },
+        "model":"level.categoryname",
+        "pk":7
+    },
+    {
+        "fields":{
+            "category_number":18,
+            "lang_code":"en",
+            "name":"Web services verification requirements"
         },
         "model":"level.categoryname",
         "pk":8
@@ -64,39 +82,12 @@
     },
     {
         "fields":{
-            "category_number":5,
+            "category_number":2,
             "lang_code":"en",
-            "name":"Malicious input handling verification requirements"
+            "name":"Authentication verification requirements"
         },
         "model":"level.categoryname",
-        "pk":11
-    },
-    {
-        "fields":{
-            "category_number":15,
-            "lang_code":"en",
-            "name":"Business logic verification requirements"
-        },
-        "model":"level.categoryname",
-        "pk":12
-    },
-    {
-        "fields":{
-            "category_number":9,
-            "lang_code":"en",
-            "name":"Data protection verification requirements"
-        },
-        "model":"level.categoryname",
-        "pk":13
-    },
-    {
-        "fields":{
-            "category_number":1,
-            "lang_code":"en",
-            "name":"Architecture, design and threat modelling"
-        },
-        "model":"level.categoryname",
-        "pk":14
+        "pk":10
     },
     {
         "fields":{
@@ -105,16 +96,25 @@
             "name":"Session management verification requirements"
         },
         "model":"level.categoryname",
-        "pk":15
+        "pk":11
     },
     {
         "fields":{
-            "category_number":10,
+            "category_number":4,
             "lang_code":"en",
-            "name":"Communications security verification requirements"
+            "name":"Access control verification requirements"
         },
         "model":"level.categoryname",
-        "pk":16
+        "pk":12
+    },
+    {
+        "fields":{
+            "category_number":5,
+            "lang_code":"en",
+            "name":"Malicious input handling verification requirements"
+        },
+        "model":"level.categoryname",
+        "pk":13
     },
     {
         "fields":{
@@ -123,7 +123,7 @@
             "name":"Cryptography at rest verification requirements"
         },
         "model":"level.categoryname",
-        "pk":17
+        "pk":14
     },
     {
         "fields":{
@@ -132,15 +132,15 @@
             "name":"Error handling and logging verification requirements"
         },
         "model":"level.categoryname",
-        "pk":18
+        "pk":15
     },
     {
         "fields":{
-            "category_number":18,
+            "category_number":9,
             "lang_code":"en",
-            "name":"Web services verification requirements"
+            "name":"Data protection verification requirements"
         },
         "model":"level.categoryname",
-        "pk":19
+        "pk":16
     }
 ]
