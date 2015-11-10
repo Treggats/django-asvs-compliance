@@ -49,6 +49,7 @@ class Category(models.Model):
 
     class Meta:
         verbose_name_plural = 'Categories'
+        ordering = ('number',)
 
     def __str__(self):
         return "{0}: {1}".format(self.number, self.name)
@@ -71,7 +72,8 @@ class Requirement(models.Model):
     version = models.ForeignKey(AsvsVersion, default='3')
 
     class Meta:
-        unique_together = (('requirement_name', 'version'),)
+        pass
+        # unique_together = (('requirement_number', 'requirement_name'),)
 
     def number(self):
         return self.requirement_name.requirement_number
