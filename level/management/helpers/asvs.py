@@ -184,15 +184,16 @@ class ASVS(object):
         :return:a Django fixture representation of Category
         """
         fixture = list()
-        for pk, nr in enumerate(self.reader.get('chapters')):
-            category = self.reader.get('chapters').get(nr)
-            if not category.get('deprecationNotice'):
+        pk = 1
+        for key, value in sorted(self.reader.get('chapters').items()):
+            if not value.get('deprecationNotice'):
                 part = dict(
-                    fields=dict(name=self._get_category_name_pk(nr),
-                                number=nr,
+                    fields=dict(name=self._get_category_name_pk(key),
+                                number=key,
                                 version=self._get_version_pk()),
-                    model='level.category', pk=pk + 1)
+                    model='level.category', pk=pk)
                 fixture.append(part)
+                pk += 1
         self.global_fixture.update({'category': fixture})
         return json.dumps(fixture,
                           sort_keys=True,
