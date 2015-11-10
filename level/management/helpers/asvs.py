@@ -149,17 +149,19 @@ class ASVS(object):
         :return: a Django fixture representation of Category Name
         """
         fixture = list()
-        for pk, nr in enumerate(self.reader.get('chapters')):
-            category = self.reader.get('chapters').get(nr)
-            lang_code = list(category.get('name').keys())
-            cat_name = category.get('name').get(lang_code[0])
-            if not category.get('deprecationNotice'):
-                part = dict(fields=dict(category_number=int(nr),
-                                        lang_code=lang_code[0],
-                                        name=cat_name, ),
+        pk = 1
+        for key, value in sorted(self.reader.get('chapters').items()):
+            lang_code = list(value.get('name'))[0][0:]
+            category = value.get('name').get(lang_code)
+
+            if not value.get('deprecationNotice'):
+                part = dict(fields=dict(category_number=int(key),
+                                        lang_code=lang_code,
+                                        name=category, ),
                             model='level.categoryname',
-                            pk=pk + 1)
+                            pk=pk)
                 fixture.append(part)
+                pk += 1
         self.global_fixture.update({'categoryname': fixture})
         return json.dumps(fixture,
                           sort_keys=True,
