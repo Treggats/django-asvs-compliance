@@ -39,8 +39,8 @@ class CategoryNameAdmin(admin.ModelAdmin):
 @admin.register(Requirement)
 class RequirementAdmin(admin.ModelAdmin):
     list_display = ('number', 'category_number', 'category', 'title')
-    # list_filter = ('requirement_name__category',)
-    # ordering = ('requirement_name__requirement_number',)
+    list_filter = ('requirement_name__category',)
+    ordering = ('requirement_name__requirement_number',)
 
 
 @admin.register(RequirementName)
