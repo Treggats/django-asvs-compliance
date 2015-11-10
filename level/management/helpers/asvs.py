@@ -246,13 +246,16 @@ class ASVS(object):
         :return:
         """
         fixture = list()
-        for pk, nr in enumerate(self.reader.get('levelNames')):
-            part = dict(fields=dict(name=self._get_level_name_pk(nr),
-                                    number=nr,
+        pk = 1
+        for item in sorted(self.reader.get('levelNames').items()):
+            key = item[0]
+            part = dict(fields=dict(name=self._get_level_name_pk(key),
+                                    number=key,
                                     version=self._get_version_pk()),
                         model='level.level',
-                        pk=pk + 1)
+                        pk=pk)
             fixture.append(part)
+            pk += 1
         self.global_fixture.update({'level': fixture})
         return json.dumps(fixture,
                           sort_keys=True,
