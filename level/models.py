@@ -62,7 +62,7 @@ class RequirementName(models.Model):
     title = models.TextField()
 
     def __str__(self):
-        return "{}: {}".format(self.requirement_number, self.title)
+        return "Category: {}, Requirement: {}".format(self.category.number, self.requirement_number)
 
 
 @python_2_unicode_compatible
