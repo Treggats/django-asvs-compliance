@@ -70,6 +70,9 @@ class Requirement(models.Model):
     requirement_name = models.ForeignKey(RequirementName)
     version = models.ForeignKey(AsvsVersion, default='3')
 
+    class Meta:
+        unique_together = (('requirement_name', 'version'),)
+
     def number(self):
         return self.requirement_name.requirement_number
 
