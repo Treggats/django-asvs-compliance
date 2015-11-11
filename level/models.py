@@ -4,7 +4,6 @@ from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext as _
 
 from hvad.models import TranslatableModel, TranslatedFields
-from hvad.manager import TranslationManager, TranslationQueryset
 
 
 @python_2_unicode_compatible
@@ -35,7 +34,6 @@ class Level(TranslatableModel):
 
 @python_2_unicode_compatible
 class Category(TranslatableModel):
-    objects = TranslationManager(default_class=TranslationQueryset)
     category_number = models.PositiveIntegerField()
     version = models.ForeignKey(AsvsVersion)
 
@@ -59,7 +57,6 @@ class Category(TranslatableModel):
 
 @python_2_unicode_compatible
 class Requirement(TranslatableModel):
-    objects = TranslationManager(default_class=TranslationQueryset)
     requirement_number = models.PositiveIntegerField()
     category = models.ForeignKey(Category)
     level = models.ManyToManyField(Level, related_name='level')
