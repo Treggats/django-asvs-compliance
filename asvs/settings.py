@@ -54,6 +54,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'hvad',
+
     'level',
     'project'
 )
@@ -105,6 +107,7 @@ DATABASES = {
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+LANGUAGES = (('en-us', 'English'),)
 
 TIME_ZONE = 'UTC'
 
