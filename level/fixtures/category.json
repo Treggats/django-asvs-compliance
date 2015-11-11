@@ -1,8 +1,7 @@
 [
     {
         "fields":{
-            "name":1,
-            "number":"1",
+            "category_number":"1",
             "version":1
         },
         "model":"level.category",
@@ -10,8 +9,16 @@
     },
     {
         "fields":{
-            "name":2,
-            "number":"10",
+            "language_code":"en-us",
+            "master":1,
+            "name":"Architecture, design and threat modelling"
+        },
+        "model":"level.categorytranslation",
+        "pk":1
+    },
+    {
+        "fields":{
+            "category_number":"10",
             "version":1
         },
         "model":"level.category",
@@ -19,8 +26,16 @@
     },
     {
         "fields":{
-            "name":3,
-            "number":"11",
+            "language_code":"en-us",
+            "master":2,
+            "name":"Communications security verification requirements"
+        },
+        "model":"level.categorytranslation",
+        "pk":2
+    },
+    {
+        "fields":{
+            "category_number":"11",
             "version":1
         },
         "model":"level.category",
@@ -28,8 +43,16 @@
     },
     {
         "fields":{
-            "name":4,
-            "number":"13",
+            "language_code":"en-us",
+            "master":3,
+            "name":"HTTP security configuration verification requirements"
+        },
+        "model":"level.categorytranslation",
+        "pk":3
+    },
+    {
+        "fields":{
+            "category_number":"13",
             "version":1
         },
         "model":"level.category",
@@ -37,8 +60,16 @@
     },
     {
         "fields":{
-            "name":5,
-            "number":"15",
+            "language_code":"en-us",
+            "master":4,
+            "name":"Malicious controls verification requirements"
+        },
+        "model":"level.categorytranslation",
+        "pk":4
+    },
+    {
+        "fields":{
+            "category_number":"15",
             "version":1
         },
         "model":"level.category",
@@ -46,8 +77,16 @@
     },
     {
         "fields":{
-            "name":6,
-            "number":"16",
+            "language_code":"en-us",
+            "master":5,
+            "name":"Business logic verification requirements"
+        },
+        "model":"level.categorytranslation",
+        "pk":5
+    },
+    {
+        "fields":{
+            "category_number":"16",
             "version":1
         },
         "model":"level.category",
@@ -55,8 +94,16 @@
     },
     {
         "fields":{
-            "name":7,
-            "number":"17",
+            "language_code":"en-us",
+            "master":6,
+            "name":"Files and resources verification requirements"
+        },
+        "model":"level.categorytranslation",
+        "pk":6
+    },
+    {
+        "fields":{
+            "category_number":"17",
             "version":1
         },
         "model":"level.category",
@@ -64,8 +111,16 @@
     },
     {
         "fields":{
-            "name":8,
-            "number":"18",
+            "language_code":"en-us",
+            "master":7,
+            "name":"Mobile verification requirements"
+        },
+        "model":"level.categorytranslation",
+        "pk":7
+    },
+    {
+        "fields":{
+            "category_number":"18",
             "version":1
         },
         "model":"level.category",
@@ -73,8 +128,16 @@
     },
     {
         "fields":{
-            "name":9,
-            "number":"19",
+            "language_code":"en-us",
+            "master":8,
+            "name":"Web services verification requirements"
+        },
+        "model":"level.categorytranslation",
+        "pk":8
+    },
+    {
+        "fields":{
+            "category_number":"19",
             "version":1
         },
         "model":"level.category",
@@ -82,8 +145,16 @@
     },
     {
         "fields":{
-            "name":10,
-            "number":"2",
+            "language_code":"en-us",
+            "master":9,
+            "name":"Configuration"
+        },
+        "model":"level.categorytranslation",
+        "pk":9
+    },
+    {
+        "fields":{
+            "category_number":"2",
             "version":1
         },
         "model":"level.category",
@@ -91,8 +162,16 @@
     },
     {
         "fields":{
-            "name":11,
-            "number":"3",
+            "language_code":"en-us",
+            "master":10,
+            "name":"Authentication Verification Requirements"
+        },
+        "model":"level.categorytranslation",
+        "pk":10
+    },
+    {
+        "fields":{
+            "category_number":"3",
             "version":1
         },
         "model":"level.category",
@@ -100,8 +179,16 @@
     },
     {
         "fields":{
-            "name":12,
-            "number":"4",
+            "language_code":"en-us",
+            "master":11,
+            "name":"Session Management Verification Requirements"
+        },
+        "model":"level.categorytranslation",
+        "pk":11
+    },
+    {
+        "fields":{
+            "category_number":"4",
             "version":1
         },
         "model":"level.category",
@@ -109,8 +196,16 @@
     },
     {
         "fields":{
-            "name":13,
-            "number":"5",
+            "language_code":"en-us",
+            "master":12,
+            "name":"Access Control Verification Requirements"
+        },
+        "model":"level.categorytranslation",
+        "pk":12
+    },
+    {
+        "fields":{
+            "category_number":"5",
             "version":1
         },
         "model":"level.category",
@@ -118,8 +213,16 @@
     },
     {
         "fields":{
-            "name":14,
-            "number":"7",
+            "language_code":"en-us",
+            "master":13,
+            "name":"Malicious input handling verification requirements"
+        },
+        "model":"level.categorytranslation",
+        "pk":13
+    },
+    {
+        "fields":{
+            "category_number":"7",
             "version":1
         },
         "model":"level.category",
@@ -127,8 +230,16 @@
     },
     {
         "fields":{
-            "name":15,
-            "number":"8",
+            "language_code":"en-us",
+            "master":14,
+            "name":"Cryptography at rest verification requirements"
+        },
+        "model":"level.categorytranslation",
+        "pk":14
+    },
+    {
+        "fields":{
+            "category_number":"8",
             "version":1
         },
         "model":"level.category",
@@ -136,11 +247,28 @@
     },
     {
         "fields":{
-            "name":16,
-            "number":"9",
+            "language_code":"en-us",
+            "master":15,
+            "name":"Error handling and logging verification requirements"
+        },
+        "model":"level.categorytranslation",
+        "pk":15
+    },
+    {
+        "fields":{
+            "category_number":"9",
             "version":1
         },
         "model":"level.category",
+        "pk":16
+    },
+    {
+        "fields":{
+            "language_code":"en-us",
+            "master":16,
+            "name":"Data protection verification requirements"
+        },
+        "model":"level.categorytranslation",
         "pk":16
     }
 ]
