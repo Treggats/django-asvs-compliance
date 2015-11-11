@@ -25,7 +25,7 @@ class Level(TranslatableModel):
     )
 
     @property
-    def t_name(self):
+    def level_name(self):
         return self.name
 
     def __str__(self):
@@ -49,7 +49,7 @@ class Category(TranslatableModel):
         ordering = ('category_number',)
 
     @property
-    def t_name(self):
+    def category_name(self):
         return self.name
 
     def __str__(self):
@@ -81,7 +81,7 @@ class Requirement(TranslatableModel):
         return ", ".join([str(l.level_number) for l in self.level.all()])
 
     class Meta:
-        ordering = ('requirement_number',)
+        ordering = ('requirement_number', 'category')
 
     def __str__(self):
         return "{}: {}".format(self.requirement_number,

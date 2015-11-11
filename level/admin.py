@@ -16,7 +16,7 @@ class LevelAdmin(TranslatableAdmin):
     def __init__(self, *args, **kwargs):
         super(LevelAdmin, self).__init__(*args, **kwargs)
 
-    list_display = ('level_number', 't_name', 'version')
+    list_display = ('level_number', 'level_name', 'version')
     list_filter = ('version',)
     ordering = ('level_number',)
 admin.site.register(Level, LevelAdmin)
@@ -26,7 +26,7 @@ class CategoryAdmin(TranslatableAdmin):
     def __init__(self, *args, **kwargs):
         super(CategoryAdmin, self).__init__(*args, **kwargs)
 
-    list_display = ('category_number', 't_name', 'version')
+    list_display = ('category_number', 'category_name', 'version')
     list_filter = ('version',)
     ordering = ('category_number',)
 admin.site.register(Category, CategoryAdmin)
