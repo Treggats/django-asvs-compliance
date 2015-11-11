@@ -13,90 +13,101 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='AsvsVersion',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('version_number', models.CharField(default='3', max_length=10)),
             ],
         ),
         migrations.CreateModel(
             name='Category',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
-                ('number', models.PositiveSmallIntegerField()),
+                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
+                ('category_number', models.PositiveIntegerField()),
+                ('version', models.ForeignKey(to='level.AsvsVersion')),
             ],
             options={
-                'verbose_name_plural': 'Categories',
+                'ordering': ('category_number',),
             },
         ),
         migrations.CreateModel(
-            name='CategoryName',
+            name='CategoryTranslation',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
-                ('category_number', models.PositiveIntegerField()),
-                ('lang_code', models.CharField(max_length=5)),
+                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('name', models.CharField(max_length=100)),
+                ('language_code', models.CharField(db_index=True, max_length=15)),
+                ('master', models.ForeignKey(to='level.Category', null=True, related_name='translations', editable=False)),
             ],
+            options={
+                'db_table': 'level_category_translation',
+                'managed': True,
+                'default_permissions': (),
+                'abstract': False,
+                'db_tablespace': '',
+            },
         ),
         migrations.CreateModel(
             name='Level',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
-                ('number', models.PositiveSmallIntegerField()),
+                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
+                ('level_number', models.PositiveIntegerField()),
+                ('version', models.ForeignKey(to='level.AsvsVersion')),
             ],
+            options={
+                'abstract': False,
+            },
         ),
         migrations.CreateModel(
-            name='LevelName',
+            name='LevelTranslation',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
-                ('level_number', models.PositiveIntegerField()),
-                ('lang_code', models.CharField(max_length=5)),
+                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('name', models.CharField(max_length=100)),
+                ('language_code', models.CharField(db_index=True, max_length=15)),
+                ('master', models.ForeignKey(to='level.Level', null=True, related_name='translations', editable=False)),
             ],
+            options={
+                'db_table': 'level_level_translation',
+                'managed': True,
+                'default_permissions': (),
+                'abstract': False,
+                'db_tablespace': '',
+            },
         ),
         migrations.CreateModel(
             name='Requirement',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
-                ('number', models.PositiveSmallIntegerField()),
+                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
+                ('requirement_number', models.PositiveIntegerField()),
                 ('category', models.ForeignKey(to='level.Category')),
             ],
+            options={
+                'abstract': False,
+            },
         ),
         migrations.CreateModel(
-            name='RequirementName',
+            name='RequirementTranslation',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
-                ('requirement_number', models.PositiveIntegerField()),
-                ('lang_code', models.CharField(max_length=5)),
+                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('title', models.TextField()),
+                ('language_code', models.CharField(db_index=True, max_length=15)),
+                ('master', models.ForeignKey(to='level.Requirement', null=True, related_name='translations', editable=False)),
             ],
+            options={
+                'db_table': 'level_requirement_translation',
+                'managed': True,
+                'default_permissions': (),
+                'abstract': False,
+                'db_tablespace': '',
+            },
         ),
-        migrations.AddField(
-            model_name='requirement',
-            name='name',
-            field=models.ForeignKey(to='level.RequirementName'),
+        migrations.AlterUniqueTogether(
+            name='requirementtranslation',
+            unique_together=set([('language_code', 'master')]),
         ),
-        migrations.AddField(
-            model_name='requirement',
-            name='version',
-            field=models.ForeignKey(default='3', to='level.AsvsVersion'),
+        migrations.AlterUniqueTogether(
+            name='leveltranslation',
+            unique_together=set([('language_code', 'master')]),
         ),
-        migrations.AddField(
-            model_name='level',
-            name='name',
-            field=models.ForeignKey(to='level.LevelName'),
-        ),
-        migrations.AddField(
-            model_name='level',
-            name='version',
-            field=models.ForeignKey(default='3', to='level.AsvsVersion'),
-        ),
-        migrations.AddField(
-            model_name='category',
-            name='name',
-            field=models.ForeignKey(to='level.CategoryName'),
-        ),
-        migrations.AddField(
-            model_name='category',
-            name='version',
-            field=models.ForeignKey(default='3', to='level.AsvsVersion'),
+        migrations.AlterUniqueTogether(
+            name='categorytranslation',
+            unique_together=set([('language_code', 'master')]),
         ),
     ]

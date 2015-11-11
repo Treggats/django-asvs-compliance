@@ -1,6 +1,10 @@
 from __future__ import unicode_literals
-from django.utils.encoding import python_2_unicode_compatible
 from django.db import models
+from django.utils.encoding import python_2_unicode_compatible
+from django.utils.translation import ugettext as _
+
+from hvad.models import TranslatableModel, TranslatedFields
+from hvad.manager import TranslationManager, TranslationQueryset
 
 
 @python_2_unicode_compatible
@@ -12,80 +16,74 @@ class AsvsVersion(models.Model):
 
 
 @python_2_unicode_compatible
-class LevelName(models.Model):
+class Level(TranslatableModel):
     level_number = models.PositiveIntegerField()
-    lang_code = models.CharField(max_length=5)
-    name = models.CharField(max_length=100)
+    version = models.ForeignKey(AsvsVersion)
 
-    def __str__(self):
+    translations = TranslatedFields(
+        name=models.CharField(max_length=100)
+    )
+
+    @property
+    def t_name(self):
         return self.name
 
-
-@python_2_unicode_compatible
-class Level(models.Model):
-    number = models.PositiveSmallIntegerField()
-    name = models.ForeignKey(LevelName)
-    version = models.ForeignKey(AsvsVersion, default='3')
-
     def __str__(self):
-        return "{0}: {1}".format(self.number, self.name)
+        return "{}: {}".format(self.level_number,
+                         self.lazy_translation_getter('name', str(self.pk)))
 
 
 @python_2_unicode_compatible
-class CategoryName(models.Model):
+class Category(TranslatableModel):
+    objects = TranslationManager(default_class=TranslationQueryset)
     category_number = models.PositiveIntegerField()
-    lang_code = models.CharField(max_length=5)
-    name = models.CharField(max_length=100)
+    version = models.ForeignKey(AsvsVersion)
 
-    def __str__(self):
-        return self.name
-
-
-@python_2_unicode_compatible
-class Category(models.Model):
-    number = models.PositiveSmallIntegerField()
-    name = models.ForeignKey(CategoryName)
-    version = models.ForeignKey(AsvsVersion, default='3')
+    translations = TranslatedFields(
+        name=models.CharField(max_length=100)
+    )
 
     class Meta:
-        verbose_name_plural = 'Categories'
-        ordering = ('number',)
+        verbose_name = _('Category')
+        verbose_name_plural = _('Categories')
+        ordering = ('category_number',)
+
+    @property
+    def t_name(self):
+        return self.name
 
     def __str__(self):
-        return "{0}: {1}".format(self.number, self.name)
+        return "V{}: {}".format(self.category_number,
+                                self.lazy_translation_getter('name', str(self.pk)))
 
 
 @python_2_unicode_compatible
-class RequirementName(models.Model):
+class Requirement(TranslatableModel):
+    objects = TranslationManager(default_class=TranslationQueryset)
     requirement_number = models.PositiveIntegerField()
     category = models.ForeignKey(Category)
-    lang_code = models.CharField(max_length=5)
-    title = models.TextField()
+    level = models.ManyToManyField(Level, related_name='level')
 
-    def __str__(self):
-        return "Category: {}, Requirement: {}".format(self.category.number, self.requirement_number)
+    translations = TranslatedFields(
+        title=models.TextField()
+    )
 
+    @property
+    def requirement_title(self):
+        return self.title
 
-@python_2_unicode_compatible
-class Requirement(models.Model):
-    requirement_name = models.ForeignKey(RequirementName)
-    version = models.ForeignKey(AsvsVersion, default='3')
+    @property
+    def category_version(self):
+        return self.category.category_number
+
+    @property
+    def level_number(self):
+        return ", ".join([str(l.level_number) for l in self.level.all()])
 
     class Meta:
-        pass
-        # unique_together = (('requirement_number', 'requirement_name'),)
-
-    def number(self):
-        return self.requirement_name.requirement_number
-
-    def category_number(self):
-        return self.requirement_name.category.number
-
-    def category(self):
-        return self.requirement_name.category.name.name
-
-    def title(self):
-        return self.requirement_name.title
+        ordering = ('requirement_number',)
 
     def __str__(self):
-        return "{}".format(self.requirement_name)
+        return "{}: {}".format(self.requirement_number,
+                               self.lazy_translation_getter('title',
+                                                            str(self.pk)))
