@@ -7,13 +7,13 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('level', '0010_auto_20151104_1552'),
+        ('level', '0002_auto_20151111_1103'),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='annotation',
-            name='related',
-            field=models.ForeignKey(null=True, blank=True, to='level.AnnotationRelated'),
+            model_name='requirement',
+            name='level',
+            field=models.ManyToManyField(related_name='level', to='level.Level'),
         ),
     ]

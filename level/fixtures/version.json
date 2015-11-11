@@ -1,0 +1,9 @@
+[
+    {
+        "fields":{
+            "version_number":3
+        },
+        "model":"level.asvsversion",
+        "pk":1
+    }
+]
