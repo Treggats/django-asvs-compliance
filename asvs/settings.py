@@ -105,7 +105,7 @@ DATABASES = {
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
-
+# http://django-hvad.readthedocs.org/en/latest/
 LANGUAGE_CODE = 'en-us'
 LANGUAGES = (('en-us', 'English'),)
 
