@@ -59,7 +59,7 @@ class Category(TranslatableModel):
 class Requirement(TranslatableModel):
     requirement_number = models.PositiveIntegerField()
     category = models.ForeignKey(Category)
-    level = models.ManyToManyField(Level, related_name='level')
+    levels = models.ManyToManyField(Level)
 
     translations = TranslatedFields(
         title=models.TextField()
@@ -75,7 +75,7 @@ class Requirement(TranslatableModel):
 
     @property
     def level_number(self):
-        return ", ".join([str(l.level_number) for l in self.level.all()])
+        return ", ".join([str(l.level_number) for l in self.levels.all()])
 
     class Meta:
         ordering = ('requirement_number', 'category')

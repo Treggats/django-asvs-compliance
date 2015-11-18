@@ -38,5 +38,5 @@ class RequirementAdmin(TranslatableAdmin):
 
     list_display = ('requirement_number', 'category_version', 'level_number',
                     'requirement_title')
-    list_filter = ('level', 'category__version', 'category')
+    list_filter = ('levels', 'category__version', 'category')
 admin.site.register(Requirement, RequirementAdmin)

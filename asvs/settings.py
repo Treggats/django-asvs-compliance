@@ -32,6 +32,9 @@ except IOError:
         "secret_key": "a secret",
     }
 
+# Set the default ASVS version
+ASVS_VERSION = 3
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
