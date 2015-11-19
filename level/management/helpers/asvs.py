@@ -28,8 +28,7 @@ class ASVS(object):
             level = Level.objects.language(lang_code).create(
                 level_number=level_nr,
                 name=name,
-                version=AsvsVersion.objects.language(lang_code)
-                    .get(version_number=self._version)
+                version=AsvsVersion.objects.get(version_number=self._version)
             )
             level.save()
 
@@ -41,8 +40,7 @@ class ASVS(object):
             category = Category.objects.language(lang_code).create(
                 category_number=cat_nr,
                 name=title,
-                version=AsvsVersion.objects.language(lang_code)
-                    .get(version_number=self._version)
+                version=AsvsVersion.objects.get(version_number=self._version)
             )
             category.save()
 
