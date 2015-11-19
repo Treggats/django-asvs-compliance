@@ -63,7 +63,6 @@ INSTALLED_APPS = (
     'hvad',
 
     'level',
-    'project'
 )
 
 MIDDLEWARE_CLASSES = (
