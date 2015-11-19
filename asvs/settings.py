@@ -30,6 +30,9 @@ try:
 except IOError:
     SECRETS = {
         "secret_key": "a secret",
+        "pg_db_name": "cookie",
+        "pg_user": "carlos",
+        "pg_password": ""
     }
 
 # Set the default ASVS version
@@ -100,8 +103,12 @@ WSGI_APPLICATION = 'asvs.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': str(BASE_DIR.joinpath('db.sqlite3')),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': str(SECRETS['pg_db_name']),
+        'USER': str(SECRETS['pg_user']),
+        'PASSWORD': str(SECRETS['pg_password']),
+        'HOST': '',
+        'PORT': '',
     }
 }
 
