@@ -133,8 +133,3 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = str(BASE_DIR.joinpath('static'))
 
-# Fixture files
-# https://docs.djangoproject.com/en/1.8/howto/initial-data/
-FIXTURE_DIRS = (
-    str(BASE_DIR) + '/fixtures/level/',
-)
