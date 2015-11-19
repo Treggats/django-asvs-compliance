@@ -11,14 +11,14 @@ class Command(BaseCommand):
         parser.add_argument('--type', type=str)
         parser.add_argument('--asvs_version', type=str)
 
-    def handle(self, *args, **options):
-        self.stdout.write('Arguments:\n'
-                          ' --file (a json file)\n'
-                          ' --type (level, category, requirement)\n'
-                          ' --asvs_version (optional, defaults to 3)')
-        if not options['file']:
-            raise CommandError('No file was supplied.\n'
-                               'Use the --file argument.')
+    def handle(self, **options):
+        if options['file'] is None or options['type'] is None:
+            self.stdout.write('Arguments for this command are:\n'
+                              ' --file (a json file)\n'
+                              ' --type (version, level, category, '
+                              'requirement)\n'
+                              ' --asvs_version (optional, defaults to 3)\n'
+                              'The order of --type is important')
         else:
             self.json = options['file']
             if not options['asvs_version']:
@@ -26,14 +26,6 @@ class Command(BaseCommand):
             else:
                 asvs = ASVS(self.json, options['asvs_version'])
 
-        if not options['type']:
-            raise CommandError('No type was supplied.\n'
-                               'Use the --type argument.\n'
-                               'Possible values are:\n'
-                               ' - level\n'
-                               ' - category\n'
-                               ' - requirement')
-        else:
             if options['type'] == 'version':
                 asvs.load_version()
             elif options['type'] == 'level':
