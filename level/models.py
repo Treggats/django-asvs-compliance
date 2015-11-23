@@ -29,7 +29,8 @@ class Level(TranslatableModel):
 
     def __str__(self):
         return "{}: {}".format(self.level_number,
-                         self.lazy_translation_getter('name', str(self.pk)))
+                               self.lazy_translation_getter('name',
+                                                            str(self.pk)))
 
 
 @python_2_unicode_compatible
@@ -52,7 +53,8 @@ class Category(TranslatableModel):
 
     def __str__(self):
         return "V{}: {}".format(self.category_number,
-                                self.lazy_translation_getter('name', str(self.pk)))
+                                self.lazy_translation_getter('name',
+                                                             str(self.pk)))
 
 
 @python_2_unicode_compatible
@@ -84,3 +86,55 @@ class Requirement(TranslatableModel):
         return "{}: {}".format(self.requirement_number,
                                self.lazy_translation_getter('title',
                                                             str(self.pk)))
+
+
+@python_2_unicode_compatible
+class RelatedAnnotated(TranslatableModel):
+    url = models.URLField()
+
+    translations = TranslatedFields(
+        name=models.CharField(max_length=250)
+    )
+
+    @property
+    def related_name(self):
+        return self.name
+
+    class Meta:
+        verbose_name = _('Related annotated')
+        verbose_name_plural = _('Related annotations')
+
+    def __str__(self):
+        return self.lazy_translation_getter('name', str(self.pk))
+
+
+@python_2_unicode_compatible
+class RequirementAnnotated(TranslatableModel):
+    requirement = models.ForeignKey(Requirement)
+    category = models.ForeignKey(Category)
+    related = models.ManyToManyField(RelatedAnnotated)
+
+    translations = TranslatedFields(
+        title=models.CharField(max_length=100)
+    )
+
+    @property
+    def title_(self):
+        return self.title
+
+    @property
+    def requirement_number(self):
+        return self.requirement.requirement_number
+
+    @property
+    def category_number(self):
+        return self.category.category_number
+
+    class Meta:
+        verbose_name = _('Requirement annotated')
+        verbose_name_plural = _('Requirement annotations')
+        unique_together = ('requirement', 'category')
+        ordering = ('requirement', 'category')
+
+    def __str__(self):
+        return self.lazy_translation_getter('title', str(self.pk))

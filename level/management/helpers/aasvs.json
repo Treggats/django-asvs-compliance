@@ -2,19 +2,19 @@
     "__source": "https://github.com/ibuildingsnl/owasp-asvs/blob/master/src/asvs.json",
     "helpTypes": {
         "apache2.md": {
-            "en": "Apache 2"
+            "en-us": "Apache 2"
         },
         "drupal7.md": {
-            "en": "Drupal 7"
+            "en-us": "Drupal 7"
         },
         "general.md": {
-            "en": "General"
+            "en-us": "General"
         },
         "php.md": {
-            "en": "PHP"
+            "en-us": "PHP"
         },
         "symfony2.md": {
-            "en": "Symfony 2"
+            "en-us": "Symfony 2"
         }
     },
     "requirements": [
@@ -22,7 +22,7 @@
             "chapterNr": "1",
             "nr": "1",
             "shortTitle": {
-                "en": "All components are identified"
+                "en-us": "All components are identified"
             },
             "related": [
                 {
@@ -35,7 +35,7 @@
             "chapterNr": "1",
             "nr": "2",
             "shortTitle": {
-                "en": "All dependencies are identified"
+                "en-us": "All dependencies are identified"
             },
             "related": []
         },
@@ -43,7 +43,7 @@
             "chapterNr": "1",
             "nr": "3",
             "shortTitle": {
-                "en": "A high-level architecture as been defined"
+                "en-us": "A high-level architecture as been defined"
             },
             "related": []
         },
@@ -51,7 +51,7 @@
             "chapterNr": "1",
             "nr": "4",
             "shortTitle": {
-                "en": "All components are defined"
+                "en-us": "All components are defined"
             },
             "related": []
         },
@@ -59,7 +59,7 @@
             "chapterNr": "1",
             "nr": "5",
             "shortTitle": {
-                "en": "All dependant components are defined"
+                "en-us": "All dependant components are defined"
             },
             "related": []
         },
@@ -67,7 +67,7 @@
             "chapterNr": "1",
             "nr": "6",
             "shortTitle": {
-                "en": "A STRIDE threat model has been produced"
+                "en-us": "A STRIDE threat model has been produced"
             },
             "related": []
         },
@@ -75,7 +75,7 @@
             "chapterNr": "1",
             "nr": "7",
             "shortTitle": {
-                "en": "Central implementation for security controls"
+                "en-us": "Central implementation for security controls"
             },
             "related": []
         },
@@ -83,7 +83,7 @@
             "chapterNr": "1",
             "nr": "8",
             "shortTitle": {
-                "en": "Components are segregated"
+                "en-us": "Components are segregated"
             },
             "related": []
         },
@@ -91,7 +91,7 @@
             "chapterNr": "1",
             "nr": "9",
             "shortTitle": {
-                "en": "Clear separation between data, controller and display"
+                "en-us": "Clear separation between data, controller and display"
             },
             "related": []
         },
@@ -99,7 +99,7 @@
             "chapterNr": "1",
             "nr": "10",
             "shortTitle": {
-                "en": "Client side logic does not contain secrets"
+                "en-us": "Client side logic does not contain secrets"
             },
             "related": []
         },
@@ -107,7 +107,7 @@
             "chapterNr": "2",
             "nr": "1",
             "shortTitle": {
-                "en": "Principle of complete mediation"
+                "en-us": "Principle of complete mediation"
             },
             "related": [
                 {
@@ -120,7 +120,7 @@
             "chapterNr": "2",
             "nr": "2",
             "shortTitle": {
-                "en": "Password fields"
+                "en-us": "Password fields"
             },
             "related": []
         },
@@ -128,7 +128,7 @@
             "chapterNr": "2",
             "nr": "4",
             "shortTitle": {
-                "en": "Server side enforcement"
+                "en-us": "Server side enforcement"
             },
             "related": [
                 {
@@ -141,7 +141,7 @@
             "chapterNr": "2",
             "nr": "5",
             "shortTitle": {
-                "en": "Centralized authentication controls"
+                "en-us": "Centralized authentication controls"
             },
             "related": []
         },
@@ -149,7 +149,7 @@
             "chapterNr": "2",
             "nr": "6",
             "shortTitle": {
-                "en": "Fails securely"
+                "en-us": "Fails securely"
             },
             "related": [
                 {
@@ -166,7 +166,7 @@
             "chapterNr": "2",
             "nr": "7",
             "shortTitle": {
-                "en": "Allows for strong passwords"
+                "en-us": "Allows for strong passwords"
             },
             "related": []
         },
@@ -174,7 +174,7 @@
             "chapterNr": "2",
             "nr": "8",
             "shortTitle": {
-                "en": "All account identity authentication functions are secure"
+                "en-us": "All account identity authentication functions are secure"
             },
             "related": []
         },
@@ -182,7 +182,7 @@
             "chapterNr": "2",
             "nr": "9",
             "shortTitle": {
-                "en": "All credential changes are secure"
+                "en-us": "All credential changes are secure"
             },
             "related": []
         },
@@ -190,7 +190,7 @@
             "chapterNr": "2",
             "nr": "12",
             "shortTitle": {
-                "en": "All authentication decisions are logged"
+                "en-us": "All authentication decisions are logged"
             },
             "related": []
         },
@@ -198,7 +198,7 @@
             "chapterNr": "2",
             "nr": "13",
             "shortTitle": {
-                "en": "Account passwords are salted properly"
+                "en-us": "Account passwords are salted properly"
             },
             "related": []
         },
@@ -206,7 +206,7 @@
             "chapterNr": "2",
             "nr": "16",
             "shortTitle": {
-                "en": "Strongly encrypted transport"
+                "en-us": "Strongly encrypted transport"
             },
             "related": [
                 {
@@ -223,7 +223,7 @@
             "chapterNr": "2",
             "nr": "17",
             "shortTitle": {
-                "en": "No clear text passwords"
+                "en-us": "No clear text passwords"
             },
             "related": [
                 {
@@ -236,7 +236,7 @@
             "chapterNr": "2",
             "nr": "18",
             "shortTitle": {
-                "en": "No username enumeration"
+                "en-us": "No username enumeration"
             },
             "related": [
                 {
@@ -253,7 +253,7 @@
             "chapterNr": "2",
             "nr": "19",
             "shortTitle": {
-                "en": "No default passwords"
+                "en-us": "No default passwords"
             },
             "related": []
         },
@@ -261,7 +261,7 @@
             "chapterNr": "2",
             "nr": "20",
             "shortTitle": {
-                "en": "Protects against brute force attacks"
+                "en-us": "Protects against brute force attacks"
             },
             "related": []
         },
@@ -269,7 +269,7 @@
             "chapterNr": "2",
             "nr": "21",
             "shortTitle": {
-                "en": "External service credentials are encrypted and protected"
+                "en-us": "External service credentials are encrypted and protected"
             },
             "related": []
         },
@@ -277,7 +277,7 @@
             "chapterNr": "2",
             "nr": "22",
             "shortTitle": {
-                "en": "Password recovery is well implemented"
+                "en-us": "Password recovery is well implemented"
             },
             "related": []
         },
@@ -285,7 +285,7 @@
             "chapterNr": "2",
             "nr": "23",
             "shortTitle": {
-                "en": "Password recovery can not be used to lock out users"
+                "en-us": "Password recovery can not be used to lock out users"
             },
             "related": []
         },
@@ -293,7 +293,7 @@
             "chapterNr": "2",
             "nr": "24",
             "shortTitle": {
-                "en": "No \"secret\" questions"
+                "en-us": "No \"secret\" questions"
             },
             "related": []
         },
@@ -301,7 +301,7 @@
             "chapterNr": "2",
             "nr": "25",
             "shortTitle": {
-                "en": "Supports configuration to disallow previous passwords"
+                "en-us": "Supports configuration to disallow previous passwords"
             },
             "related": []
         },
@@ -309,7 +309,7 @@
             "chapterNr": "2",
             "nr": "26",
             "shortTitle": {
-                "en": "Sensitive operations are sufficiently protected"
+                "en-us": "Sensitive operations are sufficiently protected"
             },
             "related": []
         },
@@ -317,7 +317,7 @@
             "chapterNr": "2",
             "nr": "27",
             "shortTitle": {
-                "en": "Block common or weak passwords / passphrases"
+                "en-us": "Block common or weak passwords / passphrases"
             },
             "related": []
         },
@@ -325,7 +325,7 @@
             "chapterNr": "2",
             "nr": "28",
             "shortTitle": {
-                "en": "Authentication success or failure should take equal time"
+                "en-us": "Authentication success or failure should take equal time"
             },
             "related": []
         },
@@ -333,7 +333,7 @@
             "chapterNr": "2",
             "nr": "29",
             "shortTitle": {
-                "en": "Secrets are not included in the source code"
+                "en-us": "Secrets are not included in the source code"
             },
             "related": []
         },
@@ -341,7 +341,7 @@
             "chapterNr": "2",
             "nr": "30",
             "shortTitle": {
-                "en": "Use a proven secure authentication mechanism"
+                "en-us": "Use a proven secure authentication mechanism"
             },
             "related": []
         },
@@ -349,7 +349,7 @@
             "chapterNr": "2",
             "nr": "31",
             "shortTitle": {
-                "en": "Protects against username & password disclosure"
+                "en-us": "Protects against username & password disclosure"
             },
             "related": []
         },
@@ -357,7 +357,7 @@
             "chapterNr": "2",
             "nr": "32",
             "shortTitle": {
-                "en": "Admin is not accessible for untrusted parties"
+                "en-us": "Admin is not accessible for untrusted parties"
             },
             "related": []
         },
@@ -365,7 +365,7 @@
             "chapterNr": "3",
             "nr": "1",
             "shortTitle": {
-                "en": "Uses default session management"
+                "en-us": "Uses default session management"
             },
             "related": [
                 {
@@ -378,7 +378,7 @@
             "chapterNr": "3",
             "nr": "2",
             "shortTitle": {
-                "en": "Sessions are invalidated on user log out"
+                "en-us": "Sessions are invalidated on user log out"
             },
             "related": []
         },
@@ -386,7 +386,7 @@
             "chapterNr": "3",
             "nr": "3",
             "shortTitle": {
-                "en": "Session times out after inactivity"
+                "en-us": "Session times out after inactivity"
             },
             "related": [
                 {
@@ -399,7 +399,7 @@
             "chapterNr": "3",
             "nr": "4",
             "shortTitle": {
-                "en": "Session has absolute timeout"
+                "en-us": "Session has absolute timeout"
             },
             "related": [
                 {
@@ -412,7 +412,7 @@
             "chapterNr": "3",
             "nr": "5",
             "shortTitle": {
-                "en": "Shows logout link"
+                "en-us": "Shows logout link"
             },
             "related": []
         },
@@ -420,7 +420,7 @@
             "chapterNr": "3",
             "nr": "6",
             "shortTitle": {
-                "en": "Does not disclose session id"
+                "en-us": "Does not disclose session id"
             },
             "related": []
         },
@@ -428,7 +428,7 @@
             "chapterNr": "3",
             "nr": "7",
             "shortTitle": {
-                "en": "Session id is changed on login"
+                "en-us": "Session id is changed on login"
             },
             "related": []
         },
@@ -436,7 +436,7 @@
             "chapterNr": "3",
             "nr": "8",
             "shortTitle": {
-                "en": "Session id is changed on re-authentication"
+                "en-us": "Session id is changed on re-authentication"
             },
             "related": []
         },
@@ -444,7 +444,7 @@
             "chapterNr": "3",
             "nr": "10",
             "shortTitle": {
-                "en": "Session ids may only come from framework"
+                "en-us": "Session ids may only come from framework"
             },
             "related": []
         },
@@ -452,7 +452,7 @@
             "chapterNr": "3",
             "nr": "11",
             "shortTitle": {
-                "en": "Session tokens are sufficiently long and random"
+                "en-us": "Session tokens are sufficiently long and random"
             },
             "related": []
         },
@@ -460,7 +460,7 @@
             "chapterNr": "3",
             "nr": "12",
             "shortTitle": {
-                "en": "Session cookies have appropriately restricted paths"
+                "en-us": "Session cookies have appropriately restricted paths"
             },
             "related": []
         },
@@ -468,7 +468,7 @@
             "chapterNr": "3",
             "nr": "16",
             "shortTitle": {
-                "en": "Does not permit duplicate concurrent user sessions from different machines"
+                "en-us": "Does not permit duplicate concurrent user sessions from different machines"
             },
             "related": []
         },
@@ -476,7 +476,7 @@
             "chapterNr": "3",
             "nr": "17",
             "shortTitle": {
-                "en": "User can see and terminate all his sessions"
+                "en-us": "User can see and terminate all his sessions"
             },
             "related": []
         },
@@ -484,7 +484,7 @@
             "chapterNr": "3",
             "nr": "18",
             "shortTitle": {
-                "en": "User is prompted for session termination on password change"
+                "en-us": "User is prompted for session termination on password change"
             },
             "related": []
         },
@@ -492,7 +492,7 @@
             "chapterNr": "4",
             "nr": "1",
             "shortTitle": {
-                "en": "Authorisation of functions and services"
+                "en-us": "Authorisation of functions and services"
             },
             "related": [
                 {
@@ -513,7 +513,7 @@
             "chapterNr": "4",
             "nr": "4",
             "shortTitle": {
-                "en": "Authorisation of direct object references"
+                "en-us": "Authorisation of direct object references"
             },
             "related": [
                 {
@@ -534,7 +534,7 @@
             "chapterNr": "4",
             "nr": "5",
             "shortTitle": {
-                "en": "Disabled directory browsing"
+                "en-us": "Disabled directory browsing"
             },
             "related": []
         },
@@ -542,7 +542,7 @@
             "chapterNr": "4",
             "nr": "8",
             "shortTitle": {
-                "en": "Access controls fail securely"
+                "en-us": "Access controls fail securely"
             },
             "related": []
         },
@@ -550,7 +550,7 @@
             "chapterNr": "4",
             "nr": "9",
             "shortTitle": {
-                "en": "Access control rules are enfoced server side"
+                "en-us": "Access control rules are enfoced server side"
             },
             "related": []
         },
@@ -558,7 +558,7 @@
             "chapterNr": "4",
             "nr": "10",
             "shortTitle": {
-                "en": "User and data attributes and policy information cannot be manipulated unauthorized"
+                "en-us": "User and data attributes and policy information cannot be manipulated unauthorized"
             },
             "related": []
         },
@@ -566,7 +566,7 @@
             "chapterNr": "4",
             "nr": "11",
             "shortTitle": {
-                "en": "Access controls are enforced on the server side"
+                "en-us": "Access controls are enforced on the server side"
             },
             "related": []
         },
@@ -574,7 +574,7 @@
             "chapterNr": "4",
             "nr": "12",
             "shortTitle": {
-                "en": "Has centralized mechanism for access to protected resources"
+                "en-us": "Has centralized mechanism for access to protected resources"
             },
             "related": []
         },
@@ -582,7 +582,7 @@
             "chapterNr": "4",
             "nr": "13",
             "shortTitle": {
-                "en": "Protects against CSRF"
+                "en-us": "Protects against CSRF"
             },
             "related": []
         },
@@ -590,7 +590,7 @@
             "chapterNr": "4",
             "nr": "14",
             "shortTitle": {
-                "en": "Access control decisions and failed decisions are logged"
+                "en-us": "Access control decisions and failed decisions are logged"
             },
             "related": []
         },
@@ -598,7 +598,7 @@
             "chapterNr": "4",
             "nr": "15",
             "shortTitle": {
-                "en": "Protects against fraud"
+                "en-us": "Protects against fraud"
             },
             "related": []
         },
@@ -606,7 +606,7 @@
             "chapterNr": "4",
             "nr": "16",
             "shortTitle": {
-                "en": "Protects against parameter tampering"
+                "en-us": "Protects against parameter tampering"
             },
             "related": []
         },
@@ -614,7 +614,7 @@
             "chapterNr": "5",
             "nr": "1",
             "shortTitle": {
-                "en": "Buffer overflows"
+                "en-us": "Buffer overflows"
             },
             "related": [
                 {
@@ -631,7 +631,7 @@
             "chapterNr": "5",
             "nr": "3",
             "shortTitle": {
-                "en": "Rejects invalid input"
+                "en-us": "Rejects invalid input"
             },
             "related": []
         },
@@ -639,7 +639,7 @@
             "chapterNr": "5",
             "nr": "4",
             "shortTitle": {
-                "en": "A character set is specified for all sources of input"
+                "en-us": "A character set is specified for all sources of input"
             },
             "related": []
         },
@@ -647,7 +647,7 @@
             "chapterNr": "5",
             "nr": "5",
             "shortTitle": {
-                "en": "Input validation or encoding is performed and enforced on the server side."
+                "en-us": "Input validation or encoding is performed and enforced on the server side."
             },
             "related": []
         },
@@ -655,7 +655,7 @@
             "chapterNr": "5",
             "nr": "6",
             "shortTitle": {
-                "en": "One input validation control per type of accepted data"
+                "en-us": "One input validation control per type of accepted data"
             },
             "related": []
         },
@@ -663,7 +663,7 @@
             "chapterNr": "5",
             "nr": "7",
             "shortTitle": {
-                "en": "All input validation failures are logged"
+                "en-us": "All input validation failures are logged"
             },
             "related": []
         },
@@ -671,7 +671,7 @@
             "chapterNr": "5",
             "nr": "8",
             "shortTitle": {
-                "en": "Input data is c14ned"
+                "en-us": "Input data is c14ned"
             },
             "related": []
         },
@@ -679,7 +679,7 @@
             "chapterNr": "5",
             "nr": "10",
             "shortTitle": {
-                "en": "SQL Injection"
+                "en-us": "SQL Injection"
             },
             "related": []
         },
@@ -687,7 +687,7 @@
             "chapterNr": "5",
             "nr": "11",
             "shortTitle": {
-                "en": "LDAP Injection"
+                "en-us": "LDAP Injection"
             },
             "related": []
         },
@@ -695,7 +695,7 @@
             "chapterNr": "5",
             "nr": "12",
             "shortTitle": {
-                "en": "OS Command Injection"
+                "en-us": "OS Command Injection"
             },
             "related": []
         },
@@ -703,7 +703,7 @@
             "chapterNr": "5",
             "nr": "13",
             "shortTitle": {
-                "en": "XXE"
+                "en-us": "XXE"
             },
             "related": []
         },
@@ -711,7 +711,7 @@
             "chapterNr": "5",
             "nr": "14",
             "shortTitle": {
-                "en": "XML Injection"
+                "en-us": "XML Injection"
             },
             "related": []
         },
@@ -719,7 +719,7 @@
             "chapterNr": "5",
             "nr": "15",
             "shortTitle": {
-                "en": "TODO"
+                "en-us": "TODO"
             },
             "related": []
         },
@@ -727,7 +727,7 @@
             "chapterNr": "5",
             "nr": "16",
             "shortTitle": {
-                "en": "HTML escaping"
+                "en-us": "HTML escaping"
             },
             "related": []
         },
@@ -735,7 +735,7 @@
             "chapterNr": "5",
             "nr": "17",
             "shortTitle": {
-                "en": "Protected against malicious automatic binding"
+                "en-us": "Protected against malicious automatic binding"
             },
             "related": []
         },
@@ -743,7 +743,7 @@
             "chapterNr": "5",
             "nr": "18",
             "shortTitle": {
-                "en": "Defends against HTTP parameter pollution attacks"
+                "en-us": "Defends against HTTP parameter pollution attacks"
             },
             "related": []
         },
@@ -751,7 +751,7 @@
             "chapterNr": "5",
             "nr": "19",
             "shortTitle": {
-                "en": "Output encoding/escaping has a single security control per type"
+                "en-us": "Output encoding/escaping has a single security control per type"
             },
             "related": []
         },
@@ -759,7 +759,7 @@
             "chapterNr": "5",
             "nr": "20",
             "shortTitle": {
-                "en": "Structured data is strongly typed and validated with a schema"
+                "en-us": "Structured data is strongly typed and validated with a schema"
             },
             "related": []
         },
@@ -767,7 +767,7 @@
             "chapterNr": "5",
             "nr": "21",
             "shortTitle": {
-                "en": "Unstructured data is sanitized"
+                "en-us": "Unstructured data is sanitized"
             },
             "related": []
         },
@@ -775,7 +775,7 @@
             "chapterNr": "5",
             "nr": "22",
             "shortTitle": {
-                "en": "Untrusted HTML is sanitized"
+                "en-us": "Untrusted HTML is sanitized"
             },
             "related": []
         },
@@ -783,7 +783,7 @@
             "chapterNr": "5",
             "nr": "23",
             "shortTitle": {
-                "en": "Auto escaping technology always applies HTML sanitization"
+                "en-us": "Auto escaping technology always applies HTML sanitization"
             },
             "related": []
         },
@@ -791,7 +791,7 @@
             "chapterNr": "5",
             "nr": "24",
             "shortTitle": {
-                "en": "DOM writes use safe JavaScript methods"
+                "en-us": "DOM writes use safe JavaScript methods"
             },
             "related": []
         },
@@ -799,7 +799,7 @@
             "chapterNr": "5",
             "nr": "25",
             "shortTitle": {
-                "en": "JSON is properly parsed by browser"
+                "en-us": "JSON is properly parsed by browser"
             },
             "related": []
         },
@@ -807,7 +807,7 @@
             "chapterNr": "5",
             "nr": "26",
             "shortTitle": {
-                "en": "Data is cleared from client storage on session termination"
+                "en-us": "Data is cleared from client storage on session termination"
             },
             "related": []
         },
@@ -815,7 +815,7 @@
             "chapterNr": "7",
             "nr": "1",
             "shortTitle": {
-                "en": "Crypto is performed server side"
+                "en-us": "Crypto is performed server side"
             },
             "related": []
         },
@@ -823,7 +823,7 @@
             "chapterNr": "7",
             "nr": "2",
             "shortTitle": {
-                "en": "Crypto fails securely"
+                "en-us": "Crypto fails securely"
             },
             "related": []
         },
@@ -831,7 +831,7 @@
             "chapterNr": "7",
             "nr": "3",
             "shortTitle": {
-                "en": "Master secret(s) are protected from unauthorized access"
+                "en-us": "Master secret(s) are protected from unauthorized access"
             },
             "related": []
         },
@@ -839,7 +839,7 @@
             "chapterNr": "7",
             "nr": "6",
             "shortTitle": {
-                "en": "Random numbers, file names, GUIDs and strings are sufficiently random"
+                "en-us": "Random numbers, file names, GUIDs and strings are sufficiently random"
             },
             "related": []
         },
@@ -847,7 +847,7 @@
             "chapterNr": "7",
             "nr": "7",
             "shortTitle": {
-                "en": "Crypto modules have been validated against FIPS 140-2 or equivalent"
+                "en-us": "Crypto modules have been validated against FIPS 140-2 or equivalent"
             },
             "related": []
         },
@@ -855,7 +855,7 @@
             "chapterNr": "7",
             "nr": "8",
             "shortTitle": {
-                "en": "Crypto modules operate in their approved mode"
+                "en-us": "Crypto modules operate in their approved mode"
             },
             "related": []
         },
@@ -863,7 +863,7 @@
             "chapterNr": "7",
             "nr": "9",
             "shortTitle": {
-                "en": "Policy for cryptographic key management exists and is enforced"
+                "en-us": "Policy for cryptographic key management exists and is enforced"
             },
             "related": []
         },
@@ -871,7 +871,7 @@
             "chapterNr": "7",
             "nr": "11",
             "shortTitle": {
-                "en": "Cryptographic processes are isolated"
+                "en-us": "Cryptographic processes are isolated"
             },
             "related": []
         },
@@ -879,7 +879,7 @@
             "chapterNr": "7",
             "nr": "12",
             "shortTitle": {
-                "en": "PII is encrypted at rest and protected during communication"
+                "en-us": "PII is encrypted at rest and protected during communication"
             },
             "related": []
         },
@@ -887,7 +887,7 @@
             "chapterNr": "7",
             "nr": "13",
             "shortTitle": {
-                "en": "Keys and secrets are zeroed when destroyed"
+                "en-us": "Keys and secrets are zeroed when destroyed"
             },
             "related": []
         },
@@ -895,7 +895,7 @@
             "chapterNr": "7",
             "nr": "14",
             "shortTitle": {
-                "en": "Secrets are replaceable and placed at installation"
+                "en-us": "Secrets are replaceable and placed at installation"
             },
             "related": []
         },
@@ -903,7 +903,7 @@
             "chapterNr": "7",
             "nr": "15",
             "shortTitle": {
-                "en": "Random numbers are sufficiently random even under load"
+                "en-us": "Random numbers are sufficiently random even under load"
             },
             "related": []
         },
@@ -911,7 +911,7 @@
             "chapterNr": "8",
             "nr": "1",
             "shortTitle": {
-                "en": "Information leakage"
+                "en-us": "Information leakage"
             },
             "related": [
                 {
@@ -928,7 +928,7 @@
             "chapterNr": "8",
             "nr": "2",
             "shortTitle": {
-                "en": "Error handling is performed on trusted devices"
+                "en-us": "Error handling is performed on trusted devices"
             },
             "related": []
         },
@@ -936,7 +936,7 @@
             "chapterNr": "8",
             "nr": "3",
             "shortTitle": {
-                "en": "Logging controls are implemented on the server"
+                "en-us": "Logging controls are implemented on the server"
             },
             "related": []
         },
@@ -944,7 +944,7 @@
             "chapterNr": "8",
             "nr": "4",
             "shortTitle": {
-                "en": "Error handling logic denies access by default"
+                "en-us": "Error handling logic denies access by default"
             },
             "related": []
         },
@@ -952,7 +952,7 @@
             "chapterNr": "8",
             "nr": "5",
             "shortTitle": {
-                "en": "Security relevant success and failure events are loggable by controls"
+                "en-us": "Security relevant success and failure events are loggable by controls"
             },
             "related": []
         },
@@ -960,7 +960,7 @@
             "chapterNr": "8",
             "nr": "6",
             "shortTitle": {
-                "en": "Log events are complete"
+                "en-us": "Log events are complete"
             },
             "related": []
         },
@@ -968,7 +968,7 @@
             "chapterNr": "8",
             "nr": "7",
             "shortTitle": {
-                "en": "Events that include untrusted data will not be executed"
+                "en-us": "Events that include untrusted data will not be executed"
             },
             "related": []
         },
@@ -976,7 +976,7 @@
             "chapterNr": "8",
             "nr": "8",
             "shortTitle": {
-                "en": "Security logs are protected"
+                "en-us": "Security logs are protected"
             },
             "related": []
         },
@@ -984,7 +984,7 @@
             "chapterNr": "8",
             "nr": "9",
             "shortTitle": {
-                "en": "Single application-level logging implementation"
+                "en-us": "Single application-level logging implementation"
             },
             "related": []
         },
@@ -992,7 +992,7 @@
             "chapterNr": "8",
             "nr": "10",
             "shortTitle": {
-                "en": "Application log does not include sensitive data"
+                "en-us": "Application log does not include sensitive data"
             },
             "related": []
         },
@@ -1000,7 +1000,7 @@
             "chapterNr": "8",
             "nr": "11",
             "shortTitle": {
-                "en": "A sufficiently advanced log analysis tool is available"
+                "en-us": "A sufficiently advanced log analysis tool is available"
             },
             "related": []
         },
@@ -1008,7 +1008,7 @@
             "chapterNr": "8",
             "nr": "12",
             "shortTitle": {
-                "en": "Logs are stored differently and rotated"
+                "en-us": "Logs are stored differently and rotated"
             },
             "related": []
         },
@@ -1016,7 +1016,7 @@
             "chapterNr": "8",
             "nr": "13",
             "shortTitle": {
-                "en": "Non-printable symbols and field separators are properly encoded in logs"
+                "en-us": "Non-printable symbols and field separators are properly encoded in logs"
             },
             "related": []
         },
@@ -1024,7 +1024,7 @@
             "chapterNr": "8",
             "nr": "14",
             "shortTitle": {
-                "en": "Log fields from trusted and untrusted sources are distinguishable"
+                "en-us": "Log fields from trusted and untrusted sources are distinguishable"
             },
             "related": []
         },
@@ -1032,7 +1032,7 @@
             "chapterNr": "8",
             "nr": "15",
             "shortTitle": {
-                "en": "Logging occurs before executing a transaction"
+                "en-us": "Logging occurs before executing a transaction"
             },
             "related": []
         },
@@ -1040,7 +1040,7 @@
             "chapterNr": "9",
             "nr": "1",
             "shortTitle": {
-                "en": "Sensitive data does not get cached"
+                "en-us": "Sensitive data does not get cached"
             },
             "related": []
         },
@@ -1048,7 +1048,7 @@
             "chapterNr": "9",
             "nr": "2",
             "shortTitle": {
-                "en": "Sensitive data is identified and access policy exists and is enforced"
+                "en-us": "Sensitive data is identified and access policy exists and is enforced"
             },
             "related": []
         },
@@ -1056,7 +1056,7 @@
             "chapterNr": "9",
             "nr": "3",
             "shortTitle": {
-                "en": "Sensitive data does not get sent in the URL"
+                "en-us": "Sensitive data does not get sent in the URL"
             },
             "related": []
         },
@@ -1064,7 +1064,7 @@
             "chapterNr": "9",
             "nr": "4",
             "shortTitle": {
-                "en": "Temporary client caches of sensitive data are properly cleaned up"
+                "en-us": "Temporary client caches of sensitive data are properly cleaned up"
             },
             "related": []
         },
@@ -1072,7 +1072,7 @@
             "chapterNr": "9",
             "nr": "5",
             "shortTitle": {
-                "en": "Temporary server caches of sensitive data are properly cleaned up"
+                "en-us": "Temporary server caches of sensitive data are properly cleaned up"
             },
             "related": []
         },
@@ -1080,7 +1080,7 @@
             "chapterNr": "9",
             "nr": "6",
             "shortTitle": {
-                "en": "Sensitive data can be removed after required retention period"
+                "en-us": "Sensitive data can be removed after required retention period"
             },
             "related": []
         },
@@ -1088,7 +1088,7 @@
             "chapterNr": "9",
             "nr": "7",
             "shortTitle": {
-                "en": "Minimal parameters are sent to untrusted systems"
+                "en-us": "Minimal parameters are sent to untrusted systems"
             },
             "related": []
         },
@@ -1096,7 +1096,7 @@
             "chapterNr": "9",
             "nr": "8",
             "shortTitle": {
-                "en": "Abnormal behaviour is detectable"
+                "en-us": "Abnormal behaviour is detectable"
             },
             "related": []
         },
@@ -1104,7 +1104,7 @@
             "chapterNr": "9",
             "nr": "9",
             "shortTitle": {
-                "en": "Client side storage does not contain secrets"
+                "en-us": "Client side storage does not contain secrets"
             },
             "related": []
         },
@@ -1112,7 +1112,7 @@
             "chapterNr": "9",
             "nr": "10",
             "shortTitle": {
-                "en": "Accessing sensitive data is logged"
+                "en-us": "Accessing sensitive data is logged"
             },
             "related": []
         },
@@ -1120,7 +1120,7 @@
             "chapterNr": "9",
             "nr": "11",
             "shortTitle": {
-                "en": "Sensitive data is rapidly sanitized from memory"
+                "en-us": "Sensitive data is rapidly sanitized from memory"
             },
             "related": []
         },
@@ -1128,7 +1128,7 @@
             "chapterNr": "10",
             "nr": "1",
             "shortTitle": {
-                "en": "TLS chain is valid"
+                "en-us": "TLS chain is valid"
             },
             "related": []
         },
@@ -1136,7 +1136,7 @@
             "chapterNr": "10",
             "nr": "2",
             "shortTitle": {
-                "en": "Failed TLS does not fall back to HTTP"
+                "en-us": "Failed TLS does not fall back to HTTP"
             },
             "related": []
         },
@@ -1144,7 +1144,7 @@
             "chapterNr": "10",
             "nr": "3",
             "shortTitle": {
-                "en": "TLS is used for all relevant connections"
+                "en-us": "TLS is used for all relevant connections"
             },
             "related": []
         },
@@ -1152,7 +1152,7 @@
             "chapterNr": "10",
             "nr": "4",
             "shortTitle": {
-                "en": "Backend TLS connection failures are logged"
+                "en-us": "Backend TLS connection failures are logged"
             },
             "related": []
         },
@@ -1160,7 +1160,7 @@
             "chapterNr": "10",
             "nr": "5",
             "shortTitle": {
-                "en": "Client certificates are built and verified correctly"
+                "en-us": "Client certificates are built and verified correctly"
             },
             "related": []
         },
@@ -1168,7 +1168,7 @@
             "chapterNr": "10",
             "nr": "6",
             "shortTitle": {
-                "en": "Connections to relevant external systems are authenticated"
+                "en-us": "Connections to relevant external systems are authenticated"
             },
             "related": []
         },
@@ -1176,7 +1176,7 @@
             "chapterNr": "10",
             "nr": "7",
             "shortTitle": {
-                "en": "Connections to relevant external systems use least amount of privileges"
+                "en-us": "Connections to relevant external systems use least amount of privileges"
             },
             "related": []
         },
@@ -1184,7 +1184,7 @@
             "chapterNr": "10",
             "nr": "8",
             "shortTitle": {
-                "en": "Single standard well-configured TLS implementation is used"
+                "en-us": "Single standard well-configured TLS implementation is used"
             },
             "related": []
         },
@@ -1192,7 +1192,7 @@
             "chapterNr": "10",
             "nr": "9",
             "shortTitle": {
-                "en": "All connections define a specific character encoding"
+                "en-us": "All connections define a specific character encoding"
             },
             "related": []
         },
@@ -1200,7 +1200,7 @@
             "chapterNr": "10",
             "nr": "10",
             "shortTitle": {
-                "en": "Certificate pinning is used correctly"
+                "en-us": "Certificate pinning is used correctly"
             },
             "related": []
         },
@@ -1208,7 +1208,7 @@
             "chapterNr": "10",
             "nr": "11",
             "shortTitle": {
-                "en": "Strict Transport Security is used correctly"
+                "en-us": "Strict Transport Security is used correctly"
             },
             "related": []
         },
@@ -1216,7 +1216,7 @@
             "chapterNr": "10",
             "nr": "12",
             "shortTitle": {
-                "en": "URL is submitted to HSTS preload lists"
+                "en-us": "URL is submitted to HSTS preload lists"
             },
             "related": []
         },
@@ -1224,7 +1224,7 @@
             "chapterNr": "10",
             "nr": "13",
             "shortTitle": {
-                "en": "Forward secrecy ciphers are used"
+                "en-us": "Forward secrecy ciphers are used"
             },
             "related": []
         },
@@ -1232,7 +1232,7 @@
             "chapterNr": "10",
             "nr": "14",
             "shortTitle": {
-                "en": "Certification revocation is enabled and configured"
+                "en-us": "Certification revocation is enabled and configured"
             },
             "related": []
         },
@@ -1240,7 +1240,7 @@
             "chapterNr": "10",
             "nr": "15",
             "shortTitle": {
-                "en": "Strong certificate hierarchy"
+                "en-us": "Strong certificate hierarchy"
             },
             "related": []
         },
@@ -1248,7 +1248,7 @@
             "chapterNr": "10",
             "nr": "16",
             "shortTitle": {
-                "en": "TLS settings are current"
+                "en-us": "TLS settings are current"
             },
             "related": []
         },
@@ -1256,7 +1256,7 @@
             "chapterNr": "11",
             "nr": "1",
             "shortTitle": {
-                "en": "Only defined HTTP Request methods are accepted"
+                "en-us": "Only defined HTTP Request methods are accepted"
             },
             "related": [
                 {
@@ -1273,7 +1273,7 @@
             "chapterNr": "11",
             "nr": "2",
             "shortTitle": {
-                "en": "Every HTTP Response contains a Content-Type header with safe character set"
+                "en-us": "Every HTTP Response contains a Content-Type header with safe character set"
             },
             "related": [
                 {
@@ -1290,7 +1290,7 @@
             "chapterNr": "11",
             "nr": "3",
             "shortTitle": {
-                "en": "Trusted HTTP headers are authenticated"
+                "en-us": "Trusted HTTP headers are authenticated"
             },
             "related": []
         },
@@ -1298,7 +1298,7 @@
             "chapterNr": "11",
             "nr": "4",
             "shortTitle": {
-                "en": "X-Frame-Options is used correctly"
+                "en-us": "X-Frame-Options is used correctly"
             },
             "related": []
         },
@@ -1306,7 +1306,7 @@
             "chapterNr": "11",
             "nr": "5",
             "shortTitle": {
-                "en": "X-Content-Type-Options is used correctly"
+                "en-us": "X-Content-Type-Options is used correctly"
             },
             "related": []
         },
@@ -1314,7 +1314,7 @@
             "chapterNr": "11",
             "nr": "6",
             "shortTitle": {
-                "en": "HTTP headers in Requests and Responses contain only printable ASCII"
+                "en-us": "HTTP headers in Requests and Responses contain only printable ASCII"
             },
             "related": []
         },
@@ -1322,7 +1322,7 @@
             "chapterNr": "11",
             "nr": "7",
             "shortTitle": {
-                "en": "Content-Security-Policy is used correctly"
+                "en-us": "Content-Security-Policy is used correctly"
             },
             "related": []
         },
@@ -1330,7 +1330,7 @@
             "chapterNr": "11",
             "nr": "8",
             "shortTitle": {
-                "en": "X-XSS-Protection is used correctly"
+                "en-us": "X-XSS-Protection is used correctly"
             },
             "related": []
         },
@@ -1338,7 +1338,7 @@
             "chapterNr": "11",
             "nr": "9",
             "shortTitle": {
-                "en": "Front-end HTTP Headers cannot be spoofed"
+                "en-us": "Front-end HTTP Headers cannot be spoofed"
             },
             "related": []
         },
@@ -1346,7 +1346,7 @@
             "chapterNr": "11",
             "nr": "10",
             "shortTitle": {
-                "en": "Uses X-Frame-Options where appropriate"
+                "en-us": "Uses X-Frame-Options where appropriate"
             },
             "related": []
         },
@@ -1354,7 +1354,7 @@
             "chapterNr": "11",
             "nr": "12",
             "shortTitle": {
-                "en": "HTTP headers do not expose detailed version information"
+                "en-us": "HTTP headers do not expose detailed version information"
             },
             "related": []
         },
@@ -1362,7 +1362,7 @@
             "chapterNr": "13",
             "nr": "1",
             "shortTitle": {
-                "en": "No malicious code in custom code"
+                "en-us": "No malicious code in custom code"
             },
             "related": []
         },
@@ -1370,7 +1370,7 @@
             "chapterNr": "13",
             "nr": "2",
             "shortTitle": {
-                "en": "Code, libraries, executables and configuration files are verfied"
+                "en-us": "Code, libraries, executables and configuration files are verfied"
             },
             "related": []
         },
@@ -1378,7 +1378,7 @@
             "chapterNr": "13",
             "nr": "3",
             "shortTitle": {
-                "en": "No malicious code in authentication controls"
+                "en-us": "No malicious code in authentication controls"
             },
             "related": []
         },
@@ -1386,7 +1386,7 @@
             "chapterNr": "13",
             "nr": "4",
             "shortTitle": {
-                "en": "No malicious code in session management"
+                "en-us": "No malicious code in session management"
             },
             "related": []
         },
@@ -1394,7 +1394,7 @@
             "chapterNr": "13",
             "nr": "5",
             "shortTitle": {
-                "en": "No malicious code in access controls"
+                "en-us": "No malicious code in access controls"
             },
             "related": []
         },
@@ -1402,7 +1402,7 @@
             "chapterNr": "13",
             "nr": "6",
             "shortTitle": {
-                "en": "No malicous code in input validation control"
+                "en-us": "No malicous code in input validation control"
             },
             "related": []
         },
@@ -1410,7 +1410,7 @@
             "chapterNr": "13",
             "nr": "7",
             "shortTitle": {
-                "en": "No malicious code in output validation controls"
+                "en-us": "No malicious code in output validation controls"
             },
             "related": []
         },
@@ -1418,7 +1418,7 @@
             "chapterNr": "13",
             "nr": "8",
             "shortTitle": {
-                "en": "No malicious code in use of crypographic module"
+                "en-us": "No malicious code in use of crypographic module"
             },
             "related": []
         },
@@ -1426,7 +1426,7 @@
             "chapterNr": "13",
             "nr": "9",
             "shortTitle": {
-                "en": "No malicious code in error handling or logging controls"
+                "en-us": "No malicious code in error handling or logging controls"
             },
             "related": []
         },
@@ -1434,7 +1434,7 @@
             "chapterNr": "13",
             "nr": "10",
             "shortTitle": {
-                "en": "Malicious activity is adequately sandboxed"
+                "en-us": "Malicious activity is adequately sandboxed"
             },
             "related": []
         },
@@ -1442,7 +1442,7 @@
             "chapterNr": "13",
             "nr": "11",
             "shortTitle": {
-                "en": "Sensitive data is rapidly sanitized from memory"
+                "en-us": "Sensitive data is rapidly sanitized from memory"
             },
             "related": []
         },
@@ -1450,7 +1450,7 @@
             "chapterNr": "15",
             "nr": "1",
             "shortTitle": {
-                "en": "Appropriately uses a trusted environment"
+                "en-us": "Appropriately uses a trusted environment"
             },
             "related": []
         },
@@ -1458,7 +1458,7 @@
             "chapterNr": "15",
             "nr": "2",
             "shortTitle": {
-                "en": "Does not allow spoofed high value transactions"
+                "en-us": "Does not allow spoofed high value transactions"
             },
             "related": []
         },
@@ -1466,7 +1466,7 @@
             "chapterNr": "15",
             "nr": "3",
             "shortTitle": {
-                "en": "Does not allow tampering of logic parameters"
+                "en-us": "Does not allow tampering of logic parameters"
             },
             "related": []
         },
@@ -1474,7 +1474,7 @@
             "chapterNr": "15",
             "nr": "4",
             "shortTitle": {
-                "en": "Protects against repudiation attacks"
+                "en-us": "Protects against repudiation attacks"
             },
             "related": []
         },
@@ -1482,7 +1482,7 @@
             "chapterNr": "15",
             "nr": "5",
             "shortTitle": {
-                "en": "Protects against information disclosure attacks"
+                "en-us": "Protects against information disclosure attacks"
             },
             "related": []
         },
@@ -1490,7 +1490,7 @@
             "chapterNr": "15",
             "nr": "6",
             "shortTitle": {
-                "en": "Protects against brute force or denial of service attacks"
+                "en-us": "Protects against brute force or denial of service attacks"
             },
             "related": []
         },
@@ -1498,7 +1498,7 @@
             "chapterNr": "15",
             "nr": "7",
             "shortTitle": {
-                "en": "Protects against elevation of privilege attacks"
+                "en-us": "Protects against elevation of privilege attacks"
             },
             "related": []
         },
@@ -1506,7 +1506,7 @@
             "chapterNr": "15",
             "nr": "8",
             "shortTitle": {
-                "en": "Protects business logic flow ordering and timing"
+                "en-us": "Protects business logic flow ordering and timing"
             },
             "related": []
         },
@@ -1514,7 +1514,7 @@
             "chapterNr": "15",
             "nr": "9",
             "shortTitle": {
-                "en": "Protects against fraud appropriately"
+                "en-us": "Protects against fraud appropriately"
             },
             "related": []
         },
@@ -1522,7 +1522,7 @@
             "chapterNr": "15",
             "nr": "10",
             "shortTitle": {
-                "en": "Has business limits and enforces them appropriately"
+                "en-us": "Has business limits and enforces them appropriately"
             },
             "related": []
         },
@@ -1530,7 +1530,7 @@
             "chapterNr": "16",
             "nr": "1",
             "shortTitle": {
-                "en": "Safe from unsafe redirects"
+                "en-us": "Safe from unsafe redirects"
             },
             "related": [
                 {
@@ -1547,7 +1547,7 @@
             "chapterNr": "16",
             "nr": "2",
             "shortTitle": {
-                "en": "Safe from path traversal"
+                "en-us": "Safe from path traversal"
             },
             "related": [
                 {
@@ -1560,7 +1560,7 @@
             "chapterNr": "16",
             "nr": "3",
             "shortTitle": {
-                "en": "Anti-virus scanning"
+                "en-us": "Anti-virus scanning"
             },
             "related": [
                 {
@@ -1573,7 +1573,7 @@
             "chapterNr": "16",
             "nr": "4",
             "shortTitle": {
-                "en": "Safe from local file inclusion attacks"
+                "en-us": "Safe from local file inclusion attacks"
             },
             "related": []
         },
@@ -1581,7 +1581,7 @@
             "chapterNr": "16",
             "nr": "5",
             "shortTitle": {
-                "en": "Safe from remote file inclusion attacks"
+                "en-us": "Safe from remote file inclusion attacks"
             },
             "related": [
                 {
@@ -1602,7 +1602,7 @@
             "chapterNr": "16",
             "nr": "6",
             "shortTitle": {
-                "en": "Resource sharing"
+                "en-us": "Resource sharing"
             },
             "related": [
                 {
@@ -1615,7 +1615,7 @@
             "chapterNr": "16",
             "nr": "7",
             "shortTitle": {
-                "en": "Untrusted files are stored outside the webroot"
+                "en-us": "Untrusted files are stored outside the webroot"
             },
             "related": []
         },
@@ -1623,7 +1623,7 @@
             "chapterNr": "16",
             "nr": "8",
             "shortTitle": {
-                "en": "Deny access to resources or systems outside web or app server"
+                "en-us": "Deny access to resources or systems outside web or app server"
             },
             "related": []
         },
@@ -1631,7 +1631,7 @@
             "chapterNr": "16",
             "nr": "9",
             "shortTitle": {
-                "en": "Does not execute uploaded data from untrusted sources"
+                "en-us": "Does not execute uploaded data from untrusted sources"
             },
             "related": []
         },
@@ -1639,7 +1639,7 @@
             "chapterNr": "16",
             "nr": "10",
             "shortTitle": {
-                "en": "RIA cross domain resource sharing configuration"
+                "en-us": "RIA cross domain resource sharing configuration"
             },
             "related": []
         },
@@ -1647,7 +1647,7 @@
             "chapterNr": "17",
             "nr": "1",
             "shortTitle": {
-                "en": "App verifies SSL certificates"
+                "en-us": "App verifies SSL certificates"
             },
             "related": []
         },
@@ -1655,7 +1655,7 @@
             "chapterNr": "17",
             "nr": "2",
             "shortTitle": {
-                "en": "App does not use UDID values as security controls"
+                "en-us": "App does not use UDID values as security controls"
             },
             "related": []
         },
@@ -1663,7 +1663,7 @@
             "chapterNr": "17",
             "nr": "3",
             "shortTitle": {
-                "en": "App protects sensitive data"
+                "en-us": "App protects sensitive data"
             },
             "related": []
         },
@@ -1671,7 +1671,7 @@
             "chapterNr": "17",
             "nr": "4",
             "shortTitle": {
-                "en": "App does not use SQLite for sensitive data"
+                "en-us": "App does not use SQLite for sensitive data"
             },
             "related": []
         },
@@ -1679,7 +1679,7 @@
             "chapterNr": "17",
             "nr": "5",
             "shortTitle": {
-                "en": "App does not have Secret credentials hard-coded in executable"
+                "en-us": "App does not have Secret credentials hard-coded in executable"
             },
             "related": []
         },
@@ -1687,7 +1687,7 @@
             "chapterNr": "17",
             "nr": "6",
             "shortTitle": {
-                "en": "App protects against auto-snapshot information leakage"
+                "en-us": "App protects against auto-snapshot information leakage"
             },
             "related": []
         },
@@ -1695,7 +1695,7 @@
             "chapterNr": "17",
             "nr": "7",
             "shortTitle": {
-                "en": "App cannot be run on a jailbroken or rooted device"
+                "en-us": "App cannot be run on a jailbroken or rooted device"
             },
             "related": []
         },
@@ -1703,7 +1703,7 @@
             "chapterNr": "17",
             "nr": "8",
             "shortTitle": {
-                "en": "App session timeout is of a reasonable value"
+                "en-us": "App session timeout is of a reasonable value"
             },
             "related": []
         },
@@ -1711,7 +1711,7 @@
             "chapterNr": "17",
             "nr": "9",
             "shortTitle": {
-                "en": "App requires appropriate permissions and resources"
+                "en-us": "App requires appropriate permissions and resources"
             },
             "related": []
         },
@@ -1719,7 +1719,7 @@
             "chapterNr": "17",
             "nr": "10",
             "shortTitle": {
-                "en": "App crash log does not contain sensitive data"
+                "en-us": "App crash log does not contain sensitive data"
             },
             "related": []
         },
@@ -1727,7 +1727,7 @@
             "chapterNr": "17",
             "nr": "11",
             "shortTitle": {
-                "en": "App binary has been obfuscated"
+                "en-us": "App binary has been obfuscated"
             },
             "related": []
         },
@@ -1735,7 +1735,7 @@
             "chapterNr": "17",
             "nr": "12",
             "shortTitle": {
-                "en": "App test data has been removed from the container"
+                "en-us": "App test data has been removed from the container"
             },
             "related": []
         },
@@ -1743,7 +1743,7 @@
             "chapterNr": "17",
             "nr": "13",
             "shortTitle": {
-                "en": "App does not log sensitive data to a shared location"
+                "en-us": "App does not log sensitive data to a shared location"
             },
             "related": []
         },
@@ -1751,7 +1751,7 @@
             "chapterNr": "17",
             "nr": "14",
             "shortTitle": {
-                "en": "App does not enable autocomplete for sensitive input fields"
+                "en-us": "App does not enable autocomplete for sensitive input fields"
             },
             "related": []
         },
@@ -1759,7 +1759,7 @@
             "chapterNr": "17",
             "nr": "15",
             "shortTitle": {
-                "en": "App implements dertificate pinning"
+                "en-us": "App implements dertificate pinning"
             },
             "related": []
         },
@@ -1767,7 +1767,7 @@
             "chapterNr": "17",
             "nr": "16",
             "shortTitle": {
-                "en": "App is securely configured"
+                "en-us": "App is securely configured"
             },
             "related": []
         },
@@ -1775,7 +1775,7 @@
             "chapterNr": "17",
             "nr": "17",
             "shortTitle": {
-                "en": "App third party libraries are up to date and free of vulnerabilities"
+                "en-us": "App third party libraries are up to date and free of vulnerabilities"
             },
             "related": []
         },
@@ -1783,7 +1783,7 @@
             "chapterNr": "17",
             "nr": "18",
             "shortTitle": {
-                "en": "App does not cache web data"
+                "en-us": "App does not cache web data"
             },
             "related": []
         },
@@ -1791,7 +1791,7 @@
             "chapterNr": "17",
             "nr": "19",
             "shortTitle": {
-                "en": "App does not use query string for sensitive data"
+                "en-us": "App does not use query string for sensitive data"
             },
             "related": []
         },
@@ -1799,7 +1799,7 @@
             "chapterNr": "17",
             "nr": "20",
             "shortTitle": {
-                "en": "App truncates personal account numbers prior to storing on device"
+                "en-us": "App truncates personal account numbers prior to storing on device"
             },
             "related": []
         },
@@ -1807,7 +1807,7 @@
             "chapterNr": "17",
             "nr": "21",
             "shortTitle": {
-                "en": "App uses Address Space Layout Randomization"
+                "en-us": "App uses Address Space Layout Randomization"
             },
             "related": []
         },
@@ -1815,7 +1815,7 @@
             "chapterNr": "17",
             "nr": "22",
             "shortTitle": {
-                "en": "App keyboard entered data does not contain sensitive data"
+                "en-us": "App keyboard entered data does not contain sensitive data"
             },
             "related": []
         },
@@ -1823,7 +1823,7 @@
             "chapterNr": "17",
             "nr": "23",
             "shortTitle": {
-                "en": "Android App does not create world readable / writable files"
+                "en-us": "Android App does not create world readable / writable files"
             },
             "related": []
         },
@@ -1831,7 +1831,7 @@
             "chapterNr": "17",
             "nr": "24",
             "shortTitle": {
-                "en": "App stores sensitive data in a cryptographically secure manner"
+                "en-us": "App stores sensitive data in a cryptographically secure manner"
             },
             "related": []
         },
@@ -1839,7 +1839,7 @@
             "chapterNr": "17",
             "nr": "25",
             "shortTitle": {
-                "en": "App implements anti-debugging and reverse engineering mechanisms"
+                "en-us": "App implements anti-debugging and reverse engineering mechanisms"
             },
             "related": []
         },
@@ -1847,7 +1847,7 @@
             "chapterNr": "17",
             "nr": "26",
             "shortTitle": {
-                "en": "Android App does not export sensitive APIs"
+                "en-us": "Android App does not export sensitive APIs"
             },
             "related": []
         },
@@ -1855,7 +1855,7 @@
             "chapterNr": "17",
             "nr": "27",
             "shortTitle": {
-                "en": "App uses mutable structures for sensitive strings"
+                "en-us": "App uses mutable structures for sensitive strings"
             },
             "related": []
         },
@@ -1863,7 +1863,7 @@
             "chapterNr": "17",
             "nr": "28",
             "shortTitle": {
-                "en": "Android App validates input from APIs"
+                "en-us": "Android App validates input from APIs"
             },
             "related": []
         },
@@ -1871,7 +1871,7 @@
             "chapterNr": "18",
             "nr": "1",
             "shortTitle": {
-                "en": "Web Service client and server use same encoding"
+                "en-us": "Web Service client and server use same encoding"
             },
             "related": []
         },
@@ -1879,7 +1879,7 @@
             "chapterNr": "18",
             "nr": "2",
             "shortTitle": {
-                "en": "Web Service admin is limited to admins"
+                "en-us": "Web Service admin is limited to admins"
             },
             "related": []
         },
@@ -1887,7 +1887,7 @@
             "chapterNr": "18",
             "nr": "3",
             "shortTitle": {
-                "en": "XML or JSON schemas are used properly"
+                "en-us": "XML or JSON schemas are used properly"
             },
             "related": []
         },
@@ -1895,7 +1895,7 @@
             "chapterNr": "18",
             "nr": "4",
             "shortTitle": {
-                "en": "Input is size limited"
+                "en-us": "Input is size limited"
             },
             "related": []
         },
@@ -1903,7 +1903,7 @@
             "chapterNr": "18",
             "nr": "5",
             "shortTitle": {
-                "en": "SOAP services comply to WS-I Basic Profile"
+                "en-us": "SOAP services comply to WS-I Basic Profile"
             },
             "related": []
         },
@@ -1911,7 +1911,7 @@
             "chapterNr": "18",
             "nr": "6",
             "shortTitle": {
-                "en": "Session based authentication and authorization is used"
+                "en-us": "Session based authentication and authorization is used"
             },
             "related": []
         },
@@ -1919,7 +1919,7 @@
             "chapterNr": "18",
             "nr": "7",
             "shortTitle": {
-                "en": "REST service is not vulnerable to CSRF"
+                "en-us": "REST service is not vulnerable to CSRF"
             },
             "related": []
         },
@@ -1927,7 +1927,7 @@
             "chapterNr": "18",
             "nr": "8",
             "shortTitle": {
-                "en": "REST service verifies Content-Type"
+                "en-us": "REST service verifies Content-Type"
             },
             "related": []
         },
@@ -1935,7 +1935,7 @@
             "chapterNr": "18",
             "nr": "9",
             "shortTitle": {
-                "en": "Message payload is signed"
+                "en-us": "Message payload is signed"
             },
             "related": []
         },
@@ -1943,7 +1943,7 @@
             "chapterNr": "18",
             "nr": "10",
             "shortTitle": {
-                "en": "No alternative (insecure) access paths"
+                "en-us": "No alternative (insecure) access paths"
             },
             "related": []
         },
@@ -1951,7 +1951,7 @@
             "chapterNr": "19",
             "nr": "1",
             "shortTitle": {
-                "en": "Components are stripped, up-to-date and securely configured"
+                "en-us": "Components are stripped, up-to-date and securely configured"
             },
             "related": []
         },
@@ -1959,7 +1959,7 @@
             "chapterNr": "19",
             "nr": "2",
             "shortTitle": {
-                "en": "Communication between components is encrypted"
+                "en-us": "Communication between components is encrypted"
             },
             "related": []
         },
@@ -1967,7 +1967,7 @@
             "chapterNr": "19",
             "nr": "3",
             "shortTitle": {
-                "en": "Communication between components is authenticated with least privileges"
+                "en-us": "Communication between components is authenticated with least privileges"
             },
             "related": []
         },
@@ -1975,7 +1975,7 @@
             "chapterNr": "19",
             "nr": "4",
             "shortTitle": {
-                "en": "Deployments are adequately sandboxed, containerized or isolated"
+                "en-us": "Deployments are adequately sandboxed, containerized or isolated"
             },
             "related": []
         },
@@ -1983,7 +1983,7 @@
             "chapterNr": "19",
             "nr": "5",
             "shortTitle": {
-                "en": "Deployment processes are secure"
+                "en-us": "Deployment processes are secure"
             },
             "related": []
         },
@@ -1991,7 +1991,7 @@
             "chapterNr": "19",
             "nr": "6",
             "shortTitle": {
-                "en": "Admins can verify integrity of configuration"
+                "en-us": "Admins can verify integrity of configuration"
             },
             "related": []
         },
@@ -1999,7 +1999,7 @@
             "chapterNr": "19",
             "nr": "7",
             "shortTitle": {
-                "en": "Application components are signed"
+                "en-us": "Application components are signed"
             },
             "related": []
         },
@@ -2007,7 +2007,7 @@
             "chapterNr": "19",
             "nr": "8",
             "shortTitle": {
-                "en": "Thrid party components come from trusted repos"
+                "en-us": "Thrid party components come from trusted repos"
             },
             "related": []
         },
@@ -2015,7 +2015,7 @@
             "chapterNr": "19",
             "nr": "9",
             "shortTitle": {
-                "en": "Security flags are enabled"
+                "en-us": "Security flags are enabled"
             },
             "related": []
         }

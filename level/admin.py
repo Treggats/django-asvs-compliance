@@ -5,6 +5,7 @@ from .models import AsvsVersion
 from .models import Level
 from .models import Category
 from .models import Requirement
+from.models import RelatedAnnotated, RequirementAnnotated
 
 
 @admin.register(AsvsVersion)
@@ -40,3 +41,20 @@ class RequirementAdmin(TranslatableAdmin):
                     'requirement_title')
     list_filter = ('levels', 'category__version', 'category')
 admin.site.register(Requirement, RequirementAdmin)
+
+
+class RelatedAnnotatedAdmin(TranslatableAdmin):
+    def __init__(self, *args, **kwargs):
+        super(RelatedAnnotatedAdmin, self).__init__(*args, **kwargs)
+admin.site.register(RelatedAnnotated, RelatedAnnotatedAdmin)
+
+
+class RequirementAnnotatedAdmin(TranslatableAdmin):
+    def __init__(self, *args, **kwargs):
+        super(RequirementAnnotatedAdmin, self).__init__(*args, **kwargs)
+
+    filter_horizontal = ('related',)
+    list_display = ('requirement_number', 'category',
+                    'title_')
+    list_filter = ('category', 'related')
+admin.site.register(RequirementAnnotated, RequirementAnnotatedAdmin)
