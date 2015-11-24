@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Category {{cat}}</h1>
+<h1>Category {{category}}</h1>
 <ul>
    {% for item in items %}
         <li>{{item}}</li>
     {% endfor %} 
-</li>
+</ul>
 {% endblock content %}

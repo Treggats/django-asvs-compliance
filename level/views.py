@@ -11,32 +11,41 @@ def index(request):
         })
 
 
-def get_requirement(request, id):
-    items = Requirement.objects.select_related('category__name')
-    item = items.get(pk=id)
-    return render(request, 'requirement_detail.html', {
-        'item': item,
-        'category': item.category,
-        'level': item.level_verbose()
-    })
+def get_requirement(request, id=None):
+    if id is None:
+        items = Requirement.objects.language().all()
+        return render(request, 'requirement_list.html', {
+            'items': items
+        })
+    else:
+        items = Requirement.objects.language().select_related('category__name')
+        item = items.get(pk=id)
+        return render(request, 'requirement_detail.html', {
+            'item': item,
+            'category': item.category,
+            'level': item.level_verbose()
+        })
 
 
 def get_level(request, id):
-    items = Requirement.objects.filter(number__number=id)
+    items = Requirement.objects.language().filter(levels__in=id)
     return render(request, 'level_detail.html', {
         'level_nr': id,
         'items': items
     })
 
 
-def get_category(request, name=None):
-    if name is None:
+def get_category(request, cat_nr=None):
+    if cat_nr is None:
         items = Category.objects.all()
         return render(request, 'category_list.html', {
             'items': items,
             })
-    items = Requirement.objects.filter(category__version=name)
-    return render(request, 'category_detail.html', {
-        'cat': name,
-        'items': items
-        })
+    else:
+        items = Requirement.objects.language().filter(
+            category__category_number=cat_nr)
+        category = Category.objects.language().get(category_number=cat_nr)
+        return render(request, 'category_detail.html', {
+            'category': category,
+            'items': items
+            })
