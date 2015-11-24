@@ -38,16 +38,24 @@ class AASVS(object):
             #         url=item.get('url')
             #     )
             #     related.save()
-            print(self.get_requirement_by_number(req_nr, cat_nr))
+            print(value.get('nr'))
+            r = Requirement.objects.language().filter(
+                category__category_number=cat_nr).get(
+                requirement_number=int(value.get('nr')))
+
             requirement = RequirementAnnotated.objects.language(lang_code)\
-                .create(
+                .get_or_create(
                     pk=pk,
-                    requirement=self.get_requirement_by_number(req_nr, cat_nr),
+                    requirement=r,
                     category=Category.objects.language(lang_code).get(
                         category_number=cat_nr),
                     title=title
             )
-            requirement.save()
+            print(requirement)
+            # requirement.save()
+            print(self.get_requirement_by_number(req_nr, cat_nr))
+            print(title)
+            print()
 
             # for item in value.get('related'):
             #     related_items = RelatedAnnotated.objects.language(
