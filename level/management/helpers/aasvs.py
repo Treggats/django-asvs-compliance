@@ -26,11 +26,18 @@ class AASVS(object):
 
     def load_requirement(self):
         for pk, value in enumerate(self.reader.get('requirements'), start=1):
-            # print( json.dumps(value, indent=4) )
             lang_code = list(value.get('shortTitle'))[0]
             req_nr = value.get('nr')
             cat_nr = value.get('chapterNr')
             title = value.get('shortTitle').get(lang_code)
+            print("Req:  {}\n"
+                  "Cat: {}\n"
+                  "Title: {}".format(req_nr, cat_nr, title))
+            req = Requirement.objects.language().filter(
+                category__category_number=cat_nr).filter(
+                requirement_number=req_nr)
+            print(req)
+            print()
 
             # for item in value.get('related'):
             #     related = RelatedAnnotated.objects.language(lang_code).create(
@@ -38,24 +45,20 @@ class AASVS(object):
             #         url=item.get('url')
             #     )
             #     related.save()
-            print(value.get('nr'))
-            r = Requirement.objects.language().filter(
-                category__category_number=cat_nr).get(
-                requirement_number=int(value.get('nr')))
 
-            requirement = RequirementAnnotated.objects.language(lang_code)\
-                .get_or_create(
-                    pk=pk,
-                    requirement=r,
-                    category=Category.objects.language(lang_code).get(
-                        category_number=cat_nr),
-                    title=title
-            )
-            print(requirement)
+            # r = Requirement.objects.language().filter(
+            #     category__category_number=cat_nr).get(
+            #     requirement_number=int(value.get('nr')))
+            #
+            # requirement = RequirementAnnotated.objects.language(lang_code)\
+            #     .get_or_create(
+            #         pk=pk,
+            #         requirement=r,
+            #         category=Category.objects.language(lang_code).get(
+            #             category_number=cat_nr),
+            #         title=title
+            # )
             # requirement.save()
-            print(self.get_requirement_by_number(req_nr, cat_nr))
-            print(title)
-            print()
 
             # for item in value.get('related'):
             #     related_items = RelatedAnnotated.objects.language(
