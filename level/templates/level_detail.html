@@ -4,7 +4,9 @@
 <h1>Level: {{level_nr}}</h1>
 <ul>
 {% for item in items %}
-    <li><u><a href="/category/{{item.category.version}}">{{item.category}}</a></u>: {{item.description}}</li>
+    <li>
+        <a href="/requirement/{{item.requirement_number}}">{{item}}</a>
+    </li>
 {% endfor %}
 </ul>
 {% endblock content %}
