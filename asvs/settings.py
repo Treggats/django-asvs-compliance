@@ -17,12 +17,7 @@ from pathlib import Path
 
 PROJECT_PACKAGE = Path(__file__).resolve().parent
 BASE_DIR = PROJECT_PACKAGE.parent
-data_dir_key = 'ASVS_DATA_DIR'
-
-if data_dir_key in os.environ:
-    DATA_DIR = Path(os.environ[data_dir_key])
-else:
-    DATA_DIR = BASE_DIR.parent
+DATA_DIR = PROJECT_PACKAGE.parent
 
 try:
     with DATA_DIR.joinpath("conf", "secrets.json").open() as handle:
