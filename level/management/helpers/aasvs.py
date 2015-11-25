@@ -43,8 +43,10 @@ class AASVS(object):
                         title=title
                 )
 
-            for item in value.get('related'):
-                related_items = RelatedAnnotated.objects.language(
-                    lang_code).filter(name__exact=item.get('name'))
-                requirement.related = related_items
-                requirement.save()
+                for item in value.get('related'):
+                    related_items = RelatedAnnotated.objects.language(
+                        lang_code).filter(name__exact=item.get('name'))
+                    print(requirement)
+                    break
+                    # requirement.relations = related_items
+                    # requirement.save()
