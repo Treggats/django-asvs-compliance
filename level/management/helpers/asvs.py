@@ -53,7 +53,8 @@ class ASVS(object):
             level_numbers = item.get('levels')
 
             requirement = Requirement.objects.language(lang_code).create(
-                requirement_number=req_nr,
+                pk=req_nr,
+                requirement_number=item.get('requirement_nr'),
                 title=title,
                 category=Category.objects.language(lang_code)
                     .get(category_number=cat_nr),
