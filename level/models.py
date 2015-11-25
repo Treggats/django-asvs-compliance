@@ -130,6 +130,10 @@ class RequirementAnnotated(TranslatableModel):
     def category_number(self):
         return self.category.category_number
 
+    @property
+    def related_(self):
+        return ", ".join([str(r.name) for r in self.relations.all()])
+
     class Meta:
         verbose_name = _('Requirement annotated')
         verbose_name_plural = _('Requirement annotations')
