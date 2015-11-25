@@ -54,9 +54,9 @@ class RequirementAnnotatedAdmin(TranslatableAdmin):
     def __init__(self, *args, **kwargs):
         super(RequirementAnnotatedAdmin, self).__init__(*args, **kwargs)
 
-    filter_horizontal = ('related',)
+    filter_horizontal = ('relations',)
     list_display = ('requirement_number', 'category',
-                    'title_')
-    list_filter = ('category', 'related')
+                    'title_', 'related_')
+    list_filter = ('category', 'relations')
     search_fields = ['translations__title']
 admin.site.register(RequirementAnnotated, RequirementAnnotatedAdmin)

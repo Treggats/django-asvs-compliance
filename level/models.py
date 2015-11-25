@@ -112,7 +112,7 @@ class RelatedAnnotated(TranslatableModel):
 class RequirementAnnotated(TranslatableModel):
     requirement = models.ForeignKey(Requirement)
     category = models.ForeignKey(Category)
-    related = models.ManyToManyField(RelatedAnnotated)
+    relations = models.ManyToManyField(RelatedAnnotated)
 
     translations = TranslatedFields(
         title=models.CharField(max_length=100)
