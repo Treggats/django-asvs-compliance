@@ -40,6 +40,7 @@ class RequirementAdmin(TranslatableAdmin):
     list_display = ('requirement_number', 'category_version', 'level_number',
                     'requirement_title')
     list_filter = ('levels', 'category__version', 'category')
+    search_fields = ['translations__title']
 admin.site.register(Requirement, RequirementAdmin)
 
 
@@ -57,4 +58,5 @@ class RequirementAnnotatedAdmin(TranslatableAdmin):
     list_display = ('requirement_number', 'category',
                     'title_')
     list_filter = ('category', 'related')
+    search_fields = ['translations__title']
 admin.site.register(RequirementAnnotated, RequirementAnnotatedAdmin)
