@@ -18,34 +18,30 @@ class AASVS(object):
     def load_requirement(self):
         for pk, value in enumerate(self.reader.get('requirements'), start=1):
             lang_code = list(value.get('shortTitle'))[0]
-            req_nr = value.get('nr')
-            cat_nr = value.get('chapterNr')
+            req_nr = int(value.get('nr'))
+            cat_nr = int(value.get('chapterNr'))
             title = value.get('shortTitle').get(lang_code)
 
-            req = Requirement.objects.language().filter(
-                category__category_number=cat_nr).filter(
-                requirement_number=req_nr)
-            if not req:
-                req = Requirement.DoesNotExist
-                print("Requirement {} does not exist.".format(req_nr))
-
             for item in value.get('related'):
-                related = RelatedAnnotated.objects.language(lang_code).create(
+                related = RelatedAnnotated.objects.language(
+                    lang_code).get_or_create(
                     name=item.get('name'),
                     url=item.get('url')
                 )
-                related.save()
 
-            if req is not Requirement.DoesNotExist:
+            req = Requirement.objects.language(lang_code).filter(
+                category__category_number=cat_nr).filter(
+                requirement_number=req_nr)
+
+            if req:
                 requirement = RequirementAnnotated.objects.language(lang_code)\
-                    .create(
+                    .get_or_create(
                         pk=pk,
                         requirement=req[0],
                         category=Category.objects.language(lang_code).get(
                             category_number=cat_nr),
                         title=title
                 )
-                requirement.save()
 
             for item in value.get('related'):
                 related_items = RelatedAnnotated.objects.language(
