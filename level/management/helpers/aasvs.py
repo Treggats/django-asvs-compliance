@@ -37,18 +37,19 @@ class AASVS(object):
                 )
 
                 for item in value.get('related'):
-                    related = RelatedAnnotated.objects.language(
+                    RelatedAnnotated.objects.language(
                         lang_code).get_or_create(
                         req_annotate_pk=pk,
                         name=item.get('name'),
                         url=item.get('url')
                     )
+
                 requirement = RequirementAnnotated.objects.language(
                     lang_code).get(pk=pk)
 
                 for item in value.get('related'):
                     related_items = RelatedAnnotated.objects.language(
                         lang_code).filter(req_annotate_pk=pk)
-                    # import ipdb; ipdb.set_trace()
+
                     requirement.relations = related_items
                     requirement.save()
