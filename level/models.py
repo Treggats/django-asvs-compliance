@@ -1,8 +1,8 @@
 from __future__ import unicode_literals
+
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext as _
-
 from hvad.models import TranslatableModel, TranslatedFields
 
 
@@ -90,6 +90,7 @@ class Requirement(TranslatableModel):
 
 @python_2_unicode_compatible
 class RelatedAnnotated(TranslatableModel):
+    req_annotate_pk = models.PositiveIntegerField()
     url = models.URLField()
 
     translations = TranslatedFields(
