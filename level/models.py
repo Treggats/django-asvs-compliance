@@ -90,6 +90,7 @@ class Requirement(TranslatableModel):
 
 @python_2_unicode_compatible
 class RelatedAnnotated(TranslatableModel):
+    # TODO: Find a better way to solve this
     req_annotate_pk = models.PositiveIntegerField()
     url = models.URLField()
 
