@@ -44,6 +44,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
+MARKDOWN_EDITOR_SKIN = 'simple'
+MARKDOWN_EXTENSIONS = ['extra']
 
 # Application definition
 
@@ -56,6 +58,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'hvad',
+    'django_markdown',
 
     'level',
 )

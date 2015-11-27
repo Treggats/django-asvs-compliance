@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^level/(\d+)/$', views.get_level, name='get_level'),
     url(r'^category/$', views.get_category, name='get_category_list'),
     url(r'^category/([0-9]+)/$', views.get_category, name='get_category'),
+    url(r'^explanation/$', views.get_explanation, name='annotation_explanationn'),
 ]

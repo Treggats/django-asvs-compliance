@@ -22,7 +22,9 @@ from asvs.settings import DEBUG
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('level.urls')),
+    url('^markdown/', include( 'django_markdown.urls')),
 ]
 if DEBUG:
     urlpatterns += static(settings.STATIC_URL,
                           document_root=settings.STATIC_ROOT)
+
