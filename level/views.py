@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.core.urlresolvers import reverse
-from .models import Requirement, Category
+from .models import Requirement, Category, AnnotationExplanation
 
 
 def index(request):
@@ -49,3 +49,10 @@ def get_category(request, cat_nr=None):
             'category': category,
             'items': items
             })
+
+def get_explanation(request):
+    items = AnnotationExplanation.objects.all()
+    return render(request, 'annotation_explanation.html', {
+        'items': items
+    })
+

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load markdown_markup %}
+
+{% block content %}
+<div class="row">
+    <div class="two-half column">
+        {% for item in items %}
+            {{ item.explanation|md }}
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
