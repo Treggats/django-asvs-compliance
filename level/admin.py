@@ -1,11 +1,13 @@
 from django.contrib import admin
 from hvad.admin import TranslatableAdmin
+from django_markdown.admin import MarkdownModelAdmin
 
 from .models import AsvsVersion
 from .models import Level
 from .models import Category
 from .models import Requirement
-from.models import RelatedAnnotated, RequirementAnnotated
+from .models import RelatedAnnotated, RequirementAnnotated
+from .models import AnnotationExplanation
 
 
 @admin.register(AsvsVersion)
@@ -60,3 +62,6 @@ class RequirementAnnotatedAdmin(TranslatableAdmin):
     list_filter = ('category', 'relations')
     search_fields = ['translations__title']
 admin.site.register(RequirementAnnotated, RequirementAnnotatedAdmin)
+
+admin.site.register(AnnotationExplanation, MarkdownModelAdmin)
+

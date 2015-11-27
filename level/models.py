@@ -4,6 +4,7 @@ from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext as _
 from hvad.models import TranslatableModel, TranslatedFields
+from django_markdown.models import MarkdownField
 
 
 @python_2_unicode_compatible
@@ -144,3 +145,12 @@ class RequirementAnnotated(TranslatableModel):
 
     def __str__(self):
         return self.lazy_translation_getter('title', str(self.pk))
+
+@python_2_unicode_compatible
+class AnnotationExplanation(models.Model):
+    req_ann = models.ForeignKey(RequirementAnnotated)
+    explanation = MarkdownField()
+
+    def __str__(self):
+        return self.req_ann.title
+
