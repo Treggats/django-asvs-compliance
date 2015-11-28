@@ -4,7 +4,11 @@
 {% block content %}
 <div class="row">
     <div class="two-half column">
-        {{ item.explanation|md }}
+        <ul>
+        {% for item in items %}
+            <li><a href="{{ item.pk }}">{{ item }}</a></li>
+        {% endfor %}
+        </ul>
     </div>
 </div>
 {% endblock content %}

@@ -146,6 +146,7 @@ class RequirementAnnotated(TranslatableModel):
     def __str__(self):
         return self.lazy_translation_getter('title', str(self.pk))
 
+
 @python_2_unicode_compatible
 class AnnotationExplanation(models.Model):
     req_ann = models.ForeignKey(RequirementAnnotated)
