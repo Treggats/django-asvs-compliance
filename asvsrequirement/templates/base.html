@@ -1,0 +1,50 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="Tonko Mulder">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static "css/normalize.css" %}">
+    <link rel="stylesheet" href="{% static "css/skeleton.css" %}">
+    <link rel="icon" type="image/png" href="{% static "images/favicon.png" %}">
+
+    <title>ASVS Levels</title>
+    <link rel="stylesheet" href="{% static "css/levels.css" %}">
+
+</head>
+<body>
+        <div class="navigation">
+            <nav class="container primary">
+                {% block menu %}
+                <div class="sixteen columns">
+                        <ul class="navbar-list">
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="/asvsrequirement/1">Level 1</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="/asvsrequirement/2">Level 2</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="/asvsrequirement/3">Level 3</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="/category">Categories</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="/requirement">Requirements</a>
+                        </li>
+                        </ul>
+                </div>
+                {% endblock menu %}
+            </nav>
+            </div>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>

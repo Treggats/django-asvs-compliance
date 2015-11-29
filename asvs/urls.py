@@ -21,7 +21,8 @@ from asvs.settings import DEBUG
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'', include('level.urls')),
+    url(r'', include('asvsrequirement.urls')),
+    url(r'', include('asvsannotation.urls')),
     url('^markdown/', include( 'django_markdown.urls')),
 ]
 if DEBUG:

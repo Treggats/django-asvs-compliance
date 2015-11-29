@@ -1,0 +1,16 @@
+from django.shortcuts import render
+from asvsannotation.models import AnnotationExplanation, RequirementAnnotated
+
+
+def get_explanation(request, id=None):
+    if id is None:
+        items = AnnotationExplanation.objects.all()
+        return render(request, 'annotation_list.html', {
+            'items': items
+        })
+    else:
+        req_ann = RequirementAnnotated.objects.language().get(pk=id)
+        explanation = AnnotationExplanation.objects.get(req_ann=req_ann)
+        return render(request, 'annotation_explanation.html', {
+            'item': explanation,
+        })
