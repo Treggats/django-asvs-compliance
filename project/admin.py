@@ -3,7 +3,7 @@ from .models import Project, Report
 
 
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('name', 'level', 'done')
+    list_display = ('name', 'asvsrequirement', 'done')
 
 
 class ReportAdmin(admin.ModelAdmin):

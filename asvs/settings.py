@@ -60,7 +60,8 @@ INSTALLED_APPS = (
     'hvad',
     'django_markdown',
 
-    'level',
+    'asvsrequirement',
+    'asvsannotation',
 )
 
 MIDDLEWARE_CLASSES = (
