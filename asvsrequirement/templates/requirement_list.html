@@ -3,7 +3,12 @@
 {% block content %}
 <ul>
     {% for item in items %}
-        <li><a href="{{item.requirement_number}}">{{item}}</a></li>
+        <li>Category {{ item.category_version }},
+            <a href="{{item.requirement_number}}">Requirement
+                {{item.requirement_number}}
+                </a><br />
+                {{ item.requirement_title }}
+        </li>
     {% endfor %}
 </ul>
 {% endblock content %}
