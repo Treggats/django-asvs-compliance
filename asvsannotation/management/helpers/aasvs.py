@@ -1,19 +1,27 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 import json
+import os
 from codecs import open
-from asvsannotation.models import RelatedAnnotated, RequirementAnnotated
+from pathlib import Path
+
+from asvs.settings import LANGUAGE_CODE
+from asvsannotation.models import AnnotationRelation, AnnotationRequirement,\
+    AnnotationExplanation, AnnotationExplanationType
 from asvsrequirement.models import Requirement, Category
 
 
 class AASVS(object):
-    def __init__(self, file):
-        self.json_file = open(file, encoding='utf-8')
-        self.reader = json.load(self.json_file)
+    def __init__(self, file=None):
+        self.file = file
+        if file is not None:
+            self.json_file = open(file, encoding='utf-8')
+            self.reader = json.load(self.json_file)
 
     def __del__(self):
         """Close the csv file"""
-        self.json_file.close()
+        if self.file:
+            self.json_file.close()
 
     def load_requirement(self):
         for pk, value in enumerate(self.reader.get('requirements'), start=1):
@@ -27,7 +35,7 @@ class AASVS(object):
                 requirement_number=req_nr)
 
             if req:
-                RequirementAnnotated.objects.language(lang_code)\
+                AnnotationRequirement.objects.language(lang_code)\
                     .get_or_create(
                         pk=pk,
                         requirement=req[0],
@@ -37,19 +45,41 @@ class AASVS(object):
                 )
 
                 for item in value.get('related'):
-                    RelatedAnnotated.objects.language(
+                    AnnotationRelation.objects.language(
                         lang_code).get_or_create(
                         req_annotate_pk=pk,
                         name=item.get('name'),
                         url=item.get('url')
                     )
 
-                requirement = RequirementAnnotated.objects.language(
+                requirement = AnnotationRequirement.objects.language(
                     lang_code).get(pk=pk)
 
                 for item in value.get('related'):
-                    related_items = RelatedAnnotated.objects.language(
+                    related_items = AnnotationRelation.objects.language(
                         lang_code).filter(req_annotate_pk=pk)
 
                     requirement.relations = related_items
                     requirement.save()
+
+    def load_help_text(self, path):
+        path = Path(str(path)).resolve()
+        requirements = Requirement.objects.language(LANGUAGE_CODE).all()
+        annotations = AnnotationRequirement.objects.all()
+
+        for requirement in requirements:
+            req_nr = requirement.requirement_number
+            cat_nr = requirement.category_version
+            if os.path.isdir("{}/{}/{}/en".format(path, cat_nr, req_nr)):
+                annotation = annotations.filter(
+                    category__category_number__exact=cat_nr).filter(
+                    requirement__requirement_number__exact=req_nr)
+                file = "{}/{}/{}/en/general.md".format(path, cat_nr, req_nr)
+
+                with open(file) as f:
+                    explanation = AnnotationExplanation.objects.get_or_create(
+                        req_ann=annotation[0],
+                        type=AnnotationExplanationType.objects.get(pk=1),
+                        explanation=f.read()
+                    )
+        return ""
