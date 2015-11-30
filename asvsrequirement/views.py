@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.core.urlresolvers import reverse
-from asvsannotation.models import Requirement, Category, AnnotationExplanation, \
-    RequirementAnnotated
+from asvsrequirement.models import Requirement, Category
 
 
 def index(request):
@@ -19,12 +18,12 @@ def get_requirement(request, id=None):
             'items': items
         })
     else:
-        items = Requirement.objects.language().select_related('category__name')
+        items = Requirement.objects.language().select_related('category')
         item = items.get(pk=id)
         return render(request, 'requirement_detail.html', {
             'item': item,
             'category': item.category,
-            'asvsrequirement': item.level_verbose()
+            'level': ", ".join([str(level.get('level_number')) for level in item.levels.values()])
         })
 
 

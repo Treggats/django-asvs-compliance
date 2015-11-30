@@ -3,8 +3,7 @@
 {% block content %}
 <strong>{{category}}</strong>
 <p>{{item}}</p>
-<p>Level:<br />
-{% for lvl in level %}
-{{lvl}}<br />
-{% endfor %}</p>
+<p>
+    Level: {{ level }}
+</p>
 {% endblock content %}
