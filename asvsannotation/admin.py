@@ -3,7 +3,7 @@ from hvad.admin import TranslatableAdmin
 from django_markdown.admin import MarkdownModelAdmin
 
 from .models import RelatedAnnotated, RequirementAnnotated
-from .models import AnnotationExplanation
+from .models import AnnotationExplanation, AnnotationExplanationType
 
 
 class RelatedAnnotatedAdmin(TranslatableAdmin):
@@ -24,3 +24,4 @@ class RequirementAnnotatedAdmin(TranslatableAdmin):
 admin.site.register(RequirementAnnotated, RequirementAnnotatedAdmin)
 
 admin.site.register(AnnotationExplanation, MarkdownModelAdmin)
+admin.site.register(AnnotationExplanationType)

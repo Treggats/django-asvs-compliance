@@ -67,8 +67,17 @@ class RequirementAnnotated(TranslatableModel):
 
 
 @python_2_unicode_compatible
+class AnnotationExplanationType(models.Model):
+    type = models.CharField(max_length=40)
+
+    def __str__(self):
+        return self.type
+
+
+@python_2_unicode_compatible
 class AnnotationExplanation(models.Model):
     req_ann = models.ForeignKey(RequirementAnnotated)
+    type = models.ForeignKey(AnnotationExplanationType)
     explanation = MarkdownField()
 
     def __str__(self):
