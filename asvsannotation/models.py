@@ -1,7 +1,6 @@
 from __future__ import unicode_literals
 
 from django.utils.encoding import python_2_unicode_compatible
-from django.utils.translation import ugettext as _
 from hvad.models import TranslatableModel, TranslatedFields
 from django_markdown.models import MarkdownField
 from django.db import models
@@ -21,11 +20,6 @@ class AnnotationRelation(TranslatableModel):
     @property
     def related_name(self):
         return self.name
-
-    class Meta:
-        pass
-        # verbose_name = _('Related annotated')
-        # verbose_name_plural = _('Related annotations')
 
     def __str__(self):
         return self.lazy_translation_getter('name', str(self.pk))
@@ -58,8 +52,6 @@ class AnnotationRequirement(TranslatableModel):
         return ", ".join([str(r.name) for r in self.relations.all()])
 
     class Meta:
-        # verbose_name = _('Requirement annotated')
-        # verbose_name_plural = _('Requirement annotations')
         unique_together = ('requirement', 'category')
         ordering = ('requirement', 'category')
 
