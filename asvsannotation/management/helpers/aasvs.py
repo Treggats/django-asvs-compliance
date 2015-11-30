@@ -77,9 +77,9 @@ class AASVS(object):
                 file = "{}/{}/{}/en/general.md".format(path, cat_nr, req_nr)
 
                 with open(file) as f:
-                    explanation = AnnotationExplanation.objects.get_or_create(
+                    explanation = AnnotationExplanation.objects.language(LANGUAGE_CODE).get_or_create(
                         req_ann=annotation[0],
-                        type=AnnotationExplanationType.objects.get(pk=1),
+                        type=AnnotationExplanationType.objects.language(LANGUAGE_CODE).get(pk=1),
                         explanation=f.read()
                     )
         return ""

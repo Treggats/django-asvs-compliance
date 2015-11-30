@@ -60,18 +60,27 @@ class AnnotationRequirement(TranslatableModel):
 
 
 @python_2_unicode_compatible
-class AnnotationExplanationType(models.Model):
-    type = models.CharField(max_length=40)
+class AnnotationExplanationType(TranslatableModel):
+    translations = TranslatedFields(
+        type=models.CharField(max_length=40)
+    )
+
+    @property
+    def type_(self):
+        return self.type
 
     def __str__(self):
         return self.type
 
 
 @python_2_unicode_compatible
-class AnnotationExplanation(models.Model):
+class AnnotationExplanation(TranslatableModel):
     req_ann = models.ForeignKey(AnnotationRequirement)
     type = models.ForeignKey(AnnotationExplanationType)
-    explanation = MarkdownField()
+
+    translations = TranslatedFields(
+        explanation=models.TextField()
+    )
 
     class Meta:
         ordering = ('id',)

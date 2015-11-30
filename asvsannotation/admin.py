@@ -1,8 +1,7 @@
 from django.contrib import admin
-from django_markdown.models import MarkdownField
+from django.db import models
 from django_markdown.widgets import AdminMarkdownWidget
 from hvad.admin import TranslatableAdmin
-from django_markdown.admin import MarkdownModelAdmin
 
 from .models import AnnotationRelation, AnnotationRequirement
 from .models import AnnotationExplanation, AnnotationExplanationType
@@ -26,9 +25,15 @@ class RequirementAnnotatedAdmin(TranslatableAdmin):
 admin.site.register(AnnotationRequirement, RequirementAnnotatedAdmin)
 
 
-class AnnotationExplanationAdmin(admin.ModelAdmin):
+class AnnotationExplanationAdmin(TranslatableAdmin):
+    def __init__(self, *args, **kwargs):
+        super(AnnotationExplanationAdmin, self).__init__(*args, **kwargs)
     list_display = ('id', 'req_ann', 'type')
-    formfield_overrides = {MarkdownField: {'widget': AdminMarkdownWidget}}
+    formfield_overrides = {models.TextField: {'widget': AdminMarkdownWidget}}
 admin.site.register(AnnotationExplanation, AnnotationExplanationAdmin)
 
-admin.site.register(AnnotationExplanationType)
+
+class AnnotationExplanationTypeAdmin(TranslatableAdmin):
+    def __init__(self, *args, **kwargs):
+        super(AnnotationExplanationTypeAdmin, self).__init__(*args, **kwargs)
+admin.site.register(AnnotationExplanationType, AnnotationExplanationTypeAdmin)
