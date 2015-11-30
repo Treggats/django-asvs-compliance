@@ -1,7 +1,8 @@
 {% extends "base.html" %}
+{% load markdown_markup %}
 
 {% block content %}
-<strong>{{category}}</strong>
+<h2>{{category}}</h2>
 <p>
     Requirement <strong>{{ item.requirement_number }}</strong><br />
     {{ item.requirement_title }}
@@ -9,4 +10,8 @@
 <p>
     Level: {{ level }}
 </p>
+{% for item in info %}
+    <h2>{{ item.type|title }}</h2>
+    <p>{{ item.explanation|md }}</p>
+{% endfor %}
 {% endblock content %}
