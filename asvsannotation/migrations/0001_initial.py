@@ -8,90 +8,96 @@ import django_markdown.models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('asvsrequirement', '0014_auto_20151128_2313'),
+        ('asvsrequirement', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
             name='AnnotationExplanation',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('explanation', django_markdown.models.MarkdownField()),
             ],
         ),
         migrations.CreateModel(
-            name='RelatedAnnotated',
+            name='AnnotationExplanationType',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
+                ('type', models.CharField(max_length=40)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='AnnotationRelation',
+            fields=[
+                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('req_annotate_pk', models.PositiveIntegerField()),
                 ('url', models.URLField()),
             ],
-            options={
-                'verbose_name_plural': 'Related annotations',
-                'verbose_name': 'Related annotated',
-            },
         ),
         migrations.CreateModel(
-            name='RelatedAnnotatedTranslation',
+            name='AnnotationRelationTranslation',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('name', models.CharField(max_length=250)),
-                ('language_code', models.CharField(max_length=15, db_index=True)),
-                ('master', models.ForeignKey(to='asvsannotation.RelatedAnnotated', editable=False, related_name='translations', null=True)),
+                ('language_code', models.CharField(db_index=True, max_length=15)),
+                ('master', models.ForeignKey(null=True, related_name='translations', to='asvsannotation.AnnotationRelation', editable=False)),
             ],
             options={
-                'db_tablespace': '',
                 'abstract': False,
+                'db_tablespace': '',
                 'default_permissions': (),
-                'db_table': 'asvsannotation_relatedannotated_translation',
                 'managed': True,
+                'db_table': 'asvsannotation_annotationrelation_translation',
             },
         ),
         migrations.CreateModel(
-            name='RequirementAnnotated',
+            name='AnnotationRequirement',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('category', models.ForeignKey(to='asvsrequirement.Category')),
-                ('relations', models.ManyToManyField(to='asvsannotation.RelatedAnnotated')),
+                ('relations', models.ManyToManyField(to='asvsannotation.AnnotationRelation')),
                 ('requirement', models.ForeignKey(to='asvsrequirement.Requirement')),
             ],
             options={
-                'verbose_name_plural': 'Requirement annotations',
-                'verbose_name': 'Requirement annotated',
                 'ordering': ('requirement', 'category'),
             },
         ),
         migrations.CreateModel(
-            name='RequirementAnnotatedTranslation',
+            name='AnnotationRequirementTranslation',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('title', models.CharField(max_length=100)),
-                ('language_code', models.CharField(max_length=15, db_index=True)),
-                ('master', models.ForeignKey(to='asvsannotation.RequirementAnnotated', editable=False, related_name='translations', null=True)),
+                ('language_code', models.CharField(db_index=True, max_length=15)),
+                ('master', models.ForeignKey(null=True, related_name='translations', to='asvsannotation.AnnotationRequirement', editable=False)),
             ],
             options={
-                'db_tablespace': '',
                 'abstract': False,
+                'db_tablespace': '',
                 'default_permissions': (),
-                'db_table': 'asvsannotation_requirementannotated_translation',
                 'managed': True,
+                'db_table': 'asvsannotation_annotationrequirement_translation',
             },
         ),
         migrations.AddField(
             model_name='annotationexplanation',
             name='req_ann',
-            field=models.ForeignKey(to='asvsannotation.RequirementAnnotated'),
+            field=models.ForeignKey(to='asvsannotation.AnnotationRequirement'),
+        ),
+        migrations.AddField(
+            model_name='annotationexplanation',
+            name='type',
+            field=models.ForeignKey(to='asvsannotation.AnnotationExplanationType'),
         ),
         migrations.AlterUniqueTogether(
-            name='requirementannotatedtranslation',
+            name='annotationrequirementtranslation',
             unique_together=set([('language_code', 'master')]),
         ),
         migrations.AlterUniqueTogether(
-            name='requirementannotated',
+            name='annotationrequirement',
             unique_together=set([('requirement', 'category')]),
         ),
         migrations.AlterUniqueTogether(
-            name='relatedannotatedtranslation',
+            name='annotationrelationtranslation',
             unique_together=set([('language_code', 'master')]),
         ),
     ]

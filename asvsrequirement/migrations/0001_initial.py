@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
             name='AsvsVersion',
             fields=[
                 ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
-                ('version_number', models.CharField(default='3', max_length=10)),
+                ('version_number', models.CharField(max_length=10)),
             ],
         ),
         migrations.CreateModel(
@@ -26,6 +26,8 @@ class Migration(migrations.Migration):
             ],
             options={
                 'ordering': ('category_number',),
+                'verbose_name_plural': 'Categories',
+                'verbose_name': 'Category',
             },
         ),
         migrations.CreateModel(
@@ -34,14 +36,14 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('name', models.CharField(max_length=100)),
                 ('language_code', models.CharField(db_index=True, max_length=15)),
-                ('master', models.ForeignKey(to='asvsrequirement.Category', null=True, related_name='translations', editable=False)),
+                ('master', models.ForeignKey(null=True, related_name='translations', to='asvsrequirement.Category', editable=False)),
             ],
             options={
-                'db_table': 'level_category_translation',
-                'managed': True,
-                'default_permissions': (),
                 'abstract': False,
                 'db_tablespace': '',
+                'default_permissions': (),
+                'managed': True,
+                'db_table': 'asvsrequirement_category_translation',
             },
         ),
         migrations.CreateModel(
@@ -61,14 +63,14 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('name', models.CharField(max_length=100)),
                 ('language_code', models.CharField(db_index=True, max_length=15)),
-                ('master', models.ForeignKey(to='asvsrequirement.Level', null=True, related_name='translations', editable=False)),
+                ('master', models.ForeignKey(null=True, related_name='translations', to='asvsrequirement.Level', editable=False)),
             ],
             options={
-                'db_table': 'level_level_translation',
-                'managed': True,
-                'default_permissions': (),
                 'abstract': False,
                 'db_tablespace': '',
+                'default_permissions': (),
+                'managed': True,
+                'db_table': 'asvsrequirement_level_translation',
             },
         ),
         migrations.CreateModel(
@@ -77,9 +79,10 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('requirement_number', models.PositiveIntegerField()),
                 ('category', models.ForeignKey(to='asvsrequirement.Category')),
+                ('levels', models.ManyToManyField(to='asvsrequirement.Level')),
             ],
             options={
-                'abstract': False,
+                'ordering': ('requirement_number', 'category'),
             },
         ),
         migrations.CreateModel(
@@ -88,14 +91,14 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('title', models.TextField()),
                 ('language_code', models.CharField(db_index=True, max_length=15)),
-                ('master', models.ForeignKey(to='asvsrequirement.Requirement', null=True, related_name='translations', editable=False)),
+                ('master', models.ForeignKey(null=True, related_name='translations', to='asvsrequirement.Requirement', editable=False)),
             ],
             options={
-                'db_table': 'level_requirement_translation',
-                'managed': True,
-                'default_permissions': (),
                 'abstract': False,
                 'db_tablespace': '',
+                'default_permissions': (),
+                'managed': True,
+                'db_table': 'asvsrequirement_requirement_translation',
             },
         ),
         migrations.AlterUniqueTogether(
