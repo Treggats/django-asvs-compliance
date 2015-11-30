@@ -4,7 +4,10 @@
 <h1>Category {{category}}</h1>
 <ul>
    {% for item in items %}
-        <li>{{item}}</li>
+        <li>
+            <a href="/requirement/{{item.pk}}">{{item.requirement_number}}:</a>
+            {{item.requirement_title}}
+        </li>
     {% endfor %} 
 </ul>
 {% endblock content %}
