@@ -4,7 +4,11 @@
 {% block content %}
 <div class="row">
     <div class="two-half column">
-        {{ item.explanation|md }}
+        <h2>{{ req.requirement_number }}: {{ req.title_ }}</h2>
+        <p>{{ req.requirement.requirement_title }}</p>
+        <p>Levels: {{ req.requirement.level_number }}</p>
+        <h3>{{ info.type|title }}</h3>
+        {{ info.explanation|md }}
     </div>
 </div>
 {% endblock content %}

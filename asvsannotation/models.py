@@ -73,6 +73,8 @@ class AnnotationExplanation(models.Model):
     type = models.ForeignKey(AnnotationExplanationType)
     explanation = MarkdownField()
 
-    def __str__(self):
-        return self.req_ann.title
+    class Meta:
+        ordering = ('id',)
 
+    def __str__(self):
+        return self.req_ann.title_

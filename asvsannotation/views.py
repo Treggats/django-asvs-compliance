@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from asvs.settings import LANGUAGE_CODE
 from asvsannotation.models import AnnotationExplanation, AnnotationRequirement
 
 
@@ -9,8 +10,8 @@ def get_explanation(request, id=None):
             'items': items
         })
     else:
-        req_ann = AnnotationRequirement.objects.language().get(pk=id)
-        explanation = AnnotationExplanation.objects.get(req_ann=req_ann)
+        explanation = AnnotationExplanation.objects.get(pk=id)
         return render(request, 'annotation_explanation.html', {
-            'item': explanation,
+            'req': explanation.req_ann,
+            'info': explanation,
         })
