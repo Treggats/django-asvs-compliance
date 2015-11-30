@@ -9,7 +9,7 @@ from asvsrequirement.models import Requirement, Category
 
 
 @python_2_unicode_compatible
-class RelatedAnnotated(TranslatableModel):
+class AnnotationRelation(TranslatableModel):
     # TODO: Find a better way to solve this
     req_annotate_pk = models.PositiveIntegerField()
     url = models.URLField()
@@ -23,18 +23,19 @@ class RelatedAnnotated(TranslatableModel):
         return self.name
 
     class Meta:
-        verbose_name = _('Related annotated')
-        verbose_name_plural = _('Related annotations')
+        pass
+        # verbose_name = _('Related annotated')
+        # verbose_name_plural = _('Related annotations')
 
     def __str__(self):
         return self.lazy_translation_getter('name', str(self.pk))
 
 
 @python_2_unicode_compatible
-class RequirementAnnotated(TranslatableModel):
+class AnnotationRequirement(TranslatableModel):
     requirement = models.ForeignKey(Requirement)
     category = models.ForeignKey(Category)
-    relations = models.ManyToManyField(RelatedAnnotated)
+    relations = models.ManyToManyField(AnnotationRelation)
 
     translations = TranslatedFields(
         title=models.CharField(max_length=100)
@@ -57,8 +58,8 @@ class RequirementAnnotated(TranslatableModel):
         return ", ".join([str(r.name) for r in self.relations.all()])
 
     class Meta:
-        verbose_name = _('Requirement annotated')
-        verbose_name_plural = _('Requirement annotations')
+        # verbose_name = _('Requirement annotated')
+        # verbose_name_plural = _('Requirement annotations')
         unique_together = ('requirement', 'category')
         ordering = ('requirement', 'category')
 
@@ -76,7 +77,7 @@ class AnnotationExplanationType(models.Model):
 
 @python_2_unicode_compatible
 class AnnotationExplanation(models.Model):
-    req_ann = models.ForeignKey(RequirementAnnotated)
+    req_ann = models.ForeignKey(AnnotationRequirement)
     type = models.ForeignKey(AnnotationExplanationType)
     explanation = MarkdownField()
 
