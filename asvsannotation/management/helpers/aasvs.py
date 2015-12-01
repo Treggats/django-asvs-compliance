@@ -74,12 +74,19 @@ class AASVS(object):
                 annotation = annotations.filter(
                     category__category_number__exact=cat_nr).filter(
                     requirement__requirement_number__exact=req_nr)
-                file = "{}/{}/{}/en/general.md".format(path, cat_nr, req_nr)
 
-                with open(file) as f:
-                    explanation = AnnotationExplanation.objects.language(LANGUAGE_CODE).get_or_create(
-                        req_ann=annotation[0],
-                        type=AnnotationExplanationType.objects.language(LANGUAGE_CODE).get(pk=1),
-                        explanation=f.read()
-                    )
-        return ""
+                annotationtypes = AnnotationExplanationType.objects.language(
+                    LANGUAGE_CODE).all()
+                for type in annotationtypes:
+                    file = "{}/{}/{}/en/{}.md".format(path, cat_nr, req_nr,
+                                                      type)
+                    if os.path.exists(file):
+                        with open(file) as f:
+                            explanation = AnnotationExplanation.objects.language(
+                                LANGUAGE_CODE).get_or_create(
+                                req_ann=annotation[0],
+                                type=AnnotationExplanationType.objects.language(
+                                    LANGUAGE_CODE).get(pk=type.pk),
+                                explanation=f.read()
+                            )
+        return "Done"
