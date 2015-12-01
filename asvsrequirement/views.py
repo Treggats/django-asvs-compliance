@@ -1,7 +1,20 @@
 from django.shortcuts import render
-from django.core.urlresolvers import reverse
-from asvsrequirement.models import Requirement, Category
+from django.shortcuts import get_object_or_404
+from django.views.generic import ListView, DetailView
+from asvs.settings import LANGUAGE_CODE
+from django.core.urlresolvers import reverse 
+from asvsrequirement.models import Requirement, Category, Level
 from asvsannotation.models import AnnotationExplanation
+
+
+class LevelList(ListView):
+    model = Requirement
+    template_name = 'requirement_list.html'
+    context_object_name = 'items'
+
+    def get_queryset(self):
+        self.level = get_object_or_404(Level, level_number=self.args[0])
+        return Requirement.objects.language(LANGUAGE_CODE).filter(levels=self.level)
 
 
 def index(request):
@@ -30,14 +43,6 @@ def get_requirement(request, id=None):
             'level': ", ".join([str(level.get('level_number')) for level in item.levels.values()]),
             'info': info
         })
-
-
-def get_level(request, id):
-    items = Requirement.objects.language().filter(levels__in=id)
-    return render(request, 'requirement_list.html', {
-        'level_nr': id,
-        'items': items
-    })
 
 
 def get_category(request, cat_nr=None):
