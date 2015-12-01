@@ -2,16 +2,20 @@
 {% load markdown_markup %}
 
 {% block content %}
-<h2>{{category}}</h2>
-<p>
-    Requirement <strong>{{ item.requirement_number }}</strong><br />
-    {{ item.requirement_title }}
-</p>
-<p>
-    Level: {{ level }}
-</p>
-{% for item in info %}
-    <h2>{{ item.type|title }}</h2>
-    <p>{{ item.explanation|md }}</p>
-{% endfor %}
+<div class="container requirement_detail">
+    {% with info|first as title %}
+    <h2>{{ title|title }}</h2>
+    {% endwith %}
+    <p>
+        <span class="category">{{ category }}</span><br />
+        <span>#{{ item }}</span>
+    </p>
+    <p>
+        <strong>Level</strong>: {{ level }}
+    </p>
+    {% for item in info %}
+        <h2>{{ item.type|title }}</h2>
+        <p>{{ item.explanation|md }}</p>
+    {% endfor %}
+</div>
 {% endblock content %}

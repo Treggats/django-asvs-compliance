@@ -1,9 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<ul>
-    {% for item in items %}
-        <li><a href="{{item.category_number}}">{{item}}</a></li>
-    {% endfor %}
-</ul>
+<div class="container cat_list">
+    <ul>
+        {% for item in items %}
+            <li>
+                <a href="{% url 'get_category' item.category_number %}">
+                V{{ item.category_number }}:</a>
+                {{ item.category_name }}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock content %}

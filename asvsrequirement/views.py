@@ -34,7 +34,7 @@ def get_requirement(request, id=None):
 
 def get_level(request, id):
     items = Requirement.objects.language().filter(levels__in=id)
-    return render(request, 'level_detail.html', {
+    return render(request, 'requirement_list.html', {
         'level_nr': id,
         'items': items
     })

@@ -1,14 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-<ul>
-    {% for item in items %}
-        <li>Category {{ item.category_version }},
-            <a href="{{item.requirement_number}}">Requirement
-                {{item.requirement_number}}
-                </a><br />
-                {{ item.requirement_title }}
-        </li>
-    {% endfor %}
-</ul>
+<div class="container requirement_list">
+    <ul>
+        {% for item in items %}
+            <li><a href="{% url 'requirement_detail' item.pk %}">Requirement
+                    {{item.requirement_number}}
+                    </a><br />
+                    {{ item.requirement_title }}<br />
+                <a href="{% url 'get_category' item.category.category_number %}">
+                V{{ item.category.category_number }}</a>:
+                {{ item.category.category_name }}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock content %}

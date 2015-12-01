@@ -33,3 +33,18 @@ nav.primary ul li a:hover {
     background-color: #1EAEDB;
     cursor: pointer;
 }
+
+.cat_list ul li {
+    display: block;
+}
+.cat_detail ul li{
+    display: block;
+}
+
+.requirement_list ul li {
+    display: block;
+}
+
+.requirement_detail span.category {
+    text-decoration: underline;
+}

@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Category {{category}}</h1>
-<ul>
-   {% for item in items %}
-        <li>
-            <a href="/requirement/{{item.pk}}">{{item.requirement_number}}:</a>
-            {{item.requirement_title}}
-        </li>
-    {% endfor %} 
-</ul>
+<div class="container cat_detail">
+    <h2>Category {{category}}</h2>
+    <ul>
+       {% for item in items %}
+            <li>
+                <a href="{% url 'requirement_detail' item.pk %}">#{{item.requirement_number}}:</a>
+                {{item.requirement_title}}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock content %}
