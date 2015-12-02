@@ -49,19 +49,30 @@ def get_requirement(request, id=None):
         })
 
 
-def get_category(request, cat_nr=None):
-    if cat_nr is None:
-        items = Category.objects.all()
-        return render(request, 'category_list.html', {
-            'items': items,
-            })
-    else:
-        items = Requirement.objects.language().filter(
-            category__category_number=cat_nr)
-        category = Category.objects.language().get(category_number=cat_nr)
-        return render(request, 'category_detail.html', {
-            'category': category,
-            'items': items
-            })
+
+
+class CategoryListView(ListView):
+    model = Category
+    context_object_name = 'items'
+    template_name = 'category_list.html'
+
+
+class CategoryDetailView(DetailView):
+    model = Category
+    context_object_name = 'items'
+    template_name = 'category_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(CategoryDetailView, self).get_context_data(**kwargs)
+        requirements = Requirement.objects.language(LANGUAGE_CODE).filter(
+            category=context['object'])
+        context['category'] = context['object']
+        context['items'] = requirements
+        return context
+
+    def get_object(self):
+        """Returns the Category instance that the view displays"""
+        return get_object_or_404(Category, category_number=self.kwargs.get(
+            "category_number"))
 
 
