@@ -1,13 +1,17 @@
 from django.conf.urls import url
-from .views import LevelList
-from . import views
+from .views import LevelListView, CategoryListView, CategoryDetailView, \
+    RequirementListView, HomeView, RequirementDetailView
 
 urlpatterns = [
-    url(r'^$', views.index, name='home'),
-    url(r'^requirement/$', views.get_requirement, name='requirement_list'),
-    url(r'^requirement/(\d+)/$', views.get_requirement,
+    url(r'^$', HomeView.as_view(), name='home'),
+    url(r'^requirement/$', RequirementListView.as_view()),
+    url(r'^requirement/(?P<pk>[0-9]+)/$', RequirementDetailView.as_view(),
         name='requirement_detail'),
-    url(r'^level/(\d+)/$', LevelList.as_view()),
-    url(r'^category/$', views.get_category, name='get_category_list'),
-    url(r'^category/([0-9]+)/$', views.get_category, name='get_category'),
+    url(r'^level/(\d+)/$', LevelListView.as_view()),
+    url(r'^category/$', CategoryListView.as_view()),
+    url(r'^category/(?P<category_number>[0-9]+)/$',
+        CategoryDetailView.as_view(),
+        name='get_category'),
 ]
+
+handler404 = 'asvsrequirement.views.NotFoundView'
