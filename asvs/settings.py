@@ -25,9 +25,10 @@ try:
 except IOError:
     SECRETS = {
         "secret_key": "a secret",
-        "pg_db_name": "cookie",
-        "pg_user": "carlos",
-        "pg_password": ""
+        "db_type": "postgresql_psycopg2",
+        "db_name": "cookie",
+        "db_user": "carlos",
+        "db_password": ""
     }
 
 # Set the default ASVS version
@@ -101,10 +102,10 @@ WSGI_APPLICATION = 'asvs.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': str(SECRETS['pg_db_name']),
-        'USER': str(SECRETS['pg_user']),
-        'PASSWORD': str(SECRETS['pg_password']),
+        'ENGINE': 'django.db.backends.{}'.format(str(SECRETS['db_type'])),
+        'NAME': str(SECRETS['db_name']),
+        'USER': str(SECRETS['db_user']),
+        'PASSWORD': str(SECRETS['db_password']),
         'HOST': '',
         'PORT': '',
     }
@@ -131,4 +132,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = str(BASE_DIR.joinpath('static'))
-
