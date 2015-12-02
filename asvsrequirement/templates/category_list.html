@@ -5,7 +5,7 @@
     <ul>
         {% for item in items %}
             <li>
-                <a href="{% url 'get_category' item.category_number %}">
+                <a href="{% url 'category_list' item.category_number %}">
                 V{{ item.category_number }}:</a>
                 {{ item.category_name }}
             </li>
