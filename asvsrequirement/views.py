@@ -16,16 +16,19 @@ class HomeView(TemplateView):
         return context
 
 
-class LevelList(ListView):
+class NotFoundView(TemplateView):
+    template_name = '404.html'
+
+
+class LevelListView(ListView):
     model = Requirement
     template_name = 'requirement_list.html'
     context_object_name = 'items'
 
     def get_queryset(self):
         self.level = get_object_or_404(Level, level_number=self.args[0])
-        return Requirement.objects.language(LANGUAGE_CODE).filter(levels=self.level)
-
-
+        return Requirement.objects.language(LANGUAGE_CODE).filter(
+            levels=self.level)
 def get_requirement(request, id=None):
     if id is None:
         items = Requirement.objects.language().all()
@@ -60,3 +63,5 @@ def get_category(request, cat_nr=None):
             'category': category,
             'items': items
             })
+
+
