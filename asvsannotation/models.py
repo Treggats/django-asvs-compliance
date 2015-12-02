@@ -2,7 +2,6 @@ from __future__ import unicode_literals
 
 from django.utils.encoding import python_2_unicode_compatible
 from hvad.models import TranslatableModel, TranslatedFields
-from django_markdown.models import MarkdownField
 from django.db import models
 from asvsrequirement.models import Requirement, Category
 

@@ -1,12 +1,21 @@
 from django.conf.urls import url
-from . import views
+from .views import LevelListView, CategoryListView, CategoryDetailView, \
+    RequirementListView, HomeView, RequirementDetailView
 
 urlpatterns = [
-    url(r'^$', views.index, name='home'),
-    url(r'^requirement/$', views.get_requirement, name='requirement_list'),
-    url(r'^requirement/(\d+)/$', views.get_requirement,
+    url(r'^$', HomeView.as_view(title='Home', content_template='index.html'),
+        name='home'),
+    url(r'^requirement/$', RequirementListView.as_view(),
+        name='requirement_list'),
+    url(r'^requirement/(?P<pk>[0-9]+)/$', RequirementDetailView.as_view(),
         name='requirement_detail'),
-    url(r'^level/(\d+)/$', views.get_level, name='get_level'),
-    url(r'^category/$', views.get_category, name='get_category_list'),
-    url(r'^category/([0-9]+)/$', views.get_category, name='get_category'),
+    url(r'^level/(\d+)/$', LevelListView.as_view(), name='level_list'),
+    url(r'^category/$', CategoryListView.as_view(),
+        name='category_list'),
+    url(r'^category/(?P<category_number>[0-9]+)/$',
+        CategoryDetailView.as_view(),
+        name='category_list'),
+    url(r'^project/$', HomeView.as_view(title='Create Project', content_template='create_project.html'), name='create_project')
 ]
+
+handler404 = 'asvsrequirement.views.NotFoundView'

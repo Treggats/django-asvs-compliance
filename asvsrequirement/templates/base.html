@@ -22,26 +22,36 @@
                 <div class="sixteen columns">
                         <ul class="navbar-list">
                         <li class="navbar-item">
-                            <a class="navbar-link" href="/level/1">Level 1</a>
+                            <a class="navbar-link"
+                                href="{% url 'level_list' 1 %}">Level 1</a>
                         </li>
                         <li class="navbar-item">
-                            <a class="navbar-link" href="/level/2">Level 2</a>
+                            <a class="navbar-link"
+                                href="{% url 'level_list' 2 %}">Level 2</a>
                         </li>
                         <li class="navbar-item">
-                            <a class="navbar-link" href="/level/3">Level 3</a>
+                            <a class="navbar-link"
+                                href="{% url 'level_list' 3 %}">Level 3</a>
                         </li>
                         <li class="navbar-item">
-                            <a class="navbar-link" href="/category">Categories</a>
+                            <a class="navbar-link"
+                                href="{% url 'category_list' %}">Categories</a>
                         </li>
                         <li class="navbar-item">
-                            <a class="navbar-link" href="/requirement">Requirements</a>
+                            <a class="navbar-link"
+                                href="{% url 'requirement_list' %}">Requirements</a>
                         </li>
+                            <li class="navbar-item">
+                                <a class="navbar-link button button-primary"
+                                    href="{% url 'create_project' %}">Create a new project</a>
+                            </li>
                         </ul>
                 </div>
                 {% endblock menu %}
             </nav>
             </div>
     {% block content %}
+        {% include content_template %}
     {% endblock %}
 </body>
 </html>

@@ -20,7 +20,8 @@ nav.primary ul li {
 
 nav.primary ul li a {
     display: inline-block;
-    line-height: 49px;
+    line-height: 40px;
+    margin: 5px;
     padding: 0 14px;
     color: #000000;
     text-transform: uppercase;
@@ -29,7 +30,16 @@ nav.primary ul li a {
     letter-spacing: 0.08em;
 }
 
+nav.primary ul li a.button-primary {
+    line-height: 40px;
+    color: #000000;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+}
+
 nav.primary ul li a:hover {
+    line-height: 40px;
     background-color: #1EAEDB;
     cursor: pointer;
 }
