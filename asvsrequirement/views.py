@@ -1,10 +1,19 @@
-from django.shortcuts import render
 from django.shortcuts import get_object_or_404
-from django.views.generic import ListView, DetailView
+from django.views.generic import TemplateView, ListView, DetailView
+
 from asvs.settings import LANGUAGE_CODE
-from django.core.urlresolvers import reverse 
 from asvsrequirement.models import Requirement, Category, Level
-from asvsannotation.models import AnnotationExplanation
+from asvsannotation.models import AnnotationRequirement, AnnotationExplanation
+
+
+class HomeView(TemplateView):
+    template_name = 'index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(HomeView, self).get_context_data(**kwargs)
+        context['title'] = 'Home'
+        context['text'] = 'text from flatpage'
+        return context
 
 
 class LevelList(ListView):
@@ -15,14 +24,6 @@ class LevelList(ListView):
     def get_queryset(self):
         self.level = get_object_or_404(Level, level_number=self.args[0])
         return Requirement.objects.language(LANGUAGE_CODE).filter(levels=self.level)
-
-
-def index(request):
-    return render(request, 'index.html', {
-        'cat_1': reverse('get_level', args=[1]),
-        'cat_2': reverse('get_level', args=[2]),
-        'cat_3': reverse('get_level', args=[3])
-        })
 
 
 def get_requirement(request, id=None):
