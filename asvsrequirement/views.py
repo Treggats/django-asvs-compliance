@@ -29,26 +29,6 @@ class LevelListView(ListView):
         self.level = get_object_or_404(Level, level_number=self.args[0])
         return Requirement.objects.language(LANGUAGE_CODE).filter(
             levels=self.level)
-def get_requirement(request, id=None):
-    if id is None:
-        items = Requirement.objects.language().all()
-        return render(request, 'requirement_list.html', {
-            'items': items
-        })
-    else:
-        items = Requirement.objects.language().select_related('category')
-        item = items.get(pk=id)
-        ae_items = AnnotationExplanation.objects.all()
-        info = ae_items.filter(req_ann__requirement__requirement_number__exact=item.requirement_number).filter(req_ann__category__exact=item.category)
-
-        return render(request, 'requirement_detail.html', {
-            'item': item,
-            'category': item.category,
-            'level': ", ".join([str(level.get('level_number')) for level in item.levels.values()]),
-            'info': info
-        })
-
-
 
 
 class CategoryListView(ListView):
@@ -76,3 +56,31 @@ class CategoryDetailView(DetailView):
             "category_number"))
 
 
+class RequirementListView(ListView):
+    model = Requirement
+    context_object_name = 'items'
+    template_name = 'requirement_list.html'
+
+
+class RequirementDetailView(DetailView):
+    model = Requirement
+    context_object_name = 'requirement'
+    template_name = 'requirement_detail.html'
+
+    def get_queryset(self):
+        requirement = get_object_or_404(Requirement, pk=self.kwargs.get('pk'))
+        self.annotation = get_object_or_404(AnnotationRequirement,
+                                            requirement=requirement)
+        self.annotations = AnnotationExplanation.objects.language(
+            LANGUAGE_CODE).filter(req_ann=self.annotation)
+        return Requirement.objects.language(LANGUAGE_CODE).filter(
+            pk=self.kwargs.get('pk'))
+
+    def get_context_data(self, **kwargs):
+        context = super(RequirementDetailView, self).get_context_data(**kwargs)
+        context['annotation_title'] = self.annotation
+        context['category'] = context['object'].category
+        context['level'] = context['object'].level_number
+        context['annotations'] = self.annotations
+
+        return context
