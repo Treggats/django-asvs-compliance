@@ -12,6 +12,11 @@ from .models import AnnotationType
 class AnnotationAdmin(TranslatableAdmin):
     def __init__(self, *args, **kwargs):
         super(AnnotationAdmin, self).__init__(*args, **kwargs)
+
+    filter_horizontal = ('relations',)
+    list_filter = ('category', 'relations')
+    search_fields = ['translations__title']
+
 admin.site.register(Annotation, AnnotationAdmin)
 
 
@@ -33,22 +38,3 @@ class AnnotationTypeAdmin(TranslatableAdmin):
     def __init__(self, *args, **kwargs):
         super(AnnotationTypeAdmin, self).__init__(*args, **kwargs)
 admin.site.register(AnnotationType, AnnotationTypeAdmin)
-
-'''
-class RelatedAnnotatedAdmin(TranslatableAdmin):
-    def __init__(self, *args, **kwargs):
-        super(RelatedAnnotatedAdmin, self).__init__(*args, **kwargs)
-admin.site.register(AnnotationRelation, RelatedAnnotatedAdmin)
-
-
-class RequirementAnnotatedAdmin(TranslatableAdmin):
-    def __init__(self, *args, **kwargs):
-        super(RequirementAnnotatedAdmin, self).__init__(*args, **kwargs)
-
-    filter_horizontal = ('relations',)
-    list_display = ('requirement_number', 'category',
-                    'title_', 'related_')
-    list_filter = ('category', 'relations')
-    search_fields = ['translations__title']
-admin.site.register(AnnotationRequirement, RequirementAnnotatedAdmin)
-'''
