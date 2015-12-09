@@ -74,7 +74,8 @@ class RequirementDetailView(DetailView):
         self.annotation = get_object_or_404(Annotation,
                                             requirement=requirement)
         self.annotations = AnnotationHelp.objects.language(
-            LANGUAGE_CODE).filter(req_ann=self.annotation)
+            LANGUAGE_CODE).filter(requirement=requirement).filter(
+            category=requirement.category)
         return Requirement.objects.language(LANGUAGE_CODE).filter(
             pk=self.kwargs.get('pk'))
 
