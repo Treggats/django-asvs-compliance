@@ -1,13 +1,12 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 import json
-import os
 from codecs import open
 from pathlib import Path
 
 from asvs.settings import LANGUAGE_CODE
-from asvsannotation.models import AnnotationRelation, AnnotationRequirement,\
-    AnnotationExplanation, AnnotationExplanationType
+# from asvsannotation.models import AnnotationRelation, AnnotationRequirement,\
+#     AnnotationExplanation, AnnotationExplanationType
 from asvsrequirement.models import Requirement, Category
 
 
@@ -23,6 +22,17 @@ class AASVS(object):
         if self.file:
             self.json_file.close()
 
+    def process_data(self, src_path):
+        src_path = Path(str(src_path)).resolve()
+        requirements = Requirement.objects.language(LANGUAGE_CODE).all()
+        categories = Category.objects.language(LANGUAGE_CODE).all()
+
+        for category in categories:
+            for requirement in requirements.filter(category=category):
+                print(category)
+                print(requirement)
+
+'''
     def load_requirement(self):
         for pk, value in enumerate(self.reader.get('requirements'), start=1):
             lang_code = list(value.get('shortTitle'))[0]
@@ -90,3 +100,4 @@ class AASVS(object):
                                 explanation=f.read()
                             )
         return "Done"
+'''
