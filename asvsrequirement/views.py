@@ -3,7 +3,7 @@ from django.views.generic import TemplateView, ListView, DetailView
 
 from asvs.settings import LANGUAGE_CODE
 from asvsrequirement.models import Requirement, Category, Level
-# from asvsannotation.models import AnnotationRequirement, AnnotationExplanation
+from asvsannotation.models import Annotation, AnnotationHelp
 
 
 class HomeView(TemplateView):
@@ -64,7 +64,6 @@ class RequirementListView(ListView):
     template_name = 'requirement_list.html'
 
 
-'''
 class RequirementDetailView(DetailView):
     model = Requirement
     context_object_name = 'requirement'
@@ -72,9 +71,9 @@ class RequirementDetailView(DetailView):
 
     def get_queryset(self):
         requirement = get_object_or_404(Requirement, pk=self.kwargs.get('pk'))
-        self.annotation = get_object_or_404(AnnotationRequirement,
+        self.annotation = get_object_or_404(Annotation,
                                             requirement=requirement)
-        self.annotations = AnnotationExplanation.objects.language(
+        self.annotations = AnnotationHelp.objects.language(
             LANGUAGE_CODE).filter(req_ann=self.annotation)
         return Requirement.objects.language(LANGUAGE_CODE).filter(
             pk=self.kwargs.get('pk'))
@@ -87,4 +86,3 @@ class RequirementDetailView(DetailView):
         context['annotations'] = self.annotations
 
         return context
-'''
