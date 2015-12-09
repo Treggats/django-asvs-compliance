@@ -3,7 +3,7 @@ from django.views.generic import TemplateView, ListView, DetailView
 
 from asvs.settings import LANGUAGE_CODE
 from asvsrequirement.models import Requirement, Category, Level
-from asvsannotation.models import AnnotationRequirement, AnnotationExplanation
+# from asvsannotation.models import AnnotationRequirement, AnnotationExplanation
 
 
 class HomeView(TemplateView):
@@ -64,6 +64,7 @@ class RequirementListView(ListView):
     template_name = 'requirement_list.html'
 
 
+'''
 class RequirementDetailView(DetailView):
     model = Requirement
     context_object_name = 'requirement'
@@ -86,3 +87,4 @@ class RequirementDetailView(DetailView):
         context['annotations'] = self.annotations
 
         return context
+'''
