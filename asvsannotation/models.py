@@ -12,6 +12,9 @@ class AnnotationType(TranslatableModel):
         title=models.CharField(max_length=40)
     )
 
+    def __str__(self):
+        return self.title
+
 
 @python_2_unicode_compatible
 class AnnotationHelp(TranslatableModel):
@@ -27,6 +30,9 @@ class AnnotationHelp(TranslatableModel):
         unique_together = ('requirement', 'category')
         verbose_name = 'Annotation help text'
         verbose_name_plural = 'Annotation help texts'
+
+    def __str__(self):
+        return self.help_text
 
 
 @python_2_unicode_compatible
