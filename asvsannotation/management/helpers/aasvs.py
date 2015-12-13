@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
+import os
 import json
 from codecs import open
 from pathlib import Path
@@ -8,6 +9,7 @@ from asvs.settings import LANGUAGE_CODE
 # from asvsannotation.models import AnnotationRelation, AnnotationRequirement,\
 #     AnnotationExplanation, AnnotationExplanationType
 from asvsrequirement.models import Requirement, Category
+from asvsannotation.models import AnnotationType
 
 
 class AASVS(object):
@@ -23,55 +25,35 @@ class AASVS(object):
             self.json_file.close()
 
     def process_data(self, src_path):
-        src_path = Path(str(src_path)).resolve()
+        src_path = str(Path(str(src_path)).resolve())
         requirements = Requirement.objects.language(LANGUAGE_CODE).all()
         categories = Category.objects.language(LANGUAGE_CODE).all()
+        type_list = list()
+        for (path, dirs, files) in os.walk(src_path + '/help/'):
+            for filename in files:
+                file_info = filename.split('.')
+                if file_info[-1] == 'md' and file_info[0] not in type_list:
+                    type_list.append(file_info[0])
+        
+        for type_item in type_list:
+            item = AnnotationType.objects.language(LANGUAGE_CODE).get_or_create(
+                title=type_item
+            )
+
+        help_dir = src_path + '/help/'
 
         for category in categories:
             for requirement in requirements.filter(category=category):
-                print(category)
-                print(requirement)
+                if os.path.isdir("{}{}".format(
+                    help_dir,
+                    category.category_number
+                )):
+                    print("correct")
+                else:
+                    print("not so correct")
+
 
 '''
-    def load_requirement(self):
-        for pk, value in enumerate(self.reader.get('requirements'), start=1):
-            lang_code = list(value.get('shortTitle'))[0]
-            req_nr = int(value.get('nr'))
-            cat_nr = int(value.get('chapterNr'))
-            title = value.get('shortTitle').get(lang_code)
-
-            req = Requirement.objects.language(lang_code).filter(
-                category__category_number=cat_nr).filter(
-                requirement_number=req_nr)
-
-            if req:
-                AnnotationRequirement.objects.language(lang_code)\
-                    .get_or_create(
-                        pk=pk,
-                        requirement=req[0],
-                        category=Category.objects.language(lang_code).get(
-                            category_number=cat_nr),
-                        title=title
-                )
-
-                for item in value.get('related'):
-                    AnnotationRelation.objects.language(
-                        lang_code).get_or_create(
-                        req_annotate_pk=pk,
-                        name=item.get('name'),
-                        url=item.get('url')
-                    )
-
-                requirement = AnnotationRequirement.objects.language(
-                    lang_code).get(pk=pk)
-
-                for item in value.get('related'):
-                    related_items = AnnotationRelation.objects.language(
-                        lang_code).filter(req_annotate_pk=pk)
-
-                    requirement.relations = related_items
-                    requirement.save()
-
     def load_help_text(self, path):
         path = Path(str(path)).resolve()
         requirements = Requirement.objects.language(LANGUAGE_CODE).all()
