@@ -13,7 +13,7 @@ class AnnotationAdmin(TranslatableAdmin):
     def __init__(self, *args, **kwargs):
         super(AnnotationAdmin, self).__init__(*args, **kwargs)
 
-    filter_horizontal = ('relations',)
+    filter_horizontal = ('annotation_help', 'relations',)
     list_filter = ('category', 'relations')
     search_fields = ['translations__title']
 
@@ -29,7 +29,8 @@ admin.site.register(AnnotationRelation, AnnotationRelationAdmin)
 class AnnotationHelpAdmin(TranslatableAdmin):
     def __init__(self, *args, **kwargs):
         super(AnnotationHelpAdmin, self).__init__(*args, **kwargs)
-    # list_display = ('id', 'req_ann', 'type')
+    list_display = ('id', 'requirement', 'category',
+                    'annotation_type')
     formfield_overrides = {models.TextField: {'widget': AdminMarkdownWidget}}
 admin.site.register(AnnotationHelp, AnnotationHelpAdmin)
 

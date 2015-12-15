@@ -3,20 +3,20 @@
 
 {% block content %}
 <div class="container requirement_detail">
-    <h2>{{ annotation_title|title }}</h2>
+    <h2>{{ requirement|title }}</h2>
     <p>
         <span
                 class="category"><a
                 href="{% url 'category_list' category.category_number %}">
             {{ category }}</a></span><br />
-        <span class="requirement">#{{ requirement }}</span>
+        <span class="requirement">{{ requirement.requirement_title }}</span>
     </p>
     <p>
         <strong>Level</strong>: {{ level }}
     </p>
     {% for item in annotations %}
-        <h2>{{ item.type|title }}</h2>
-        <p>{{ item.explanation|md }}</p>
+        <h2>{{ item.title|title }}</h2>
+        <p>{{ item.annotation_help.annotation_type|md }}</p>
     {% endfor %}
 </div>
 {% endblock content %}
