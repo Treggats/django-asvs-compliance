@@ -9,13 +9,13 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument('--file', type=str)
-        parser.add_argument('--help-dir', type=str)
+        parser.add_argument('--src-dir', type=str)
 
     def handle(self, *args, **options):
-        if options['help_dir']:
-            help_dir = Path(options['help_dir']).resolve()
+        if options['src_dir']:
+            src_dir = Path(options['src_dir']).resolve()
             aasvs = AASVS()
-            aasvs.process_data(str(help_dir))
+            aasvs.process_data(str(src_dir))
         else:
-            self.args = '--file aasvs.json', '--dir owasp-aasvs/src/help'
+            self.args = '--dir owasp-aasvs/src'
             self.stdout.write(self.usage('loadaasvsdata'))
