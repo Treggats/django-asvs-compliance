@@ -15,8 +15,8 @@
         <strong>Level</strong>: {{ level }}
     </p>
     {% for item in annotations %}
-        <h2>{{ item.title|title }}</h2>
-        <p>{{ item.annotation_help.annotation_type|md }}</p>
+        <h2>{{ item.annotation_type|title }}</h2>
+        <p>{{ item.help_text|md }}</p>
     {% endfor %}
 </div>
 {% endblock content %}
