@@ -1,9 +1,9 @@
-from django.shortcuts import get_object_or_404, get_list_or_404
+from django.shortcuts import get_object_or_404
 from django.views.generic import TemplateView, ListView, DetailView
 
 from asvs.settings import LANGUAGE_CODE
 from asvsrequirement.models import Requirement, Category, Level
-from asvsannotation.models import Annotation, AnnotationHelp
+from asvsannotation.models import AnnotationHelp
 
 
 class HomeView(TemplateView):
@@ -77,6 +77,6 @@ class RequirementDetailView(DetailView):
         context = super(RequirementDetailView, self).get_context_data(**kwargs)
         context['category'] = context['object'].category
         context['level'] = context['object'].level_number
-        context['annotations'] = Annotation.objects.language(LANGUAGE_CODE).filter(requirement=context['object'])
+        context['annotations'] = AnnotationHelp.objects.language(LANGUAGE_CODE).filter(requirement=context['object']).filter(category=context['category'])
 
         return context
