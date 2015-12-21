@@ -15,7 +15,8 @@ urlpatterns = [
     url(r'^category/(?P<category_number>[0-9]+)/$',
         CategoryDetailView.as_view(),
         name='category_list'),
-    url(r'^project/$', HomeView.as_view(title='Create Project', content_template='create_project.html'), name='create_project')
+    url(r'^project/$', HomeView.as_view(title='Create Project',
+        content_template='create_project.html'), name='create_project')
 ]
 
 handler404 = 'asvsrequirement.views.NotFoundView'

@@ -83,6 +83,6 @@ class Requirement(TranslatableModel):
         ordering = ('requirement_number', 'category')
 
     def __str__(self):
-        return "{}: {}".format(self.requirement_number,
-                               self.lazy_translation_getter('title',
-                                                            str(self.pk)))
+        return "Requirement: {}, Category: {}".format(
+                                                      self.requirement_number,
+                                                      self.category.category_number)

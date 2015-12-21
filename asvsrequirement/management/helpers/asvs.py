@@ -1,6 +1,7 @@
 # -*- encoding: utf-8 -*-
 import json
 from codecs import open
+from django.shortcuts import get_object_or_404
 
 from asvs.settings import ASVS_VERSION
 from asvsrequirement.models import AsvsVersion, Level, Category, Requirement
@@ -17,7 +18,8 @@ class ASVS(object):
         self.json_file.close()
 
     def load_version(self):
-        version = AsvsVersion.objects.create(version_number=self._version)
+        version = AsvsVersion.objects.create(pk=1,
+                                             version_number=self._version)
         version.save()
 
     def load_level(self):
@@ -28,7 +30,7 @@ class ASVS(object):
             level = Level.objects.language(lang_code).create(
                 level_number=level_nr,
                 name=name,
-                version=AsvsVersion.objects.get(version_number=self._version)
+                version=get_object_or_404(AsvsVersion, version_number=self._version)
             )
             level.save()
 
@@ -40,7 +42,7 @@ class ASVS(object):
             category = Category.objects.language(lang_code).create(
                 category_number=cat_nr,
                 name=title,
-                version=AsvsVersion.objects.get(version_number=self._version)
+                version=get_object_or_404(AsvsVersion, version_number=self._version)
             )
             category.save()
 

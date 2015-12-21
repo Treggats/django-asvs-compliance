@@ -3,37 +3,39 @@ from django.db import models
 from django_markdown.widgets import AdminMarkdownWidget
 from hvad.admin import TranslatableAdmin
 
-from .models import AnnotationRelation, AnnotationRequirement
-from .models import AnnotationExplanation, AnnotationExplanationType
+# from .models import AnnotationRelation, AnnotationRequirement
+# from .models import AnnotationExplanation, AnnotationExplanationType
+from .models import Annotation, AnnotationHelp, AnnotationRelation
+from .models import AnnotationType
 
 
-class RelatedAnnotatedAdmin(TranslatableAdmin):
+class AnnotationAdmin(TranslatableAdmin):
     def __init__(self, *args, **kwargs):
-        super(RelatedAnnotatedAdmin, self).__init__(*args, **kwargs)
-admin.site.register(AnnotationRelation, RelatedAnnotatedAdmin)
+        super(AnnotationAdmin, self).__init__(*args, **kwargs)
 
-
-class RequirementAnnotatedAdmin(TranslatableAdmin):
-    def __init__(self, *args, **kwargs):
-        super(RequirementAnnotatedAdmin, self).__init__(*args, **kwargs)
-
-    filter_horizontal = ('relations',)
-    list_display = ('requirement_number', 'category',
-                    'title_', 'related_')
+    filter_horizontal = ('annotation_help', 'relations',)
     list_filter = ('category', 'relations')
     search_fields = ['translations__title']
-admin.site.register(AnnotationRequirement, RequirementAnnotatedAdmin)
+
+admin.site.register(Annotation, AnnotationAdmin)
 
 
-class AnnotationExplanationAdmin(TranslatableAdmin):
+class AnnotationRelationAdmin(TranslatableAdmin):
     def __init__(self, *args, **kwargs):
-        super(AnnotationExplanationAdmin, self).__init__(*args, **kwargs)
-    list_display = ('id', 'req_ann', 'type')
+        super(AnnotationRelationAdmin, self).__init__(*args, **kwargs)
+admin.site.register(AnnotationRelation, AnnotationRelationAdmin)
+
+
+class AnnotationHelpAdmin(TranslatableAdmin):
+    def __init__(self, *args, **kwargs):
+        super(AnnotationHelpAdmin, self).__init__(*args, **kwargs)
+    list_display = ('id', 'requirement', 'category',
+                    'annotation_type')
     formfield_overrides = {models.TextField: {'widget': AdminMarkdownWidget}}
-admin.site.register(AnnotationExplanation, AnnotationExplanationAdmin)
+admin.site.register(AnnotationHelp, AnnotationHelpAdmin)
 
 
-class AnnotationExplanationTypeAdmin(TranslatableAdmin):
+class AnnotationTypeAdmin(TranslatableAdmin):
     def __init__(self, *args, **kwargs):
-        super(AnnotationExplanationTypeAdmin, self).__init__(*args, **kwargs)
-admin.site.register(AnnotationExplanationType, AnnotationExplanationTypeAdmin)
+        super(AnnotationTypeAdmin, self).__init__(*args, **kwargs)
+admin.site.register(AnnotationType, AnnotationTypeAdmin)

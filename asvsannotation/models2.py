@@ -12,9 +12,6 @@ class AnnotationType(TranslatableModel):
         title=models.CharField(max_length=40)
     )
 
-    def __str__(self):
-        return self.title
-
 
 @python_2_unicode_compatible
 class AnnotationHelp(TranslatableModel):
@@ -26,18 +23,8 @@ class AnnotationHelp(TranslatableModel):
         help_text=models.TextField()
     )
 
-    @property
-    def help_text_(self):
-        return self.help_text
-
     class Meta:
-        # unique_together = ('requirement', 'category')
-        verbose_name = 'Annotation help text'
-        verbose_name_plural = 'Annotation help texts'
-
-    def __str__(self):
-        return "Requirement: {}, Category: {}".format(self.requirement.requirement_number,
-                                                      self.category.category_number)
+        unique_together = ('requirement', 'category')
 
 
 @python_2_unicode_compatible
@@ -55,8 +42,7 @@ class AnnotationRelation(TranslatableModel):
         return self.relation_title
 
     class Meta:
-        # unique_together = ('requirement', 'category')
-        pass
+        unique_together = ('requirement', 'category')
 
     def __str__(self):
         return self.title_
@@ -66,8 +52,8 @@ class AnnotationRelation(TranslatableModel):
 class Annotation(TranslatableModel):
     requirement = models.ForeignKey(Requirement)
     category = models.ForeignKey(Category)
-    annotation_help = models.ManyToManyField(AnnotationHelp, blank=True)
-    relations = models.ManyToManyField(AnnotationRelation, blank=True)
+    annotation_help = models.ForeignKey(AnnotationHelp, blank=True, null=True)
+    relations = models.ManyToManyField(AnnotationRelation)
 
     translations = TranslatedFields(
         title=models.CharField(max_length=100)
@@ -78,8 +64,7 @@ class Annotation(TranslatableModel):
         return self.title
 
     class Meta:
-        # unique_together = ('requirement', 'category')
-        pass
+        unique_together = ('requirement', 'category')
 
     def __str__(self):
         return self.title_
