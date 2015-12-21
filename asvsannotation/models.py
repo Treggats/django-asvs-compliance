@@ -51,7 +51,7 @@ class AnnotationRelation(TranslatableModel):
     )
 
     @property
-    def title_(self):
+    def relation_title(self):
         return self.relation_title
 
     class Meta:
@@ -59,7 +59,7 @@ class AnnotationRelation(TranslatableModel):
         pass
 
     def __str__(self):
-        return self.title_
+        return self.relation_title
 
 
 @python_2_unicode_compatible
@@ -74,7 +74,7 @@ class Annotation(TranslatableModel):
     )
 
     @property
-    def title_(self):
+    def annotation_title(self):
         return self.title
 
     class Meta:
@@ -82,4 +82,4 @@ class Annotation(TranslatableModel):
         pass
 
     def __str__(self):
-        return self.title_
+        return self.annotation_title
