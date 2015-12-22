@@ -18,8 +18,6 @@ class AnnotationType(TranslatableModel):
 
 @python_2_unicode_compatible
 class AnnotationHelp(TranslatableModel):
-    requirement = models.ForeignKey(Requirement)
-    category = models.ForeignKey(Category)
     annotation_type = models.ForeignKey(AnnotationType)
 
     translations = TranslatedFields(
