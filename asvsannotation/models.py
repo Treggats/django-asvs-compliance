@@ -25,7 +25,7 @@ class AnnotationHelp(TranslatableModel):
     )
 
     @property
-    def help_text_(self):
+    def help_text(self):
         return self.help_text
 
     class Meta:
@@ -34,8 +34,7 @@ class AnnotationHelp(TranslatableModel):
         verbose_name_plural = 'Annotation help texts'
 
     def __str__(self):
-        return "Requirement: {}, Category: {}".format(self.requirement.requirement_number,
-                                                      self.category.category_number)
+        return "{}: {}".format(self.annotation_type, self.help_text)
 
 
 @python_2_unicode_compatible

@@ -8,7 +8,7 @@ from hvad.admin import TranslatableAdmin
 from .models import Annotation, AnnotationHelp, AnnotationRelation
 from .models import AnnotationType
 
-
+'''
 class AnnotationAdmin(TranslatableAdmin):
     def __init__(self, *args, **kwargs):
         super(AnnotationAdmin, self).__init__(*args, **kwargs)
@@ -39,3 +39,8 @@ class AnnotationTypeAdmin(TranslatableAdmin):
     def __init__(self, *args, **kwargs):
         super(AnnotationTypeAdmin, self).__init__(*args, **kwargs)
 admin.site.register(AnnotationType, AnnotationTypeAdmin)
+'''
+admin.site.register(Annotation)
+admin.site.register(AnnotationRelation)
+admin.site.register(AnnotationHelp)
+admin.site.register(AnnotationType)
