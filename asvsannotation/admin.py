@@ -24,13 +24,12 @@ class AnnotationRelationAdmin(TranslatableAdmin):
     def __init__(self, *args, **kwargs):
         super(AnnotationRelationAdmin, self).__init__(*args, **kwargs)
 admin.site.register(AnnotationRelation, AnnotationRelationAdmin)
-
+'''
 
 class AnnotationHelpAdmin(TranslatableAdmin):
     def __init__(self, *args, **kwargs):
         super(AnnotationHelpAdmin, self).__init__(*args, **kwargs)
-    list_display = ('id', 'requirement', 'category',
-                    'annotation_type')
+    list_display = ('id', 'annotation_type', 'requirement')
     formfield_overrides = {models.TextField: {'widget': AdminMarkdownWidget}}
 admin.site.register(AnnotationHelp, AnnotationHelpAdmin)
 
@@ -39,8 +38,6 @@ class AnnotationTypeAdmin(TranslatableAdmin):
     def __init__(self, *args, **kwargs):
         super(AnnotationTypeAdmin, self).__init__(*args, **kwargs)
 admin.site.register(AnnotationType, AnnotationTypeAdmin)
-'''
+
 admin.site.register(Annotation)
 admin.site.register(AnnotationRelation)
-admin.site.register(AnnotationHelp)
-admin.site.register(AnnotationType)
