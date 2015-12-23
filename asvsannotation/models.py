@@ -19,13 +19,14 @@ class AnnotationType(TranslatableModel):
 @python_2_unicode_compatible
 class AnnotationHelp(TranslatableModel):
     annotation_type = models.ForeignKey(AnnotationType)
+    requirement = models.ForeignKey(Requirement)
 
     translations = TranslatedFields(
         help_text=models.TextField()
     )
 
     @property
-    def help_text(self):
+    def help_text_(self):
         return self.help_text
 
     class Meta:
@@ -33,7 +34,7 @@ class AnnotationHelp(TranslatableModel):
         verbose_name_plural = 'Annotation help texts'
 
     def __str__(self):
-        return "{}: {}".format(self.annotation_type, self.help_text)
+        return "{}".format(self.annotation_type)
 
 
 @python_2_unicode_compatible
