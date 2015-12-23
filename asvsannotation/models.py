@@ -58,7 +58,6 @@ class AnnotationRelation(TranslatableModel):
 @python_2_unicode_compatible
 class Annotation(TranslatableModel):
     requirement = models.ForeignKey(Requirement)
-    category = models.ForeignKey(Category)
     annotation_help = models.ManyToManyField(AnnotationHelp, blank=True)
     relations = models.ManyToManyField(AnnotationRelation, blank=True)
 
@@ -71,7 +70,6 @@ class Annotation(TranslatableModel):
         return self.title
 
     class Meta:
-        # unique_together = ('requirement', 'category')
         pass
 
     def __str__(self):
