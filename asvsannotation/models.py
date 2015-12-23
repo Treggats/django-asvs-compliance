@@ -29,7 +29,6 @@ class AnnotationHelp(TranslatableModel):
         return self.help_text
 
     class Meta:
-        # unique_together = ('requirement', 'category')
         verbose_name = 'Annotation help text'
         verbose_name_plural = 'Annotation help texts'
 
@@ -39,8 +38,6 @@ class AnnotationHelp(TranslatableModel):
 
 @python_2_unicode_compatible
 class AnnotationRelation(TranslatableModel):
-    requirement = models.ForeignKey(Requirement)
-    category = models.ForeignKey(Category)
     url = models.URLField()
 
     translations = TranslatedFields(
@@ -52,7 +49,6 @@ class AnnotationRelation(TranslatableModel):
         return self.relation_title
 
     class Meta:
-        # unique_together = ('requirement', 'category')
         pass
 
     def __str__(self):
