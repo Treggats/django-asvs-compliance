@@ -16,7 +16,7 @@ class Command(BaseCommand):
             self.stdout.write('Arguments for this command are:\n'
                               ' --file (a json file)\n'
                               ' --type (version, level, category, '
-                              'requirement)\n'
+                              'requirement || all)\n'
                               ' --asvs_version (optional, defaults to 3)\n'
                               'The order of --type is important')
         else:
@@ -33,6 +33,11 @@ class Command(BaseCommand):
             elif options['type'] == 'category':
                 asvs.load_category()
             elif options['type'] == 'requirement':
+                asvs.load_requirement()
+            elif options['type'] == 'all':
+                asvs.load_version()
+                asvs.load_level()
+                asvs.load_category()
                 asvs.load_requirement()
             else:
                 raise CommandError('Could not understand type: {}'.format(options['type']))
