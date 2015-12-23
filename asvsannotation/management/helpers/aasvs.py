@@ -13,51 +13,48 @@ from asvsannotation.models import AnnotationType, AnnotationHelp, Annotation
 
 
 class AASVS(object):
-    def __init__(self):
-        pass
+    def __init__(self, src_path):
+        self.requirement_object = Requirement.objects.language(LANGUAGE_CODE)
+        self.category_object = Category.objects.language(LANGUAGE_CODE)
+        self.annotation_type_object = AnnotationType.objects.language(LANGUAGE_CODE)
+        self.annotation_help_object = AnnotationHelp.objects.language(LANGUAGE_CODE)
+        self.annotation_object = Annotation.objects.language(LANGUAGE_CODE)
 
-    def process_data(self, src_path):
-        src_path = str(Path(str(src_path)).resolve())
-        requirement_object = Requirement.objects.language(LANGUAGE_CODE)
-        category_object = Category.objects.language(LANGUAGE_CODE)
-        annotation_type_object = AnnotationType.objects.language(LANGUAGE_CODE)
-        annotation_help_object = AnnotationHelp.objects.language(LANGUAGE_CODE)
-        annotation_object = Annotation.objects.language(LANGUAGE_CODE)
-        type_list = list()
-        help_dir = src_path + '/help/'
+        self.src_path = str(Path(str(src_path)).resolve())
+
+    def process_types(self):
+        help_dir = self.src_path + '/help/'
         for (path, dirs, files) in os.walk(help_dir):
             for filename in files:
                 file_info = filename.split('.')
-                if file_info[-1] == 'md' and file_info[0] not in type_list:
-                    type_list.append(file_info[0])
+                self.annotation_type_object.get_or_create(title=file_info[0])
 
-        for type_item in type_list:
-            annotation_type_object.get_or_create(
-                title=type_item
-            )
+    def process_help(self):
+        help_dir = self.src_path + '/help/'
         for (path, dirs, files) in os.walk(help_dir):
             for filename in files:
                 file_info = filename.split('.')
-                annotation_type = annotation_type_object.get(title=file_info[0])
+                annotation_type = self.annotation_type_object.get(title=file_info[0])
                 cat_nr = path.split('/')[-3]
                 req_nr = path.split('/')[-2]
-                cat = category_object.get(category_number=cat_nr)
+                cat = self.category_object.get(category_number=cat_nr)
                 try:
-                    req = requirement_object.get(category=cat,
+                    req = self.requirement_object.get(category=cat,
                                                  requirement_number=req_nr)
                     with open("{}/{}".format(path, filename)) as f:
-                        annotation_help_object.get_or_create(requirement=req,
-                                                             category=cat,
-                                                             annotation_type=annotation_type,
-                                                             help_text=f.read()
-                                                             )
+                        self.annotation_help_object.get_or_create(annotation_type=annotation_type,
+                            requirement=req,
+                            help_text=f.read())
                 except:
                     print("[Annotation Help] Requirement: {}, Category: {} does not exist".format(req_nr, cat_nr))
+
+    def process_data(self, src_path):        
+        help_dir = src_path + '/help/'
+
+        
         json_file = open(src_path + '/aasvs.json', encoding='utf-8')
         reader = json.load(json_file)
-        requirement_object = Requirement.objects.language(LANGUAGE_CODE)
-        category_object = Category.objects.language(LANGUAGE_CODE)
-        annotation_help_object = AnnotationHelp.objects.language(LANGUAGE_CODE)
+
         for item in reader.get('requirements'):
             cat_nr = item.get('chapterNr')
             req_nr = item.get('nr')
