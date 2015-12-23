@@ -2,6 +2,7 @@
 import json
 from codecs import open
 from django.shortcuts import get_object_or_404
+import datetime
 
 from asvs.settings import ASVS_VERSION
 from asvsrequirement.models import AsvsVersion, Level, Category, Requirement
@@ -19,7 +20,8 @@ class ASVS(object):
 
     def load_version(self):
         version = AsvsVersion.objects.create(pk=1,
-                                             version_number=self._version)
+                                             version_number=self._version,
+                                             release_date=datetime.date(2015, 10, 9))
         version.save()
 
     def load_level(self):
