@@ -12,7 +12,7 @@ class AsvsVersion(models.Model):
     release_date = models.DateField()
 
     def __str__(self):
-        return self.version_number
+        return str(self.version_number)
 
 
 @python_2_unicode_compatible
