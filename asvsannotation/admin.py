@@ -30,6 +30,7 @@ class AnnotationHelpAdmin(TranslatableAdmin):
     def __init__(self, *args, **kwargs):
         super(AnnotationHelpAdmin, self).__init__(*args, **kwargs)
     list_display = ('id', 'annotation_type', 'requirement')
+    list_filter = ('requirement__category',)
     formfield_overrides = {models.TextField: {'widget': AdminMarkdownWidget}}
 admin.site.register(AnnotationHelp, AnnotationHelpAdmin)
 
