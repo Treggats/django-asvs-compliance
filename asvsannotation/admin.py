@@ -8,13 +8,14 @@ from hvad.admin import TranslatableAdmin
 from .models import Annotation, AnnotationHelp, AnnotationRelation
 from .models import AnnotationType
 
-'''
+
 class AnnotationAdmin(TranslatableAdmin):
     def __init__(self, *args, **kwargs):
         super(AnnotationAdmin, self).__init__(*args, **kwargs)
-
+    ordering = ('id',)
+    list_display = ('id', 'annotation_title', 'requirement')
     filter_horizontal = ('annotation_help', 'relations',)
-    list_filter = ('category', 'relations')
+    list_filter = ('requirement__category', 'relations')
     search_fields = ['translations__title']
 
 admin.site.register(Annotation, AnnotationAdmin)
@@ -23,8 +24,9 @@ admin.site.register(Annotation, AnnotationAdmin)
 class AnnotationRelationAdmin(TranslatableAdmin):
     def __init__(self, *args, **kwargs):
         super(AnnotationRelationAdmin, self).__init__(*args, **kwargs)
+    list_display = ('relation_title_', 'url')
 admin.site.register(AnnotationRelation, AnnotationRelationAdmin)
-'''
+
 
 class AnnotationHelpAdmin(TranslatableAdmin):
     def __init__(self, *args, **kwargs):
@@ -39,6 +41,3 @@ class AnnotationTypeAdmin(TranslatableAdmin):
     def __init__(self, *args, **kwargs):
         super(AnnotationTypeAdmin, self).__init__(*args, **kwargs)
 admin.site.register(AnnotationType, AnnotationTypeAdmin)
-
-admin.site.register(Annotation)
-admin.site.register(AnnotationRelation)

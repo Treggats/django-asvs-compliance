@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from django.utils.encoding import python_2_unicode_compatible
 from hvad.models import TranslatableModel, TranslatedFields
 from django.db import models
-from asvsrequirement.models import Requirement, Category
+from asvsrequirement.models import Requirement
 
 
 @python_2_unicode_compatible
@@ -12,7 +12,8 @@ class AnnotationType(TranslatableModel):
         title=models.CharField(max_length=40)
     )
 
-    def __str__(self):
+    @property
+    def type_title(self):
         return self.title
 
 
@@ -34,7 +35,8 @@ class AnnotationHelp(TranslatableModel):
         verbose_name_plural = 'Annotation help texts'
 
     def __str__(self):
-        return "{}".format(self.annotation_type)
+        excerpt = self.help_text.split()[:10]
+        return " ".join(excerpt)
 
 
 @python_2_unicode_compatible
@@ -46,7 +48,7 @@ class AnnotationRelation(TranslatableModel):
     )
 
     @property
-    def relation_title(self):
+    def relation_title_(self):
         return self.relation_title
 
     class Meta:
@@ -74,4 +76,4 @@ class Annotation(TranslatableModel):
         pass
 
     def __str__(self):
-        return self.annotation_title
+        return self.title
