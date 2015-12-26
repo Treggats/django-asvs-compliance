@@ -37,7 +37,6 @@ class AnnotationHelpAdmin(TranslatableAdmin):
 admin.site.register(AnnotationHelp, AnnotationHelpAdmin)
 
 
-class AnnotationTypeAdmin(TranslatableAdmin):
-    def __init__(self, *args, **kwargs):
-        super(AnnotationTypeAdmin, self).__init__(*args, **kwargs)
+class AnnotationTypeAdmin(admin.ModelAdmin):
+    pass
 admin.site.register(AnnotationType, AnnotationTypeAdmin)

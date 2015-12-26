@@ -7,13 +7,10 @@ from asvsrequirement.models import Requirement
 
 
 @python_2_unicode_compatible
-class AnnotationType(TranslatableModel):
-    translations = TranslatedFields(
-        title=models.CharField(max_length=40)
-    )
+class AnnotationType(models.Model):
+    title = models.CharField(max_length=40)
 
-    @property
-    def type_title(self):
+    def __str__(self):
         return self.title
 
 
