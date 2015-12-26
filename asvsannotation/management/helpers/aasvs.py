@@ -68,7 +68,6 @@ class AASVS(object):
                 req = self.req_obj.get(requirement_number=req_nr,
                                        category__category_number=cat_nr)
             except:
-                pass
                 print("[Annotation] Requirement: {}, Category: {} does not exist".format(req_nr, cat_nr))
             try:
                 self.ann_obj.get_or_create(requirement=req,
@@ -89,6 +88,17 @@ class AASVS(object):
             except:
                 print("[Annotation] help texts could not be loaded")
                 # print(sys.exc_info())
+            '''load related items'''
+            try:
+                ann = self.ann_obj.get(title=short_title)
+                related_items = item.get('related')
+                if related_items:
+                    for related in related_items:
+                        rel = self.ann_relation_obj.get(url=related.get('url'))
+                        ann.relations.add(rel)
+                        ann.save()
+            except:
+                print("[Annotation] relations could not be loaded")
 
     def process_data(self):
         pass
