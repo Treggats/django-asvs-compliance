@@ -3,13 +3,14 @@
 
 {% block content %}
 <div class="container requirement_detail">
-    <h2>{{ requirement|title }}</h2>
     <p>
         <span
                 class="category"><a
                 href="{% url 'category_list' category.category_number %}">
             {{ category }}</a></span><br />
-        <span class="requirement">{{ requirement.requirement_title }}</span>
+        <span class="requirement">
+        <strong>#{{ requirement.requirement_number|title }}</strong>
+        {{ requirement.requirement_title }}</span>
     </p>
     <p>
         <strong>Level</strong>: {{ level }}

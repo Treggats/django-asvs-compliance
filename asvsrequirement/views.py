@@ -77,6 +77,6 @@ class RequirementDetailView(DetailView):
         context = super(RequirementDetailView, self).get_context_data(**kwargs)
         context['category'] = context['object'].category
         context['level'] = context['object'].level_number
-        context['annotations'] = AnnotationHelp.objects.language(LANGUAGE_CODE).filter(requirement=context['object']).filter(category=context['category'])
+        context['annotations'] = AnnotationHelp.objects.language(LANGUAGE_CODE).filter(requirement=context['object'])
 
         return context
