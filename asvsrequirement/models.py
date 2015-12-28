@@ -8,10 +8,11 @@ from hvad.models import TranslatableModel, TranslatedFields
 
 @python_2_unicode_compatible
 class AsvsVersion(models.Model):
-    version_number = models.CharField(max_length=10)
+    version_number = models.PositiveIntegerField()
+    release_date = models.DateField()
 
     def __str__(self):
-        return self.version_number
+        return str(self.version_number)
 
 
 @python_2_unicode_compatible

@@ -9,6 +9,7 @@ from .models import Requirement
 
 @admin.register(AsvsVersion)
 class AsvsVersionAdmin(admin.ModelAdmin):
+    list_display = ('version_number', 'release_date')
     ordering = ('version_number',)
 
 

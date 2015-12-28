@@ -3,20 +3,34 @@
 
 {% block content %}
 <div class="container requirement_detail">
-    <h2>{{ requirement|title }}</h2>
     <p>
         <span
                 class="category"><a
                 href="{% url 'category_list' category.category_number %}">
             {{ category }}</a></span><br />
-        <span class="requirement">{{ requirement.requirement_title }}</span>
+        <span class="requirement">
+        <strong>#{{ requirement.requirement_number|title }}</strong>
+        {{ requirement.requirement_title }}</span>
     </p>
     <p>
         <strong>Level</strong>: {{ level }}
     </p>
-    {% for item in annotations %}
-        <h2>{{ item.annotation_type|title }}</h2>
-        <p>{{ item.help_text|md }}</p>
+    {% for annotation in annotations %}
+        {% if annotation.annotation_help.distinct %}
+            <h1>{{ annotation|title }}</h1>
+        {% endif %}
+        {% for help_item in annotation.annotation_help.distinct %}
+            <h2>{{ help_item.annotation_type|title }}</h2>
+            <p>{{ help_item.help_text_|md }}</p>
+        {% endfor %}
+        {% if annotation.relations.distinct %}
+            <h2>Relations</h2>
+            <ol>
+            {% for relation in annotation.relations.distinct %}
+                <li><a href="{{ relation.url }}">{{ relation }}</a></li>
+            {% endfor %}
+            </ol>
+        {% endif %}
     {% endfor %}
 </div>
 {% endblock content %}

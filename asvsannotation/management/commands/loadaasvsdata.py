@@ -14,8 +14,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         if options['src_dir']:
             src_dir = Path(options['src_dir']).resolve()
-            aasvs = AASVS()
-            aasvs.process_data(str(src_dir))
+            aasvs = AASVS(str(src_dir))
+            aasvs.process_data()
         else:
-            self.args = '--dir owasp-aasvs/src'
+            self.args = '--src-dir owasp-aasvs/src'
             self.stdout.write(self.usage('loadaasvsdata'))

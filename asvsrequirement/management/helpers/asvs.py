@@ -3,13 +3,14 @@ import json
 from codecs import open
 from django.shortcuts import get_object_or_404
 
-from asvs.settings import ASVS_VERSION
+from asvs.settings import ASVS_VERSION, ASVS_RELEASE_DATE
 from asvsrequirement.models import AsvsVersion, Level, Category, Requirement
 
 
 class ASVS(object):
-    def __init__(self, file, version=ASVS_VERSION):
+    def __init__(self, file, version=ASVS_VERSION, release_date=ASVS_RELEASE_DATE):
         self._version = version
+        self._release_date = release_date
         self.json_file = open(file, encoding='utf-8')
         self.reader = json.load(self.json_file)
 
@@ -18,9 +19,8 @@ class ASVS(object):
         self.json_file.close()
 
     def load_version(self):
-        version = AsvsVersion.objects.create(pk=1,
-                                             version_number=self._version)
-        version.save()
+        version = AsvsVersion.objects.get_or_create(version_number=self._version,
+                                             release_date=self._release_date)
 
     def load_level(self):
         for level_nr in sorted(self.reader.get('level')):

@@ -5,90 +5,133 @@ import sys
 import json
 from codecs import open
 from pathlib import Path
-from django.shortcuts import get_object_or_404
+from django.core.exceptions import MultipleObjectsReturned
 
-from asvs.settings import LANGUAGE_CODE
+from asvs.settings import LANGUAGE_CODE as lang_code
 from asvsrequirement.models import Requirement, Category
-from asvsannotation.models import AnnotationType, AnnotationHelp, Annotation
+from asvsannotation.models import AnnotationType,\
+    AnnotationHelp, AnnotationRelation, Annotation
 
 
 class AASVS(object):
-    def __init__(self):
-        pass
+    def __init__(self, src_path):
+        self.req_obj = Requirement.objects.language(lang_code)
+        self.category_object = Category.objects.language(lang_code)
+        self.ann_type_object = AnnotationType.objects
+        self.ann_help_obj = AnnotationHelp.objects.language(lang_code)
+        self.ann_relation_obj = AnnotationRelation.objects.language(lang_code)
+        self.ann_obj = Annotation.objects.language(lang_code)
 
-    def process_data(self, src_path):
-        src_path = str(Path(str(src_path)).resolve())
-        requirement_object = Requirement.objects.language(LANGUAGE_CODE)
-        category_object = Category.objects.language(LANGUAGE_CODE)
-        annotation_type_object = AnnotationType.objects.language(LANGUAGE_CODE)
-        annotation_help_object = AnnotationHelp.objects.language(LANGUAGE_CODE)
-        annotation_object = Annotation.objects.language(LANGUAGE_CODE)
-        type_list = list()
-        help_dir = src_path + '/help/'
+        self.src_path = str(Path(str(src_path)).resolve())
+        self.json_file = open(self.src_path + '/aasvs.json', encoding='utf-8')
+        self.reader = json.load(self.json_file)
+
+    def process_types(self):
+        help_dir = self.src_path + '/help/'
         for (path, dirs, files) in os.walk(help_dir):
             for filename in files:
                 file_info = filename.split('.')
-                if file_info[-1] == 'md' and file_info[0] not in type_list:
-                    type_list.append(file_info[0])
+                try:
+                    self.ann_type_object.get_or_create(title=file_info[0])
+                except:
+                    print("[Annotation Type] {}\n".format(sys.exc_info()))
 
-        for type_item in type_list:
-            annotation_type_object.get_or_create(
-                title=type_item
-            )
+    def process_help_items(self):
+        help_dir = self.src_path + '/help/'
         for (path, dirs, files) in os.walk(help_dir):
             for filename in files:
                 file_info = filename.split('.')
-                annotation_type = annotation_type_object.get(title=file_info[0])
+
                 cat_nr = path.split('/')[-3]
                 req_nr = path.split('/')[-2]
-                cat = category_object.get(category_number=cat_nr)
+                cat = self.category_object.get(category_number=cat_nr)
                 try:
-                    req = requirement_object.get(category=cat,
-                                                 requirement_number=req_nr)
+                    req = self.req_obj.get(category=cat,
+                                           requirement_number=req_nr)
+                    ann_type = self.ann_type_object.get(title=file_info[0])
                     with open("{}/{}".format(path, filename)) as f:
-                        annotation_help_object.get_or_create(requirement=req,
-                                                             category=cat,
-                                                             annotation_type=annotation_type,
-                                                             help_text=f.read()
-                                                             )
+                        self.ann_help_obj.get_or_create(annotation_type=ann_type, requirement=req, help_text=f.read())
+                except Requirement.DoesNotExist:
+                    pass
                 except:
-                    print("[Annotation Help] Requirement: {}, Category: {} does not exist".format(req_nr, cat_nr))
-        json_file = open(src_path + '/aasvs.json', encoding='utf-8')
-        reader = json.load(json_file)
-        requirement_object = Requirement.objects.language(LANGUAGE_CODE)
-        category_object = Category.objects.language(LANGUAGE_CODE)
-        annotation_help_object = AnnotationHelp.objects.language(LANGUAGE_CODE)
-        for item in reader.get('requirements'):
+                    print("[Annotation Help] {}\n".format(sys.exc_info()))
+
+    def process_relations(self):
+        for item in self.reader.get('requirements'):
+            if item.get('related'):
+                for related in item.get('related'):
+                    try:
+                        self.ann_relation_obj.get_or_create(relation_title=related.get('name'), url=related.get('url'))
+                    except:
+                        print("[Annotation Relation] {}\n".format(sys.exc_info()))
+
+    def process_annotations(self):
+        from asvsrequirement.models import Requirement
+        from asvsannotation.models import AnnotationHelp
+        for item in self.reader.get('requirements'):
             cat_nr = item.get('chapterNr')
             req_nr = item.get('nr')
             short_title = item.get('shortTitle')['en']
 
             try:
-                cat = category_object.get(category_number=cat_nr)
+                req = self.req_obj.get(requirement_number=req_nr,
+                                       category__category_number=cat_nr)
+            except Requirement.DoesNotExist:
+                pass
             except:
-                error = sys.exc_info()
-                print(error)
+                print("[Annotation #1.1] {}\n".format(sys.exc_info()))
             try:
-                req = requirement_object.get(category=cat,
-                                             requirement_number=req_nr)
+                self.ann_obj.get_or_create(requirement=req,
+                                           title=short_title)
+            except Requirement.DoesNotExist:
+                pass
             except:
-                error = sys.exc_info()
-                print(error)
-                print("[] Requirement: {}, Category: {} does not exist\n".format(req_nr, cat_nr))
+                print("[Annotation #1.2] {}\n".format(sys.exc_info()))
 
-                try:
-                    ann_help = annotation_help_object.filter(requirement=req,category=cat)
-                except:
-                    error = sys.exc_info()
-                    print(error)
-
+            '''load help texts'''
             try:
-                annotation_object.get_or_create(requirement=req,
-                                                category=cat,
-                                                # annotation_help=ann_help,
-                                                title=short_title)
+                ann = self.ann_obj.filter(title=short_title)
+                help_items = self.ann_help_obj.filter(requirement=req)
+                if help_items:
+                    for help_it in help_items:
+                        try:
+                            for single_ann in ann:
+                                single_ann.annotation_help.add(help_it)
+                                single_ann.save()
+                        except:
+                            print(sys.exc_info())
+            except Requirement.DoesNotExist or AnnotationHelp.DoesNotExist:
+                pass
+            except MultipleObjectsReturned as e:
+                print("{}".format(e))
             except:
-                error = sys.exc_info()
-                print(error)
-            # except:
-            #     print("Requirement: {}, Category: {} does not exist".format(req_nr, cat_nr))
+                print("[Annotation #2] {}".format(sys.exc_info()))
+            '''load related items'''
+            try:
+                ann = self.ann_obj.filter(title=short_title)
+                related_items = item.get('related')
+                if related_items:
+                    for related in related_items:
+                        rel = self.ann_relation_obj.filter(url=related.get(
+                                'url'))
+                        for single_ann in ann:
+                            try:
+                                for single_rel in rel:
+                                    single_ann.relations.add(single_rel)
+                            except TypeError as e:
+                                print(e)
+                            except:
+                                print(sys.exc_info())
+                            single_ann.save()
+            except Requirement.DoesNotExist:
+                pass
+            except:
+                import traceback
+                print("[Annotation #3] {}\n".format(sys.exc_info()))
+                print(traceback.format_exc())
+
+    def process_data(self):
+        self.process_types()
+        self.process_help_items()
+        self.process_relations()
+        self.process_annotations()
