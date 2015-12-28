@@ -15,10 +15,7 @@ class Command(BaseCommand):
         if options['src_dir']:
             src_dir = Path(options['src_dir']).resolve()
             aasvs = AASVS(str(src_dir))
-            aasvs.process_types()
-            aasvs.process_help_items()
-            aasvs.process_relations()
-            aasvs.process_annotations()
+            aasvs.process_data()
         else:
             self.args = '--src-dir owasp-aasvs/src'
             self.stdout.write(self.usage('loadaasvsdata'))
