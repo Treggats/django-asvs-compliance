@@ -67,6 +67,7 @@ INSTALLED_APPS = (
 
     'asvsrequirement',
     'asvsannotation',
+    'reporting',
 )
 
 MIDDLEWARE_CLASSES = (
