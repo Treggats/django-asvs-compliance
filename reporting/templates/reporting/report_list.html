@@ -1,3 +1,11 @@
-{% for report in reports %}
-    {{ report }}
-{% endfor %}
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <ul>
+    {% for report in reports %}
+        <li>{{ report }}</li>
+    {% endfor %}
+    </ul>
+</div>
+{% endblock content %}

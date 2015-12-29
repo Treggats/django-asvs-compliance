@@ -31,15 +31,15 @@
                         </li>
                             <li class="navbar-item">
                                 <a class="navbar-link button button-primary"
-                                    href="{% url 'create_project' %}">Create a new project</a>
+                                    href="#">Create a new project</a>
                             </li>
                         <li class="navbar-item">
                             <a class="navbar-link"
-                                href="#">Projects</a>
+                                href="{% url 'project_list' %}">Projects</a>
                         </li>
                         <li class="navbar-item">
                             <a class="navbar-link"
-                                href="#">Reports</a>
+                                href="{% url 'report_list' %}">Reports</a>
                         </li>
                         </ul>
                 </div>
@@ -47,7 +47,6 @@
             </nav>
             </div>
     {% block content %}
-        {% include content_template %}
     {% endblock %}
 </body>
 </html>

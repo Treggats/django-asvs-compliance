@@ -7,15 +7,7 @@ from asvsannotation.models import Annotation
 
 
 class HomeView(TemplateView):
-    template_name = 'base.html'
-    title = ''
-    content_template = ''
-
-    def get_context_data(self, **kwargs):
-        context = super(HomeView, self).get_context_data(**kwargs)
-        context['title'] = self.title
-        context['content_template'] = self.content_template
-        return context
+    template_name = 'index.html'
 
 
 class NotFoundView(TemplateView):

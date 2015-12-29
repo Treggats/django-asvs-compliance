@@ -1,3 +1,11 @@
-{% for client in clients %}
-    {{ client }}
-{% endfor %}
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <ul>
+    {% for client in clients %}
+        <li>{{ client }}</li>
+    {% endfor %}
+    </ul>
+</div>
+{% endblock content %}
