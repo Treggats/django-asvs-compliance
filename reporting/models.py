@@ -37,4 +37,4 @@ class Report(models.Model):
     project = models.ForeignKey(Project)
 
     def __str__(self):
-        return self.release
+        return self.release_name

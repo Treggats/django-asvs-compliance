@@ -23,7 +23,8 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('asvsrequirement.urls')),
     url(r'', include('asvsannotation.urls')),
-    url('^markdown/', include( 'django_markdown.urls')),
+    url(r'reporting', include('reporting.urls')),
+    url('^markdown/', include('django_markdown.urls')),
 ]
 if DEBUG:
     urlpatterns += static(settings.STATIC_URL,
