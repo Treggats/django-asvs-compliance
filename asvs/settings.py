@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
 import json
 import datetime
 from pathlib import Path
@@ -34,7 +33,7 @@ except IOError:
 
 # Set the default ASVS version
 ASVS_VERSION = 3
-ASVS_RELEASE_DATE = datetime.date(2015,10, 9)
+ASVS_RELEASE_DATE = datetime.date(2015, 10, 9)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -123,7 +122,7 @@ DATABASES = {
 LANGUAGE_CODE = 'en-us'
 LANGUAGES = (('en-us', 'English'),)
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Amsterdam'
 
 USE_I18N = True
 
