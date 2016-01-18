@@ -8,7 +8,7 @@ admin.site.register(Client, ClientAdmin)
 
 
 class TicketAdmin(admin.ModelAdmin):
-    list_display = ('name',)
+    list_display = ('name', 'passed_all_requirements')
     filter_horizontal = ('requirements',)
 admin.site.register(Ticket, TicketAdmin)
 
