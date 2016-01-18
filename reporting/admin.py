@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Project, Report, Client
+from .models import Ticket, Project, Report, Client
 
 
 class ClientAdmin(admin.ModelAdmin):
@@ -7,9 +7,15 @@ class ClientAdmin(admin.ModelAdmin):
 admin.site.register(Client, ClientAdmin)
 
 
+class TicketAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    filter_horizontal = ('requirements',)
+admin.site.register(Ticket, TicketAdmin)
+
+
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ('name', 'client', 'level')
-    filter_horizontal = ('requirements',)
+    filter_horizontal = ('tickets',)
 admin.site.register(Project, ProjectAdmin)
 
 

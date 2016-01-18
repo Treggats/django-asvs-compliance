@@ -18,12 +18,22 @@ class Client(models.Model):
 
 
 @python_2_unicode_compatible
+class Ticket(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    requirements = models.ManyToManyField(Requirement)
+
+    def __str__(self):
+        return self.name
+
+
+@python_2_unicode_compatible
 class Project(models.Model):
     name = models.CharField(max_length=40)
     description = models.TextField()
     client = models.ForeignKey(Client)
     level = models.ForeignKey(Level)
-    requirements = models.ManyToManyField(Requirement)
+    tickets = models.ManyToManyField(Ticket)
 
     def __str__(self):
         return self.name
