@@ -18,23 +18,23 @@ class Client(models.Model):
 
 
 @python_2_unicode_compatible
-class Ticket(models.Model):
-    name = models.CharField(max_length=100)
+class Project(models.Model):
+    name = models.CharField(max_length=40)
     description = models.TextField()
-    requirements = models.ManyToManyField(Requirement)
-    passed_all_requirements = models.BooleanField(default=False)
+    client = models.ForeignKey(Client)
+    level = models.ForeignKey(Level)
 
     def __str__(self):
         return self.name
 
 
 @python_2_unicode_compatible
-class Project(models.Model):
-    name = models.CharField(max_length=40)
+class Ticket(models.Model):
+    name = models.CharField(max_length=100)
     description = models.TextField()
-    client = models.ForeignKey(Client)
-    level = models.ForeignKey(Level)
-    tickets = models.ManyToManyField(Ticket)
+    project = models.ForeignKey(Project)
+    requirements = models.ManyToManyField(Requirement)
+    passed_all_requirements = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
