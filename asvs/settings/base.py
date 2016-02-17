@@ -15,7 +15,7 @@ import json
 import datetime
 from pathlib import Path
 
-PROJECT_PACKAGE = Path(__file__).resolve().parent
+PROJECT_PACKAGE = Path(__file__).resolve().parent.parent
 BASE_DIR = PROJECT_PACKAGE.parent
 DATA_DIR = PROJECT_PACKAGE.parent
 
