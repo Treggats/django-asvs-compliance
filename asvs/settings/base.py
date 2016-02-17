@@ -50,24 +50,26 @@ MARKDOWN_EDITOR_SKIN = 'simple'
 MARKDOWN_EXTENSIONS = ['extra']
 
 # Application definition
-
-INSTALLED_APPS = (
+PREREQ_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
 
-    'django_extensions',
-
+DEPENDENCY_APPS = [
     'hvad',
     'django_markdown',
+]
 
+PROJECT_APPS = [
     'asvsrequirement',
     'asvsannotation',
     'reporting',
-)
+]
+INSTALLED_APPS = PREREQ_APPS + DEPENDENCY_APPS + PROJECT_APPS
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
