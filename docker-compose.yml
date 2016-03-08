@@ -1,0 +1,18 @@
+version: '2'
+services:
+  db:
+    image: postgres
+  web:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - '8000:8000'
+    depends_on:
+      - db
+    environment:
+      - DJANGO_SETTINGS_MODULE=asvs.settings.base
