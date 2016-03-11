@@ -44,7 +44,7 @@ class Ticket(models.Model):
 class Report(models.Model):
     release_name = models.CharField(max_length=40)
     release_date = models.DateField(default=timezone.now)
-    comments = models.TextField()
+    comments = models.TextField(blank=True)
     generation_date = models.DateField(auto_now_add=True)
     project = models.ForeignKey(Project)
 
