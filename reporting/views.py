@@ -15,6 +15,11 @@ class ProjectListView(ListView):
     context_object_name = 'projects'
 
 
+class ProjectDetailView(DetailView):
+    model = Project
+    context_object_name = 'project'
+
+
 class ProjectCreate(CreateView):
     """docstring for ProjectCreate"""
     model = Project
