@@ -10,6 +10,18 @@ class ClientListView(ListView):
     context_object_name = 'clients'
 
 
+class ClientDetailView(DetailView):
+    model = Client
+    context_object_name = 'client'
+
+
+class ClientCreateView(CreateView):
+    model = Client
+    template_name = "edit/client/client_create_form.html"
+    fields = ["name", "address", "postal_code", "city"]
+    success_url = "/reporting/clients"
+
+
 class ProjectListView(ListView):
     model = Project
     context_object_name = 'projects'
@@ -23,7 +35,7 @@ class ProjectDetailView(DetailView):
 class ProjectCreate(CreateView):
     """docstring for ProjectCreate"""
     model = Project
-    template_name = "project_create_form.html"
+    template_name = "edit/project/project_create_form.html"
     fields = ["name", "description", "client", "level"]
     success_url = "/reporting/projects"
 
@@ -31,3 +43,8 @@ class ProjectCreate(CreateView):
 class ReportListView(ListView):
     model = Report
     context_object_name = 'reports'
+
+
+class ReportDetailView(DetailView):
+    model = Report
+    context_object_name = 'projects'
