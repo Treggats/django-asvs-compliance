@@ -1,18 +1,26 @@
 version: '2'
 services:
-  db:
-    image: postgres
-  web:
-    restart: always
-    build:
-      context: .
-      dockerfile: Dockerfile
-    command: python manage.py runserver 0.0.0.0:8000
+
+  # nginx
+  nginx:
+    build: ./nginx
     volumes:
-      - .:/code
+      - .:/usr/src/app
+    links:
+      - django
     ports:
-      - '8000:8000'
-    depends_on:
-      - db
-    environment:
-      - DJANGO_SETTINGS_MODULE=asvs.settings.base
+      - "80:80"
+
+  # Define a service for the django app
+  django:
+    build: .
+    volumes:
+      - .:/usr/src/app
+    expose:
+      - "8000"
+#    links:
+#      - db
+
+  # Define a service for the postgres database
+  db:
+    image: postgres:9.3
