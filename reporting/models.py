@@ -16,6 +16,10 @@ class Client(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        from django.core.urlresolvers import reverse
+        return reverse('client_detail', args=[str(self.id)])
+
 
 @python_2_unicode_compatible
 class Project(models.Model):
@@ -26,6 +30,10 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        from django.core.urlresolvers import reverse
+        return reverse('project_detail', args=[str(self.id)])
 
 
 @python_2_unicode_compatible
@@ -50,3 +58,7 @@ class Report(models.Model):
 
     def __str__(self):
         return self.release_name
+
+    def get_absolute_url(self):
+        from django.core.urlresolvers import reverse
+        return reverse('report_detail', args=[str(self.id)])
