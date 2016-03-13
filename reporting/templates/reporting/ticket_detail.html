@@ -4,7 +4,7 @@
 <div class="container">
     <h2>{{ ticket.name }}</h2>
     <p><span>Description: </span>{{ ticket.description }}</p>
-    <p><span>Project: </span>{{ ticket.project }}</p>
+    <p><span>Project: </span><a href="{% url 'project_detail' ticket.project.id %}">{{ ticket.project }}</a></p>
     <p>{% if ticket.passed_all_requirements %}
         <span>Passed</span>
         {% else %}
