@@ -65,6 +65,13 @@ class ProjectTicketDetailView(DetailView):
         return context
 
 
+class TicketCreateView(CreateView):
+    model = Ticket
+    template_name = "edit/project/ticket_create_form.html"
+    fields = ["name", "description", "project", "requirements",
+              "passed_all_requirements"]
+
+
 class ProjectTicketUpdateView(UpdateView):
     model = Ticket
     template_name = "edit/project/ticket_update_form.html"
