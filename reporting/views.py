@@ -19,7 +19,6 @@ class ClientCreateView(CreateView):
     model = Client
     template_name = "edit/client/client_create_form.html"
     fields = ["name", "address", "postal_code", "city"]
-    success_url = "/reporting/clients"
 
 
 class ClientUpdateView(UpdateView):
@@ -47,7 +46,6 @@ class ProjectCreateView(CreateView):
     model = Project
     template_name = "edit/project/project_create_form.html"
     fields = ["name", "description", "client", "level"]
-    success_url = "/reporting/projects"
 
 
 class ProjectUpdateView(UpdateView):
@@ -67,6 +65,13 @@ class ProjectTicketDetailView(DetailView):
         return context
 
 
+class ProjectTicketUpdateView(UpdateView):
+    model = Ticket
+    template_name = "edit/project/ticket_update_form.html"
+    fields = ["name", "description", "project", "requirements",
+              "passed_all_requirements"]
+
+
 class ReportListView(ListView):
     model = Report
     context_object_name = 'reports'
@@ -81,7 +86,6 @@ class ReportCreateView(CreateView):
     model = Report
     template_name = "edit/report/report_create_form.html"
     fields = ["release_name", "release_date", "comments", "project"]
-    success_url = "/reporting/reports"
 
 
 class ReportUpdateView(UpdateView):
