@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView
 
-from reporting.models import Client, Project, Report
+from reporting.models import Client, Project, Report, Ticket
 
 
 class ClientListView(ListView):
@@ -31,13 +31,28 @@ class ProjectDetailView(DetailView):
     model = Project
     context_object_name = 'project'
 
+    def get_context_data(self, **kwargs):
+        context = super(ProjectDetailView, self).get_context_data(**kwargs)
+        context['tickets'] = Ticket.objects.filter(project=context['object'])
+        return context
 
-class ProjectCreate(CreateView):
-    """docstring for ProjectCreate"""
+
+class ProjectCreateView(CreateView):
     model = Project
     template_name = "edit/project/project_create_form.html"
     fields = ["name", "description", "client", "level"]
     success_url = "/reporting/projects"
+
+
+class ProjectTicketDetailView(DetailView):
+    model = Ticket
+    context_object_name = 'ticket'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProjectTicketDetailView, self). \
+            get_context_data(**kwargs)
+        context['requirements'] = context['object'].requirements.all()
+        return context
 
 
 class ReportListView(ListView):

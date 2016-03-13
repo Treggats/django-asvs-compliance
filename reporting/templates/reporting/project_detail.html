@@ -4,7 +4,10 @@
 <div class="container">
     <h2>{{ project.name }}</h2>
     <p><span>Description: </span>{{ project.description }}</p>
-    <p><span>Client: </span>{{ project.client }}</p>
+    <p><span>Client: </span><a href="{% url 'client_detail' project.id%}">{{ project.client }}</a></p>
     <p><span>Level: </span>{{ project.level }}</p>
+    {% for ticket in tickets %}
+        <p><span>#</span>{{ ticket.id }} <a href="{% url 'project_ticket_detail' ticket.id %}">{{ ticket.name }}</a> </p>
+    {% endfor %}
 </div>
 {% endblock content %}
