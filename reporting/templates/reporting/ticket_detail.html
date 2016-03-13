@@ -13,7 +13,7 @@
     <ul>
     {% for requirement in requirements %}
         <li><a href="{% url 'requirement_detail' requirement.id %}">
-            #{{ requirement.requirement_number }}
+            #{{ requirement.category_version }}.{{ requirement.requirement_number }}
         </a>{{ requirement.requirement_title }}</li>
     {% endfor %}
     </ul>
