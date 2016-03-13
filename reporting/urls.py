@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from .views import ClientListView, ClientDetailView, ClientCreateView, \
-    ProjectListView, ProjectDetailView, ProjectCreateView, \
+    ProjectListView, ProjectDetailView, ProjectCreateView, ProjectUpdateView, \
     ProjectTicketDetailView, ReportListView, ReportDetailView, \
     ReportCreateView
 
@@ -17,6 +17,8 @@ urlpatterns = [
         ProjectTicketDetailView.as_view(), name='project_ticket_detail'),
     url(r'projects/create$', ProjectCreateView.as_view(),
         name='project_create'),
+    url(r'^projects/(?P<pk>[0-9]+)/edit/$',
+        ProjectUpdateView.as_view(), name='project_update'),
 
     url(r'reports/$', ReportListView.as_view(), name='report_list'),
     url(r'^reports/(?P<pk>[0-9]+)/$', ReportDetailView.as_view(),

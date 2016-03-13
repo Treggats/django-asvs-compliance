@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 
 from reporting.models import Client, Project, Report, Ticket
 
@@ -42,6 +42,12 @@ class ProjectCreateView(CreateView):
     template_name = "edit/project/project_create_form.html"
     fields = ["name", "description", "client", "level"]
     success_url = "/reporting/projects"
+
+
+class ProjectUpdateView(UpdateView):
+    model = Project
+    template_name = "edit/project/project_update_form.html"
+    fields = ["name", "description", "client", "level"]
 
 
 class ProjectTicketDetailView(DetailView):
