@@ -19,4 +19,7 @@ urlpatterns = [
         name='project_create'),
 
     url(r'reports/$', ReportListView.as_view(), name='report_list'),
+    url(r'^reports/(?P<pk>[0-9]+)/$', ReportDetailView.as_view(),
+        name='report_detail'),
+    url(r'reports/create$', ReportCreateView.as_view(), name='report_create'),
 ]

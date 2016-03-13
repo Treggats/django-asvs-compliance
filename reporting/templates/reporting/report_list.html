@@ -4,7 +4,7 @@
 <div class="container">
     <ul>
     {% for report in reports %}
-        <li>{{ report }}</li>
+        <li><a href="{% url 'report_detail' report.id %}">{{ report }}</a></li>
     {% endfor %}
     </ul>
 </div>

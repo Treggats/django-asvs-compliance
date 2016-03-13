@@ -62,4 +62,11 @@ class ReportListView(ListView):
 
 class ReportDetailView(DetailView):
     model = Report
-    context_object_name = 'projects'
+    context_object_name = 'report'
+
+
+class ReportCreateView(CreateView):
+    model = Report
+    template_name = "edit/report/report_create_form.html"
+    fields = ["release_name", "release_date", "comments", "project"]
+    success_url = "/reporting/reports"

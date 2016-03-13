@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>{{ report.release_name }}</h2>
+    <p><span>Date: </span>{{ report.release_date }}</p>
+    <p><span>Comments: </span>{{ report.comments }}</p>
+    <p><span>Project: </span>{{ report.project }}</p>
+</div>
+{% endblock content %}
