@@ -17,5 +17,6 @@
         </a>{{ requirement.requirement_title }}</li>
     {% endfor %}
     </ul>
+    <p><a href="{% url 'project_ticket_update' ticket.id %}">Edit</a></p>
 </div>
 {% endblock content %}
