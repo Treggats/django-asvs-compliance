@@ -6,5 +6,6 @@
     <p><span>Date: </span>{{ report.release_date }}</p>
     <p><span>Comments: </span>{{ report.comments }}</p>
     <p><span>Project: </span>{{ report.project }}</p>
+    <p><a href="{% url 'report_update' report.id %}">Edit</a></p>
 </div>
 {% endblock content %}
