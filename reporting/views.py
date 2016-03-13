@@ -82,3 +82,9 @@ class ReportCreateView(CreateView):
     template_name = "edit/report/report_create_form.html"
     fields = ["release_name", "release_date", "comments", "project"]
     success_url = "/reporting/reports"
+
+
+class ReportUpdateView(UpdateView):
+    model = Report
+    template_name = "edit/report/report_update_form.html"
+    fields = ["release_name", "release_date", "comments", "project"]
