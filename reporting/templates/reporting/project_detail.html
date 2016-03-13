@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>{{ project.name }}</h2>
+    <p><span>Description: </span>{{ project.description }}</p>
+    <p><span>Client: </span><a href="{% url 'client_detail' project.id%}">{{ project.client }}</a></p>
+    <p><span>Level: </span>{{ project.level }}</p>
+    {% for ticket in tickets %}
+        <p><span>#</span>{{ ticket.id }} <a href="{% url 'project_ticket_detail' ticket.id %}">{{ ticket.name }}</a> </p>
+    {% endfor %}
+    <p><a href="{% url 'project_update' project.id %}">Edit</a></p>
+    <p><a href="{% url 'ticket_create' %}">Add tickets</a></p>
+    <p><a href="{% url 'report_create' %}">Create report</a></p>
+
+</div>
+{% endblock content %}

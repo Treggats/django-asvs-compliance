@@ -15,17 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from django.conf import settings
-from django.conf.urls.static import static
-from asvs.settings import DEBUG
+
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('asvsrequirement.urls')),
     url(r'', include('asvsannotation.urls')),
-    url('^markdown/', include( 'django_markdown.urls')),
+    url(r'reporting/', include('reporting.urls')),
+    url('^markdown/', include('django_markdown.urls')),
 ]
-if DEBUG:
-    urlpatterns += static(settings.STATIC_URL,
-                          document_root=settings.STATIC_ROOT)
-

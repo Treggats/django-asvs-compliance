@@ -8,7 +8,8 @@ from asvsrequirement.models import AsvsVersion, Level, Category, Requirement
 
 
 class ASVS(object):
-    def __init__(self, file, version=ASVS_VERSION, release_date=ASVS_RELEASE_DATE):
+    def __init__(self, file, version=ASVS_VERSION,
+                 release_date=ASVS_RELEASE_DATE):
         self._version = version
         self._release_date = release_date
         self.json_file = open(file, encoding='utf-8')
@@ -19,8 +20,8 @@ class ASVS(object):
         self.json_file.close()
 
     def load_version(self):
-        version = AsvsVersion.objects.get_or_create(version_number=self._version,
-                                             release_date=self._release_date)
+        AsvsVersion.objects.get_or_create(version_number=self._version,
+                                          release_date=self._release_date)
 
     def load_level(self):
         for level_nr in sorted(self.reader.get('level')):
@@ -30,7 +31,8 @@ class ASVS(object):
             level = Level.objects.language(lang_code).create(
                 level_number=level_nr,
                 name=name,
-                version=get_object_or_404(AsvsVersion, version_number=self._version)
+                version=get_object_or_404(AsvsVersion,
+                                          version_number=self._version)
             )
             level.save()
 
@@ -42,7 +44,8 @@ class ASVS(object):
             category = Category.objects.language(lang_code).create(
                 category_number=cat_nr,
                 name=title,
-                version=get_object_or_404(AsvsVersion, version_number=self._version)
+                version=get_object_or_404(AsvsVersion,
+                                          version_number=self._version)
             )
             category.save()
 
@@ -59,7 +62,7 @@ class ASVS(object):
                 requirement_number=item.get('requirement_nr'),
                 title=title,
                 category=Category.objects.language(lang_code)
-                    .get(category_number=cat_nr),
+                                 .get(category_number=cat_nr),
             )
             requirement.save()
             levels = Level.objects.language(lang_code).filter(

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>{{ ticket.name }}</h2>
+    <p><span>Description: </span>{{ ticket.description }}</p>
+    <p><span>Project: </span><a href="{% url 'project_detail' ticket.project.id %}">{{ ticket.project }}</a></p>
+    <p>{% if ticket.passed_all_requirements %}
+        <span>Passed</span>
+        {% else %}
+        <span>Failed</span>
+    {% endif %} the requirements</p>
+    <ul>
+    {% for requirement in requirements %}
+        <li><a href="{% url 'requirement_detail' requirement.id %}">
+            #{{ requirement.category_version }}.{{ requirement.requirement_number }}
+        </a>{{ requirement.requirement_title }}</li>
+    {% endfor %}
+    </ul>
+    <p><a href="{% url 'project_ticket_update' ticket.id %}">Edit</a></p>
+</div>
+{% endblock content %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>{{ client.name }}</h2>
+    <p><span>Address: </span>{{ client.address }}</p>
+    <p><span>Postal code: </span>{{ client.postal_code }}</p>
+    <p><span>City: </span>{{ client.city }}</p>
+</div>
+{% endblock content %}

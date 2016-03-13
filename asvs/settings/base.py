@@ -11,12 +11,11 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
 import json
 import datetime
 from pathlib import Path
 
-PROJECT_PACKAGE = Path(__file__).resolve().parent
+PROJECT_PACKAGE = Path(__file__).resolve().parent.parent
 BASE_DIR = PROJECT_PACKAGE.parent
 DATA_DIR = PROJECT_PACKAGE.parent
 
@@ -34,7 +33,7 @@ except IOError:
 
 # Set the default ASVS version
 ASVS_VERSION = 3
-ASVS_RELEASE_DATE = datetime.date(2015,10, 9)
+ASVS_RELEASE_DATE = datetime.date(2015, 10, 9)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -51,23 +50,26 @@ MARKDOWN_EDITOR_SKIN = 'simple'
 MARKDOWN_EXTENSIONS = ['extra']
 
 # Application definition
-
-INSTALLED_APPS = (
+PREREQ_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
 
-    'django_extensions',
-
+DEPENDENCY_APPS = [
     'hvad',
     'django_markdown',
+]
 
+PROJECT_APPS = [
     'asvsrequirement',
     'asvsannotation',
-)
+    'reporting',
+]
+INSTALLED_APPS = PREREQ_APPS + DEPENDENCY_APPS + PROJECT_APPS
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -85,7 +87,7 @@ ROOT_URLCONF = 'asvs.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,7 +124,7 @@ DATABASES = {
 LANGUAGE_CODE = 'en-us'
 LANGUAGES = (('en-us', 'English'),)
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Amsterdam'
 
 USE_I18N = True
 
