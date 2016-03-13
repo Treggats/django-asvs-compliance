@@ -1,8 +1,8 @@
 from django.conf.urls import url
 from .views import ClientListView, ClientDetailView, ClientCreateView, \
     ClientUpdateView, ProjectListView, ProjectDetailView, ProjectCreateView, \
-    ProjectUpdateView, ProjectTicketDetailView, ReportListView, \
-    ReportDetailView, ReportCreateView, ReportUpdateView
+    ProjectUpdateView, ProjectTicketDetailView, ProjectTicketUpdateView, \
+    ReportListView, ReportDetailView, ReportCreateView, ReportUpdateView
 
 urlpatterns = [
     url(r'clients/$', ClientListView.as_view(), name='client_list'),
@@ -17,6 +17,8 @@ urlpatterns = [
         name='project_detail'),
     url(r'^projects/ticket/(?P<pk>[0-9]+)/$',
         ProjectTicketDetailView.as_view(), name='project_ticket_detail'),
+    url(r'^projects/ticket/(?P<pk>[0-9]+)/edit/$',
+        ProjectTicketUpdateView.as_view(), name='project_ticket_update'),
     url(r'projects/create$', ProjectCreateView.as_view(),
         name='project_create'),
     url(r'^projects/(?P<pk>[0-9]+)/edit/$',
