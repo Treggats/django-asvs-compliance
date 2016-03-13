@@ -9,5 +9,7 @@
     {% for ticket in tickets %}
         <p><span>#</span>{{ ticket.id }} <a href="{% url 'project_ticket_detail' ticket.id %}">{{ ticket.name }}</a> </p>
     {% endfor %}
+    <p><a href="{% url 'project_update' project.id %}">Edit</a></p>
+
 </div>
 {% endblock content %}
