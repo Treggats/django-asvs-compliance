@@ -11,6 +11,7 @@
     {% endfor %}
     <p><a href="{% url 'project_update' project.id %}">Edit</a></p>
     <p><a href="{% url 'ticket_create' %}">Add tickets</a></p>
+    <p><a href="{% url 'report_create' %}">Create report</a></p>
 
 </div>
 {% endblock content %}
