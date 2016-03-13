@@ -22,6 +22,12 @@ class ClientCreateView(CreateView):
     success_url = "/reporting/clients"
 
 
+class ClientUpdateView(UpdateView):
+    model = Client
+    template_name = "edit/client/client_update_form.html"
+    fields = ["name", "address", "postal_code", "city"]
+
+
 class ProjectListView(ListView):
     model = Project
     context_object_name = 'projects'
