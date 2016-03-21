@@ -1,7 +1,7 @@
 FROM python:3.4
 ENV PYTHONBUFFERED 1
 ENV DJANGO_CONFIGURATION Docker
-ENV DJANGO_SETTINGS_MODULE asvs.settings.base
+ENV DJANGO_SETTINGS_MODULE asvs.settings.prod
 ADD . /usr/src/app
 WORKDIR /usr/src/app
 RUN pip install -r requirements/base.txt
