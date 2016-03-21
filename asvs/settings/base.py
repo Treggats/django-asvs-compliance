@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import os
 import json
 import datetime
 from pathlib import Path
@@ -28,7 +29,9 @@ except IOError:
         "db_type": "postgresql_psycopg2",
         "db_name": "cookie",
         "db_user": "carlos",
-        "db_password": ""
+        "db_password": "",
+        "db_host": "",
+        "db_port": ""
     }
 
 # Set the default ASVS version
@@ -112,8 +115,8 @@ DATABASES = {
         'NAME': str(SECRETS['db_name']),
         'USER': str(SECRETS['db_user']),
         'PASSWORD': str(SECRETS['db_password']),
-        'HOST': '',
-        'PORT': '',
+        'HOST': str(SECRETS['db_host']),
+        'PORT': str(SECRETS['db_port']),
     }
 }
 
