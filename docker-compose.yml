@@ -1,6 +1,13 @@
 version: '2'
 services:
 
+  # Define a service for the postgres database
+  db:
+    image: postgres:9.3
+    restart: always
+    ports:
+      - "5432:5432"
+
   # nginx
   nginx:
     build: ./nginx
@@ -18,9 +25,8 @@ services:
       - .:/usr/src/app
     expose:
       - "8000"
-#    links:
-#      - db
+    links:
+      - db
+    depends_on:
+      - db
 
-  # Define a service for the postgres database
-  db:
-    image: postgres:9.3
