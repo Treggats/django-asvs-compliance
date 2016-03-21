@@ -4,7 +4,7 @@ ENV DJANGO_CONFIGURATION Docker
 ENV DJANGO_SETTINGS_MODULE asvs.settings.prod
 ADD . /usr/src/app
 WORKDIR /usr/src/app
-RUN pip install -r requirements/base.txt
+RUN pip install -r requirements/prod.txt
 RUN python manage.py migrate
 RUN python manage.py collectstatic --no-input
 CMD ["gunicorn", "-c", "gunicorn_conf.py", "asvs.wsgi:application", "--reload"]
