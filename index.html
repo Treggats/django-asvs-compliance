@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Django-asvs-compliance by Treggats</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Django-asvs-compliance</h1>
+      <h2 class="project-tagline">A Django application to check if a project complies with the Application Security Verification Standard by OWASP</h2>
+      <a href="https://github.com/Treggats/django-asvs-compliance" class="btn">View on GitHub</a>
+      <a href="https://github.com/Treggats/django-asvs-compliance/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/Treggats/django-asvs-compliance/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="django-asvs-compliance" class="anchor" href="#django-asvs-compliance" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Django ASVS compliance</h1>
+
+<p>A application to support developers making <a href="https://owasp.org/index.php/ASVS">ASVS</a> compliant applications.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>This application uses postgresql as a database, create a database by running</p>
+
+<p><code>createdb asvs_compliance</code></p>
+
+<p>create <code>conf/secrets.json</code> with the following contents</p>
+
+<div class="highlight highlight-source-js"><pre>{
+  <span class="pl-s"><span class="pl-pds">"</span>secret_key<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>13hrn^p9lf_jcumy^s8d!t@55d**cp@^nxsm_bvcpl&amp;7a8+_8%<span class="pl-pds">"</span></span>,
+  <span class="pl-s"><span class="pl-pds">"</span>db_name<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>asvs_compliance<span class="pl-pds">"</span></span>,
+  <span class="pl-s"><span class="pl-pds">"</span>db_user<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>bobby<span class="pl-pds">"</span></span>,
+  <span class="pl-s"><span class="pl-pds">"</span>db_password<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Hard to guess<span class="pl-pds">"</span></span>
+}</pre></div>
+
+<p>change the values accordingly.</p>
+
+<p>Create a virtual environment and run</p>
+
+<p><code>pip install -r requirements.txt</code></p>
+
+<p>Create the database tables by running</p>
+
+<p><code>./manage.py migrate</code></p>
+
+<p>Create a superuser to use the admin environment</p>
+
+<p><code>./manage.py createsuperuser</code></p>
+
+<h2>
+<a id="load-the-data" class="anchor" href="#load-the-data" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Load the data</h2>
+
+<p>There is a json file present which can be used to load the ASVS Requirement data, run
+<code>./manage.py loadasvsdata --file asvsrequirement/management/helpers/asvs.json --type version</code>
+<code>./manage.py loadasvsdata --file asvsrequirement/management/helpers/asvs.json --type level</code>
+<code>./manage.py loadasvsdata --file asvsrequirement/management/helpers/asvs.json --type category</code>
+<code>./manage.py loadasvsdata --file asvsrequirement/management/helpers/asvs.json --type requirement</code></p>
+
+<p>In order to load the data for ASVS Annotation, you need to clone the owasp-aasvs repository.
+After that you can run
+<code>./manage.py loadaasvsdata --file asvsannotation/management/helpers/aasvs.json</code></p>
+
+<p><code>./manage.py loadaasvsdata --dir &lt;pathto&gt;/owasp-aasvs/src/help</code></p>
+
+<h2>
+<a id="references" class="anchor" href="#references" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>References</h2>
+
+<ul>
+<li><a href="https://owasp.org/index.php/ASVS">https://owasp.org/index.php/ASVS</a></li>
+<li><a href="https://github.com/ibuildingsnl/owasp-aasvs">https://github.com/ibuildingsnl/owasp-aasvs</a></li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/Treggats/django-asvs-compliance">Django-asvs-compliance</a> is maintained by <a href="https://github.com/Treggats">Treggats</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
