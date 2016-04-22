@@ -84,6 +84,4 @@ class Requirement(TranslatableModel):
         ordering = ('requirement_number', 'category')
 
     def __str__(self):
-        return "Requirement: {}, Category: {}".format(
-                                                      self.requirement_number,
-                                                      self.category.category_number)
+        return "{}:{} {}".format(self.category_version, self.requirement_number, self.requirement_title)

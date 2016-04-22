@@ -58,3 +58,15 @@ nav.primary ul li a:hover {
 .requirement_detail span.category {
     text-decoration: underline;
 }
+
+select#id_requirements {
+    width: 750px;
+    height: 100px;
+    overflow: auto;
+    white-space:pre;
+    /*text-overflow:ellipsis;*/
+    /*-webkit-appearance: none;*/
+}
+select#id_requirements option {
+    word-wrap: break-word;
+}
