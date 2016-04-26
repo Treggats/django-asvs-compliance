@@ -6,6 +6,13 @@
     <p><span>Date: </span>{{ report.release_date }}</p>
     <p><span>Comments: </span>{{ report.comments }}</p>
     <p><span>Project: </span>{{ report.project }}</p>
+    <p><span>Client: </span>{{ report.project.client }}</p>
+    <ul>
+    {% for ticket in tickets %}
+        <li>{% if ticket.passed_all_requirements %}&#10004;{% endif %}
+        <a href="{{ ticket.get_absolute_url_ticket }}">{{ ticket }}</a></li>
+    {% endfor %}
+    </ul>
     <p><a href="{% url 'report_update' report.id %}">Edit</a></p>
 </div>
 {% endblock content %}

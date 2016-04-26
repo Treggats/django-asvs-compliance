@@ -51,6 +51,10 @@ class Ticket(models.Model):
         from django.core.urlresolvers import reverse
         return reverse('project_detail', args=[str(self.project.id)])
 
+    def get_absolute_url_ticket(self):
+        from django.core.urlresolvers import reverse
+        return reverse('project_ticket_detail', args=[str(self.id)])
+
 
 @python_2_unicode_compatible
 class Report(models.Model):

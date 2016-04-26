@@ -88,6 +88,12 @@ class ReportDetailView(DetailView):
     model = Report
     context_object_name = 'report'
 
+    def get_context_data(self, **kwargs):
+        context = super(ReportDetailView, self). \
+            get_context_data(**kwargs)
+        context['tickets'] = Ticket.objects.filter(project=context['object'].project)
+        return context
+
 
 class ReportCreateView(CreateView):
     model = Report
