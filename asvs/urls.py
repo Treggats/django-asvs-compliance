@@ -17,6 +17,8 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 
+admin.site.site_header = 'ASVS Compliance'
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('asvsrequirement.urls')),
