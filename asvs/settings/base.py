@@ -65,6 +65,7 @@ PREREQ_APPS = [
 DEPENDENCY_APPS = [
     'hvad',
     'django_markdown',
+    'rest_framework',
 ]
 
 PROJECT_APPS = [
@@ -141,3 +142,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = str(BASE_DIR.joinpath('static'))
+
+# Permissions for the api
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    'PAGE_SIZE': 10
+}
