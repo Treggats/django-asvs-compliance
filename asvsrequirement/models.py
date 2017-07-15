@@ -77,6 +77,10 @@ class Requirement(TranslatableModel):
         return self.category.category_number
 
     @property
+    def category_title(self):
+        return self.category.category_name
+
+    @property
     def level_number(self):
         return ", ".join([str(l.level_number) for l in self.levels.all()])
 
