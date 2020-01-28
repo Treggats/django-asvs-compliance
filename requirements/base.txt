@@ -3,5 +3,5 @@ Markdown==3.1.1
 django-hvad==1.8.0
 django-markdown==0.8.4
 pathlib==1.0.1
-wheel==0.33.4
+wheel==0.34.1
 djangorestframework==3.10.2
